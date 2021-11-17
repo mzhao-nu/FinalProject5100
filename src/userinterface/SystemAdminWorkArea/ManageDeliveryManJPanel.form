@@ -65,6 +65,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Delete Delivery Man"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteDeliveryManActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
@@ -142,6 +145,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Modify Delivery Man"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModifyDeliveryManActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

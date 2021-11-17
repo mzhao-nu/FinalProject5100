@@ -14,6 +14,8 @@ public class Restaurant {
     String address;
     String phone;
     String manager;
+    String username;
+    String password;
     
     public String getName() {
         return name;
@@ -45,6 +47,22 @@ public class Restaurant {
 
     public void setManager(String manager) {
         this.manager = manager;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     @Override

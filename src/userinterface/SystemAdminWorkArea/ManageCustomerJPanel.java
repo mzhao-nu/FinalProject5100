@@ -8,6 +8,7 @@ import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -76,8 +77,18 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         });
 
         btnModifyCustomer.setText("Modify Customer");
+        btnModifyCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyCustomerActionPerformed(evt);
+            }
+        });
 
         btnDeleteCustomer.setText("Delete Customer");
+        btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteCustomerActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -138,8 +149,35 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddCustomerActionPerformed
 
+    private void btnModifyCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyCustomerActionPerformed
+        int selectedRowIndex = tableCustomer.getSelectedRow();
+        if(selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a customer to modify");
+            return;
+        }
+        
+        Customer customer = (Customer)tableCustomer.getValueAt(selectedRowIndex, 0);
+        ModifyCustomerJPanel modifyCustomer = new ModifyCustomerJPanel(userProcessContainer, ecoSystem, customerDirectory, customer);
+        userProcessContainer.add("ModifyCustomersJPanel",modifyCustomer);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnModifyCustomerActionPerformed
 
-    private void populateTable() {
+    private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
+        int selectedRowIndex = tableCustomer.getSelectedRow();
+        if(selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a customer to delete");
+            return;
+        }
+        
+        Customer customer = (Customer)tableCustomer.getValueAt(selectedRowIndex, 0);
+        customerDirectory.deleteCustomer(customer);
+        populateTable();
+        JOptionPane.showMessageDialog(this, "Deletion successful!");
+    }//GEN-LAST:event_btnDeleteCustomerActionPerformed
+
+
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel)tableCustomer.getModel();
         model.setRowCount(0);
         

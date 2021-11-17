@@ -14,6 +14,7 @@ public class Customer {
     String phone;
     String address;
     String username;
+    String password;
 
     public String getName() {
         return name;
@@ -45,6 +46,14 @@ public class Customer {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     @Override

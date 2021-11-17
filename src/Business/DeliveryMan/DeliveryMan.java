@@ -14,7 +14,8 @@ public class DeliveryMan {
     String phone;
     String username;
     String carLicense;
-
+    String password;
+    
     public String getName() {
         return name;
     }
@@ -45,6 +46,14 @@ public class DeliveryMan {
 
     public void setCarLicense(String carLicense) {
         this.carLicense = carLicense;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     @Override

@@ -4,11 +4,9 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
+import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
-import Business.Employee.Employee;
-import Business.Restaurant.Restaurant;
-import Business.Restaurant.RestaurantDirectory;
-import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -19,19 +17,26 @@ import javax.swing.JPanel;
  *
  * @author mzhao
  */
-public class AddRestaurantJPanel extends javax.swing.JPanel {
+public class ModifyCustomerJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
-    EcoSystem ecoSystem; 
-    RestaurantDirectory restaurantDirectory;
+    EcoSystem ecoSystem;
+    CustomerDirectory customerDirectory;
+    Customer customer;
     
     /**
-     * Creates new form AddRestaurantJPanel
+     * Creates new form ModifyCustomerJPanel
      */
-    public AddRestaurantJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory) {
+    public ModifyCustomerJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, CustomerDirectory customerDirectory, Customer customer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.customerDirectory = customerDirectory;
+        this.customer = customer;
         this.ecoSystem = ecoSystem;
-        this.restaurantDirectory = restaurantDirectory;
+        txtName.setText(customer.getName());
+        txtPhone.setText(customer.getPhone());
+        txtAddress.setText(customer.getAddress());
+        txtUsername.setText(customer.getUsername());
+        txtPassword.setText(customer.getPassword());
     }
 
     /**
@@ -43,48 +48,46 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnBack = new javax.swing.JButton();
-        txtName = new javax.swing.JTextField();
         labelPassword = new javax.swing.JLabel();
-        btnAdd = new javax.swing.JButton();
         labelUsername = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnModify = new javax.swing.JButton();
+        txtName = new javax.swing.JTextField();
         txtPhone = new javax.swing.JTextField();
+        btnBack3 = new javax.swing.JButton();
         txtAddress = new javax.swing.JTextField();
         labelName = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         labelPhone = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         labelAddress = new javax.swing.JLabel();
-        labelManager = new javax.swing.JLabel();
-        txtManager = new javax.swing.JTextField();
-
-        btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         labelPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelPassword.setText("Password:*");
 
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-
         labelUsername.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelUsername.setText("Username:*");
 
-        labelName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelName.setText("Name:*");
-
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Add New Restaurant");
+        jLabel1.setText("Modify Customer");
+
+        btnModify.setText("Modify");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
+
+        btnBack3.setText("<<Back");
+        btnBack3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack3ActionPerformed(evt);
+            }
+        });
+
+        labelName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        labelName.setText("Name:*");
 
         labelPhone.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelPhone.setText("Phone:*");
@@ -98,9 +101,6 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
         labelAddress.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelAddress.setText("Address:*");
 
-        labelManager.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelManager.setText("Manager:*");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,7 +109,7 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(btnBack)
+                        .addComponent(btnBack3)
                         .addGap(110, 110, 110)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -119,20 +119,18 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
                             .addComponent(labelName)
                             .addComponent(labelAddress)
                             .addComponent(labelUsername)
-                            .addComponent(labelPassword)
-                            .addComponent(labelManager))
+                            .addComponent(labelPassword))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                             .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                             .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                             .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                            .addComponent(txtPassword)
-                            .addComponent(txtManager, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
+                            .addComponent(txtPassword)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(btnAdd)))
-                .addContainerGap(216, Short.MAX_VALUE))
+                        .addGap(305, 305, 305)
+                        .addComponent(btnModify)))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +138,7 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(btnBack))
+                    .addComponent(btnBack3))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,43 +153,28 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
                     .addComponent(labelAddress))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelManager))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelUsername))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addComponent(btnAdd)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(btnModify)
+                .addContainerGap(176, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        ManageRestaurantJPanel panel = (ManageRestaurantJPanel) component;
-        panel.populateTable();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         String name = txtName.getText();
         String phone = txtPhone.getText();
         String address = txtAddress.getText();
-        String manager = txtManager.getText();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         String errorMsg = "";
         
         // Data validation
-        if (name.isEmpty())    errorMsg += "Restaurant name is required.\n";
+        if (name.isEmpty())    errorMsg += "Customer name is required.\n";
         if (phone.isEmpty())    errorMsg += "Phone number is required.\n";
         else if (!phone.isEmpty()){
             boolean isNum = true;
@@ -204,36 +187,55 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
             }
             if (isNum == false)    errorMsg += "Phone number must contain only numbers.\n";
             if (phone.length() != 10)    errorMsg += "Phone number must be 10 digits.\n";
+            
+            boolean boo = true;
+            for (int i = 0; i < customerDirectory.getCustomerDirectory().size(); i ++){
+                Customer c = customerDirectory.getCustomerDirectory().get(i);
+                if (c.getPhone().equals(phone) && !c.getUsername().equals(customer.getUsername())){
+                    boo = false;
+                    break;
+                }    
+            }
+            if (boo == false)    errorMsg += "Phone number has already been taken.\n";
         }
         if (address.isEmpty())    errorMsg += "Address is required.\n";
-        if (manager.isEmpty())    errorMsg += "Manager is required.\n";
         if (username.isEmpty())    errorMsg += "Username is required.\n";
-        if (password.isEmpty())    errorMsg += "Password is required.\n";
-        for (Restaurant restaurant : restaurantDirectory.getRestaurantDirectory()) {
-            if (restaurant.getPhone().equals(phone)) {
-                errorMsg += "Phone number already exists.\n";
+        else if (!username.isEmpty()){
+            boolean boo = true;
+            for (int i = 0; i < ecoSystem.getUserAccountDirectory().getUserAccountList().size(); i ++){
+                UserAccount account = ecoSystem.getUserAccountDirectory().getUserAccountList().get(i);
+                if (account.getUsername().equals(username) && !account.getPassword().equals(customer.getPassword())){
+                    boo = false;
+                    break;
+                }    
             }
+            if (boo == false)    errorMsg += "Username has already been taken.\n";
         }
-        if (ecoSystem.checkIfUserIsUnique(username) == true)    errorMsg += "Username already exists.\n";
-        
-        // Add new restaurant to system
+        if (password.isEmpty())    errorMsg += "Password is required.\n";
+
+        // Update
         if (errorMsg.isEmpty()){
-            ecoSystem.getRestaurantDirectory().createRestaurant(name, address, phone, manager, username, password);
-            Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);            
-            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new AdminRole());
-            JOptionPane.showMessageDialog(this, "New restaurant added successfully");
-            
-            txtName.setText("");
-            txtPhone.setText("");
-            txtAddress.setText("");
-            txtManager.setText("");
-            txtUsername.setText("");
-            txtPassword.setText("");
+            customer.setName(name);
+            customer.setPhone(phone);
+            customer.setAddress(address);
+            customer.setUsername(username);
+            customer.setPassword(password);
+            JOptionPane.showMessageDialog(this, "Customer updated successfully");
         }else{
             JOptionPane.showMessageDialog(this, errorMsg);
         }
-        
-    }//GEN-LAST:event_btnAddActionPerformed
+
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void btnBack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack3ActionPerformed
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageCustomerJPanel panel = (ManageCustomerJPanel) component;
+        panel.populateTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBack3ActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
@@ -241,17 +243,15 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBack3;
+    private javax.swing.JButton btnModify;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelAddress;
-    private javax.swing.JLabel labelManager;
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelPhone;
     private javax.swing.JLabel labelUsername;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtManager;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPhone;

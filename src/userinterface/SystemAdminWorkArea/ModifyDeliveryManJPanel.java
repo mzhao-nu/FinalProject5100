@@ -3,12 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
-import Business.Employee.Employee;
-import Business.Role.DeliverManRole;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -18,19 +16,26 @@ import javax.swing.JPanel;
  *
  * @author mzhao
  */
-public class AddDeliveryManJPanel extends javax.swing.JPanel {
+public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
-    EcoSystem ecoSystem; 
     DeliveryManDirectory deliveryManDirectory;
+    DeliveryMan deliveryMan;
+    EcoSystem ecoSystem;
     
     /**
-     * Creates new form AddDeliveryManJPanel
+     * Creates new form ModifyDeliveryManJPanel
      */
-    public AddDeliveryManJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, DeliveryManDirectory deliveryManDirectory) {
+    public ModifyDeliveryManJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, DeliveryManDirectory deliveryManDirectory, DeliveryMan deliveryMan) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         this.deliveryManDirectory = deliveryManDirectory;
+        this.deliveryMan = deliveryMan;
+        txtName.setText(deliveryMan.getName());
+        txtPhone.setText(deliveryMan.getPhone());
+        txtLicense.setText(deliveryMan.getCarLicense());
+        txtUsername.setText(deliveryMan.getUsername());
+        txtPassword.setText(deliveryMan.getPassword());
     }
 
     /**
@@ -42,29 +47,19 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelPhone = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
+        txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         labelLicense = new javax.swing.JLabel();
         labelPassword = new javax.swing.JLabel();
-        btnAdd = new javax.swing.JButton();
+        btnModify = new javax.swing.JButton();
         labelUsername = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         txtLicense = new javax.swing.JTextField();
         labelName = new javax.swing.JLabel();
+        labelPhone = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-
-        labelPhone.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelPhone.setText("Phone:*");
-
-        btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
+        btnBack = new javax.swing.JButton();
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,10 +73,10 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
         labelPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelPassword.setText("Password:*");
 
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnModify.setText("Modify");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
+                btnModifyActionPerformed(evt);
             }
         });
 
@@ -91,9 +86,19 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
         labelName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelName.setText("Name:*");
 
+        labelPhone.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        labelPhone.setText("Phone:*");
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Add New Delivery Man");
+        jLabel1.setText("Modify Delivery Man");
+
+        btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -129,8 +134,8 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
                                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(297, 297, 297)
-                        .addComponent(btnAdd)))
-                .addContainerGap(182, Short.MAX_VALUE))
+                        .addComponent(btnModify)))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,26 +165,16 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addComponent(btnAdd)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addComponent(btnModify)
+                .addContainerGap(218, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        ManageDeliveryManJPanel panel = (ManageDeliveryManJPanel) component;
-        panel.populateTable();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         String name = txtName.getText();
         String phone = txtPhone.getText();
         String license = txtLicense.getText();
@@ -201,38 +196,59 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
             }
             if (isNum == false)    errorMsg += "Phone number must contain only numbers.\n";
             if (phone.length() != 10)    errorMsg += "Phone number must be 10 digits.\n";
+            
+            boolean boo = true;
+            for (int i = 0; i < deliveryManDirectory.getDeliveryManDirectory().size(); i ++){
+                DeliveryMan d = deliveryManDirectory.getDeliveryManDirectory().get(i);
+                if (d.getPhone().equals(phone) && !d.getUsername().equals(deliveryMan.getUsername())){
+                    boo = false;
+                    break;
+                }    
+            }
+            if (boo == false)    errorMsg += "Phone number has already been taken.\n";
         }
         if (license.isEmpty())    errorMsg += "Car license number is required.\n";
         if (username.isEmpty())    errorMsg += "Username is required.\n";
-        if (password.isEmpty())    errorMsg += "Password is required.\n";
-        for (DeliveryMan deliveryMan : deliveryManDirectory.getDeliveryManDirectory()) {
-            if (deliveryMan.getPhone().equals(phone)) {
-                errorMsg += "Phone number already exists.\n";
+        else if (!username.isEmpty()){
+            boolean boo = true;
+            for (int i = 0; i < ecoSystem.getUserAccountDirectory().getUserAccountList().size(); i ++){
+                UserAccount account = ecoSystem.getUserAccountDirectory().getUserAccountList().get(i);
+                if (account.getUsername().equals(username) && !account.getPassword().equals(deliveryMan.getPassword())){
+                    boo = false;
+                    break;
+                }    
             }
+            if (boo == false)    errorMsg += "Username has already been taken.\n";
         }
-        if (ecoSystem.checkIfUserIsUnique(username) == true)    errorMsg += "Username already exists.\n";
+        if (password.isEmpty())    errorMsg += "Password is required.\n";
         
-        // Add new customer to system
+        // Update
         if (errorMsg.isEmpty()){
-            ecoSystem.getDeliveryManDirectory().createDeliveryMan(name, phone, license, username, password);
-            Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
-            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new DeliverManRole());
-            JOptionPane.showMessageDialog(this, "New delivery man added successfully");
-            
-            txtName.setText("");
-            txtPhone.setText("");
-            txtLicense.setText("");
-            txtUsername.setText("");
-            txtPassword.setText("");
+            deliveryMan.setName(name);
+            deliveryMan.setPhone(phone);
+            deliveryMan.setCarLicense(license);
+            deliveryMan.setUsername(username);
+            deliveryMan.setPassword(password);
+            JOptionPane.showMessageDialog(this, "Delivery man updated successfully");
         }else{
             JOptionPane.showMessageDialog(this, errorMsg);
         }
-    }//GEN-LAST:event_btnAddActionPerformed
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageDeliveryManJPanel panel = (ManageDeliveryManJPanel) component;
+        panel.populateTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnModify;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelLicense;
     private javax.swing.JLabel labelName;

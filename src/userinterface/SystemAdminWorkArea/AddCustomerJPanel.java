@@ -4,9 +4,15 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Role.CustomerRole;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -155,11 +161,61 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
+        String name = txtName.getText();
+        String phone = txtPhone.getText();
+        String address = txtAddress.getText();
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        String errorMsg = "";
         
+        // Data validation
+        if (name.isEmpty())    errorMsg += "Customer name is required.\n";
+        if (phone.isEmpty())    errorMsg += "Phone number is required.\n";
+        else if (!phone.isEmpty()){
+            boolean isNum = true;
+            for (int i = 0; i < phone.length(); i++) {
+                char c = phone.charAt(i);
+                if (c < '0' || c > '9') {
+                    isNum = false;
+                    break;
+                }
+            }
+            if (isNum == false)    errorMsg += "Phone number must contain only numbers.\n";
+            if (phone.length() != 10)    errorMsg += "Phone number must be 10 digits.\n";
+        }
+        if (address.isEmpty())    errorMsg += "Address is required.\n";
+        if (username.isEmpty())    errorMsg += "Username is required.\n";
+        if (password.isEmpty())    errorMsg += "Password is required.\n";
+        for (Customer customer : customerDirectory.getCustomerDirectory()) {
+            if (customer.getPhone().equals(phone)) {
+                errorMsg += "Phone number already exists.\n";
+            }
+        }
+        if (ecoSystem.checkIfUserIsUnique(username) == true)    errorMsg += "Username already exists.\n";
+        
+        // Add new customer to system
+        if (errorMsg.isEmpty()){
+            ecoSystem.getCustomerDirectory().createCustomer(name, phone, address, username, password);
+            Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
+            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new CustomerRole());
+            JOptionPane.showMessageDialog(this, "New customer added successfully");
+            
+            txtName.setText("");
+            txtPhone.setText("");
+            txtAddress.setText("");
+            txtUsername.setText("");
+            txtPassword.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, errorMsg);
+        }
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageCustomerJPanel panel = (ManageCustomerJPanel) component;
+        panel.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

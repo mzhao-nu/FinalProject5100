@@ -25,9 +25,14 @@ public class RestaurantDirectory {
         this.restaurantDirectory = restaurantDirectory;
     }
     
-    public Restaurant createRestaurant(String name){
+    public Restaurant createRestaurant(String name, String address, String phone, String manager, String username, String password){
         Restaurant restaurant = new Restaurant();
         restaurant.setName(name);
+        restaurant.setAddress(address);
+        restaurant.setPhone(phone);
+        restaurant.setManager(manager);
+        restaurant.setUsername(username);
+        restaurant.setPassword(password);
         restaurantDirectory.add(restaurant);
         return restaurant;
     }

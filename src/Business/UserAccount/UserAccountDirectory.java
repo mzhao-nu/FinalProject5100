@@ -51,4 +51,9 @@ public class UserAccountDirectory {
         }
         return true;
     }
+    
+    public void deleteUser(String username){
+        userAccountList.remove(username);
+        return;
+    }
 }

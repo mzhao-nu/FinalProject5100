@@ -25,9 +25,13 @@ public class CustomerDirectory {
         this.customerDirectory = customerDirectory;
     }
     
-    public Customer createCustomer(String name){
+    public Customer createCustomer(String name, String phone, String address, String username, String password){
         Customer customer = new Customer();
         customer.setName(name);
+        customer.setPhone(phone);
+        customer.setAddress(address);
+        customer.setUsername(username);
+        customer.setPassword(password);
         customerDirectory.add(customer);
         return customer;
     }

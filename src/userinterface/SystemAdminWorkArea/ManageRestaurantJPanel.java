@@ -7,6 +7,7 @@ import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,7 +31,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         populateTable();
     }
 
-    private void populateTable() {
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel)tableRestaurant.getModel();
         model.setRowCount(0);
         
@@ -70,8 +71,18 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         });
 
         btnModifyRestaurant.setText("Modify Restaurant");
+        btnModifyRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyRestaurantActionPerformed(evt);
+            }
+        });
 
         btnDeleteRestaurant.setText("Delete Restaurant");
+        btnDeleteRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteRestaurantActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -110,9 +121,9 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(btnAddRestaurant)
-                            .addGap(48, 48, 48)
+                            .addGap(49, 49, 49)
                             .addComponent(btnModifyRestaurant)
-                            .addGap(46, 46, 46)
+                            .addGap(45, 45, 45)
                             .addComponent(btnDeleteRestaurant))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(310, Short.MAX_VALUE))
@@ -147,6 +158,33 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddRestaurantActionPerformed
+
+    private void btnModifyRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyRestaurantActionPerformed
+        int selectedRowIndex = tableRestaurant.getSelectedRow();
+        if(selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a restaurant to modify");
+            return;
+        }
+        
+        Restaurant restaurant = (Restaurant)tableRestaurant.getValueAt(selectedRowIndex, 0);
+        ModifyRestaurantJPanel modifyRestaurant = new ModifyRestaurantJPanel(userProcessContainer, ecoSystem, restaurantDirectory, restaurant);
+        userProcessContainer.add("ModifyRestaurantJPanel",modifyRestaurant);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnModifyRestaurantActionPerformed
+
+    private void btnDeleteRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteRestaurantActionPerformed
+        int selectedRowIndex = tableRestaurant.getSelectedRow();
+        if(selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a restaurant to delete");
+            return;
+        }
+        
+        Restaurant restaurant = (Restaurant)tableRestaurant.getValueAt(selectedRowIndex, 0);
+        restaurantDirectory.deleteRestaurant(restaurant);
+        populateTable();
+        JOptionPane.showMessageDialog(this, "Deletion successful!");
+    }//GEN-LAST:event_btnDeleteRestaurantActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

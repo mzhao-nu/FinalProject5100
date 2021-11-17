@@ -7,6 +7,7 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,7 +31,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         populateTable();
     }
 
-     private void populateTable() {
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel)tableDeliveryMan.getModel();
         model.setRowCount(0);
         
@@ -63,6 +64,11 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         btnModifyDeliveryMan = new javax.swing.JButton();
 
         btnDeleteDeliveryMan.setText("Delete Delivery Man");
+        btnDeleteDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteDeliveryManActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +101,11 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         });
 
         btnModifyDeliveryMan.setText("Modify Delivery Man");
+        btnModifyDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyDeliveryManActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -147,6 +158,33 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddDeliveryManActionPerformed
+
+    private void btnModifyDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyDeliveryManActionPerformed
+        int selectedRowIndex = tableDeliveryMan.getSelectedRow();
+        if(selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a delivery man to modify");
+            return;
+        }
+        
+        DeliveryMan deliveryMan = (DeliveryMan)tableDeliveryMan.getValueAt(selectedRowIndex, 0);
+        ModifyDeliveryManJPanel modifyDeliveryMan = new ModifyDeliveryManJPanel(userProcessContainer, ecoSystem, deliveryManDirectory, deliveryMan);
+        userProcessContainer.add("ModifyDeliveryManJPanel",modifyDeliveryMan);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnModifyDeliveryManActionPerformed
+
+    private void btnDeleteDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDeliveryManActionPerformed
+        int selectedRowIndex = tableDeliveryMan.getSelectedRow();
+        if(selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a delivery man to delete");
+            return;
+        }
+        
+        DeliveryMan deliveryMan = (DeliveryMan)tableDeliveryMan.getValueAt(selectedRowIndex, 0);
+        deliveryManDirectory.deleteDeliveryMan(deliveryMan);
+        populateTable();
+        JOptionPane.showMessageDialog(this, "Deletion successful!");
+    }//GEN-LAST:event_btnDeleteDeliveryManActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
