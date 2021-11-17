@@ -5,9 +5,13 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryMan;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 
 import Business.Organization;
+import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -25,10 +29,17 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem ecosystem;
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem) {
+    CustomerDirectory customerDirectory;
+    RestaurantDirectory restaurantDirectory;
+    DeliveryManDirectory deliveryManDirectory;
+    
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
+        this.customerDirectory = ecosystem.getCustomerDirectory();
+        this.restaurantDirectory = ecosystem.getRestaurantDirectory();
+        this.deliveryManDirectory = ecosystem.getDeliveryManDirectory();
         populateTree();
     }
     
@@ -151,15 +162,24 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
-       
+        ManageCustomerJPanel manageCustomerPane = new ManageCustomerJPanel(userProcessContainer, ecosystem, customerDirectory);
+        userProcessContainer.add("ManageCustomersJPanel",manageCustomerPane);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);       
     }//GEN-LAST:event_btnManageNetworkActionPerformed
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
-        
+        ManageRestaurantJPanel manageRestaurantPane = new ManageRestaurantJPanel(userProcessContainer, ecosystem, restaurantDirectory);
+        userProcessContainer.add("ManageRestaurantJPanel",manageRestaurantPane);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);            
     }//GEN-LAST:event_btnManageEnterpriseActionPerformed
 
     private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
-       
+        ManageDeliveryManJPanel manageDeliveryManPane = new ManageDeliveryManJPanel(userProcessContainer, ecosystem, deliveryManDirectory);
+        userProcessContainer.add("ManageDeliveryManJPanel",manageDeliveryManPane);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);    
     }//GEN-LAST:event_btnManageAdminActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged

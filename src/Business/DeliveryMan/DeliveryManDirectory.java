@@ -5,10 +5,44 @@
  */
 package Business.DeliveryMan;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
 public class DeliveryManDirectory {
+    private ArrayList<DeliveryMan> deliveryManDirectory;
     
+    public DeliveryManDirectory(){
+        deliveryManDirectory = new ArrayList<>();
+    }
+
+    public ArrayList<DeliveryMan> getDeliveryManDirectory() {
+        return deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(ArrayList<DeliveryMan> deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
+    }
+    
+    public DeliveryMan createDeliveryMan(String name){
+        DeliveryMan deliveryMan = new DeliveryMan();
+        deliveryMan.setName(name);
+        deliveryManDirectory.add(deliveryMan);
+        return deliveryMan;
+    }
+    
+    public void deleteDeliveryMan(DeliveryMan d){
+        deliveryManDirectory.remove(d);
+    }
+    
+    public DeliveryMan getDeliveryMan(String name){
+        for(DeliveryMan d: deliveryManDirectory){
+            if(d.getName().equals(name)){
+                return d;
+            }
+        }
+        return null;
+    }
 }
