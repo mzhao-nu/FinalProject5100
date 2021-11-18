@@ -5,12 +5,14 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 
 import Business.Organization;
+import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -46,7 +48,38 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     public void populateTree(){
         DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
        // Add the code for draw your system structure shown by JTree
-       
+        
+        DefaultMutableTreeNode networks = new DefaultMutableTreeNode("SystemAdmin");
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+        root.removeAllChildren();
+        root.insert(networks, 0);
+        
+        DefaultMutableTreeNode customerListNode = new DefaultMutableTreeNode("Customer");
+        DefaultMutableTreeNode deliveryManListNode  = new DefaultMutableTreeNode("Delivery Man");
+        DefaultMutableTreeNode restaurantListNode = new DefaultMutableTreeNode("Restaurant");
+        networks.insert(customerListNode, 0);
+        networks.insert(restaurantListNode, 1);
+        networks.insert(deliveryManListNode, 2);
+
+        
+        for(int i = 0; i < customerDirectory.getCustomerDirectory().size(); i ++){
+            Customer customer = customerDirectory.getCustomerDirectory().get(i);
+            DefaultMutableTreeNode networkNode = new DefaultMutableTreeNode(customer.getName());
+            customerListNode.insert(networkNode, i);    
+        }  
+
+        for(int j = 0; j < restaurantDirectory.getRestaurantDirectory().size(); j ++){
+            Restaurant restaurant = restaurantDirectory.getRestaurantDirectory().get(j);
+            DefaultMutableTreeNode organizationNode = new DefaultMutableTreeNode(restaurant.getName());
+            restaurantListNode.insert(organizationNode, j);
+        }
+        
+        for(int k = 0; k < deliveryManDirectory.getDeliveryManDirectory().size(); k ++){
+            DeliveryMan deliveryMan = deliveryManDirectory.getDeliveryManDirectory().get(k);
+            DefaultMutableTreeNode enterpriseNode = new DefaultMutableTreeNode(deliveryMan.getName());
+            deliveryManListNode.insert(enterpriseNode, k);
+        }   
+        
         model.reload();
     }
     /**

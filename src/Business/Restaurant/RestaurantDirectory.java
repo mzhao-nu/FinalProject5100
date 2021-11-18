@@ -49,4 +49,13 @@ public class RestaurantDirectory {
         }
         return null;
     }
+    
+    public Restaurant getRestaurantByName(String name){
+        for(Restaurant r: restaurantDirectory){
+            if(r.getName().equals(name)){
+                return r;
+            }
+        }
+        return null;
+    }
 }

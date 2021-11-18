@@ -305,7 +305,7 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
         
         // Get restaurant
         String restaurantName = comboBoxSearch.getSelectedItem().toString();
-        Restaurant restaurant = ecoSystem.getRestaurantDirectory().getRestaurant(restaurantName);
+        Restaurant restaurant = ecoSystem.getRestaurantDirectory().getRestaurantByName(restaurantName);
         // Get customer
         String customerName = account.getUsername();
         Customer customer = ecoSystem.getCustomerDirectory().getCustomerByUsername(customerName);
@@ -319,10 +319,13 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
             }
         }
         // Get order id
-        int counter = 0;
-        for (Order o : orderDirectory.getOrderDirectory()){
-            if (o.getCustomer().getUsername().equals(customerName))    counter ++;
-        }
+        int min = 10000;
+        int max = 99999;
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+//        int counter = 0;
+//        for (Order o : orderDirectory.getOrderDirectory()){
+//            if (o.getCustomer().getUsername().equals(customerName))    counter ++;
+//        }
 
         // Get price
         double price = 0;
@@ -332,7 +335,7 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
         }
         
         Order order = orderDirectory.createOrder();
-        order.setOrderId(String.valueOf(counter + 1));
+        order.setOrderId(String.valueOf(random_int));
         order.setStatus("Order Received");
         order.setPrice(String.valueOf(price));
         order.setRestaurant(restaurant);

@@ -116,7 +116,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 870, 170));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 1020, 170));
 
         btnUpdateStatus.setText("Update");
         btnUpdateStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +132,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 120, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Delivery Man Panel");
@@ -160,8 +160,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         String selectedStatus = comboBoxStatus.getSelectedItem().toString();
         DefaultTableModel modelOrders = (DefaultTableModel) workRequestJTable.getModel();
         Order selectedOrder = (Order) modelOrders.getValueAt(selectedRowIndex, 0);
-        if (selectedStatus.equals("Picked Up from the Restaurant")){
-            selectedOrder.setStatus("Picked Up from the Restaurant");
+        if (selectedStatus.equals("Picked up from the Restaurant")){
+            selectedOrder.setStatus("Picked up from the Restaurant");
             JOptionPane.showMessageDialog(this, "Update Successful!");
         }else if (selectedStatus.equals("On the Way")){
             selectedOrder.setStatus("On the Way");
