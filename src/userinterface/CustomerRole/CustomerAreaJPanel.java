@@ -362,7 +362,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         }
         
         Order order = (Order) ordersTable.getValueAt(selectedRow, 0);
-        if (!order.getStatus().equals("Complete")){
+        if (!order.getStatus().equals("Delivered")){
             JOptionPane.showMessageDialog(this, "You can leave a comment only after the order is complete.");
             return;
         }
@@ -429,7 +429,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         if (selectedOrder.getDeliveryMan() == null){
             txtDeliveryMan.setText("Not Assigned Yet");
         }else{
-            selectedOrder.getDeliveryMan().getName();
+            txtDeliveryMan.setText(selectedOrder.getDeliveryMan().getName());
         }
         if (selectedOrder.getComment() == null){
             txtCommentDetails.setText("No Comment Yet");

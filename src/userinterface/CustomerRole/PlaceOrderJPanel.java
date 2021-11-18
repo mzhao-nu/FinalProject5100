@@ -333,7 +333,7 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
         
         Order order = orderDirectory.createOrder();
         order.setOrderId(String.valueOf(counter + 1));
-        order.setStatus("Received");
+        order.setStatus("Order Received");
         order.setPrice(String.valueOf(price));
         order.setRestaurant(restaurant);
         order.setCustomer(customer);

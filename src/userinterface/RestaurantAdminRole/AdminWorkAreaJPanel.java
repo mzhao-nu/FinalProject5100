@@ -110,10 +110,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageMenuJButtonActionPerformed
 
     private void manageOrdersJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrdersJButtonActionPerformed
-//        ManageOrdersJPanel manageOrdersJPanel = new ManageOrdersJPanel(userProcessContainer, account, ecoSystem, restaurantDirectory, menuDirectory, orderDirectory);
-//        userProcessContainer.add("ManageOrdersJPanel", manageOrdersJPanel);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+        ManageOrdersJPanel manageOrdersJPanel = new ManageOrdersJPanel(userProcessContainer, ecoSystem, account);
+        userProcessContainer.add("ManageOrdersJPanel", manageOrdersJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrdersJButtonActionPerformed
     
     public void setValueTxt(String msg){
