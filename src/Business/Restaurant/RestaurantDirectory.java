@@ -41,9 +41,9 @@ public class RestaurantDirectory {
         restaurantDirectory.remove(r);
     }
     
-    public Restaurant getRestaurant(String name){
+    public Restaurant getRestaurant(String username){
         for(Restaurant r: restaurantDirectory){
-            if(r.getName().equals(name)){
+            if(r.getUsername().equals(username)){
                 return r;
             }
         }

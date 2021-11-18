@@ -48,4 +48,13 @@ public class CustomerDirectory {
         }
         return null;
     }
+    
+    public Customer getCustomerByUsername(String username){
+        for(Customer c: customerDirectory){
+            if(c.getUsername().equals(username)){
+                return c;
+            }
+        }
+        return null;
+    }
 }

@@ -7,7 +7,6 @@ package userinterface.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
-import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -36,8 +35,6 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
         txtPhone.setText(restaurant.getPhone());
         txtAddress.setText(restaurant.getAddress());
         txtManager.setText(restaurant.getManager());
-        txtUsername.setText(restaurant.getUsername());
-        txtPassword.setText(restaurant.getPassword());
     }
 
     /**
@@ -53,16 +50,12 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         labelName = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
         labelPhone = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         labelAddress = new javax.swing.JLabel();
-        labelPassword = new javax.swing.JLabel();
         labelManager = new javax.swing.JLabel();
         btnModify = new javax.swing.JButton();
         txtManager = new javax.swing.JTextField();
-        labelUsername = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
 
         btnBack3.setText("<<Back");
@@ -74,7 +67,7 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Modify Restaurant");
+        jLabel1.setText("Modify Restaurant Info");
 
         labelName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelName.setText("Name:*");
@@ -82,17 +75,8 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
         labelPhone.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelPhone.setText("Phone:*");
 
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         labelAddress.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelAddress.setText("Address:*");
-
-        labelPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelPassword.setText("Password:*");
 
         labelManager.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelManager.setText("Manager:*");
@@ -104,42 +88,35 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
             }
         });
 
-        labelUsername.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelUsername.setText("Username:*");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(btnBack3)
-                .addGap(118, 118, 118)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(btnBack3)
+                        .addGap(105, 105, 105)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(307, 307, 307)
+                        .addComponent(btnModify)))
+                .addContainerGap(234, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(220, 220, 220)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelPhone)
-                                .addComponent(labelName)
-                                .addComponent(labelAddress)
-                                .addComponent(labelUsername)
-                                .addComponent(labelPassword)
-                                .addComponent(labelManager))
-                            .addGap(46, 46, 46)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                .addComponent(txtPassword)
-                                .addComponent(txtManager, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(96, 96, 96)
-                            .addComponent(btnModify)))
+                        .addComponent(labelPhone)
+                        .addComponent(labelName)
+                        .addComponent(labelAddress)
+                        .addComponent(labelManager))
+                    .addGap(55, 55, 55)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(txtManager, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
                     .addContainerGap(221, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -149,7 +126,9 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(btnBack3))
-                .addContainerGap(500, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                .addComponent(btnModify)
+                .addGap(215, 215, 215))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(133, 133, 133)
@@ -168,17 +147,7 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(labelManager))
-                    .addGap(17, 17, 17)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelUsername))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(47, 47, 47)
-                    .addComponent(btnModify)
-                    .addContainerGap(134, Short.MAX_VALUE)))
+                    .addContainerGap(298, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -192,17 +161,11 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBack3ActionPerformed
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         String name = txtName.getText();
         String phone = txtPhone.getText();
         String address = txtAddress.getText();
         String manager = txtManager.getText();
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
         String errorMsg = "";
         
         // Data validation
@@ -232,19 +195,6 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
         }
         if (address.isEmpty())    errorMsg += "Address is required.\n";
         if (manager.isEmpty())    errorMsg += "Manager is required.\n";
-        if (username.isEmpty())    errorMsg += "Username is required.\n";
-        else if (!username.isEmpty()){
-            boolean boo = true;
-            for (int i = 0; i < ecoSystem.getUserAccountDirectory().getUserAccountList().size(); i ++){
-                UserAccount account = ecoSystem.getUserAccountDirectory().getUserAccountList().get(i);
-                if (account.getUsername().equals(username) && !account.getPassword().equals(restaurant.getPassword())){
-                    boo = false;
-                    break;
-                }    
-            }
-            if (boo == false)    errorMsg += "Username has already been taken.\n";
-        }
-        if (password.isEmpty())    errorMsg += "Password is required.\n";
         
         // Update
         if (errorMsg.isEmpty()){
@@ -252,8 +202,6 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
             restaurant.setPhone(phone);
             restaurant.setAddress(address);
             restaurant.setManager(manager);
-            restaurant.setUsername(username);
-            restaurant.setPassword(password);
             JOptionPane.showMessageDialog(this, "Restaurant updated successfully");
         }else{
             JOptionPane.showMessageDialog(this, errorMsg);
@@ -268,14 +216,10 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelAddress;
     private javax.swing.JLabel labelManager;
     private javax.swing.JLabel labelName;
-    private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelPhone;
-    private javax.swing.JLabel labelUsername;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtManager;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

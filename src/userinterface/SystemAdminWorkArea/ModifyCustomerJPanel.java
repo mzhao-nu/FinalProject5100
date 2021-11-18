@@ -35,8 +35,6 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
         txtName.setText(customer.getName());
         txtPhone.setText(customer.getPhone());
         txtAddress.setText(customer.getAddress());
-        txtUsername.setText(customer.getUsername());
-        txtPassword.setText(customer.getPassword());
     }
 
     /**
@@ -48,8 +46,6 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelPassword = new javax.swing.JLabel();
-        labelUsername = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnModify = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
@@ -57,16 +53,8 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
         btnBack3 = new javax.swing.JButton();
         txtAddress = new javax.swing.JTextField();
         labelName = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
         labelPhone = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         labelAddress = new javax.swing.JLabel();
-
-        labelPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelPassword.setText("Password:*");
-
-        labelUsername.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelUsername.setText("Username:*");
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -92,12 +80,6 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
         labelPhone.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelPhone.setText("Phone:*");
 
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         labelAddress.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelAddress.setText("Address:*");
 
@@ -117,18 +99,14 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelPhone)
                             .addComponent(labelName)
-                            .addComponent(labelAddress)
-                            .addComponent(labelUsername)
-                            .addComponent(labelPassword))
-                        .addGap(46, 46, 46)
+                            .addComponent(labelAddress))
+                        .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                             .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                            .addComponent(txtPassword)))
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(305, 305, 305)
+                        .addGap(294, 294, 294)
                         .addComponent(btnModify)))
                 .addContainerGap(255, Short.MAX_VALUE))
         );
@@ -151,17 +129,9 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelAddress))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelUsername))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(40, 40, 40)
                 .addComponent(btnModify)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -169,8 +139,6 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String phone = txtPhone.getText();
         String address = txtAddress.getText();
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
         String errorMsg = "";
         
         // Data validation
@@ -199,27 +167,12 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
             if (boo == false)    errorMsg += "Phone number has already been taken.\n";
         }
         if (address.isEmpty())    errorMsg += "Address is required.\n";
-        if (username.isEmpty())    errorMsg += "Username is required.\n";
-        else if (!username.isEmpty()){
-            boolean boo = true;
-            for (int i = 0; i < ecoSystem.getUserAccountDirectory().getUserAccountList().size(); i ++){
-                UserAccount account = ecoSystem.getUserAccountDirectory().getUserAccountList().get(i);
-                if (account.getUsername().equals(username) && !account.getPassword().equals(customer.getPassword())){
-                    boo = false;
-                    break;
-                }    
-            }
-            if (boo == false)    errorMsg += "Username has already been taken.\n";
-        }
-        if (password.isEmpty())    errorMsg += "Password is required.\n";
 
         // Update
         if (errorMsg.isEmpty()){
             customer.setName(name);
             customer.setPhone(phone);
             customer.setAddress(address);
-            customer.setUsername(username);
-            customer.setPassword(password);
             JOptionPane.showMessageDialog(this, "Customer updated successfully");
         }else{
             JOptionPane.showMessageDialog(this, errorMsg);
@@ -237,10 +190,6 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBack3ActionPerformed
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack3;
@@ -248,13 +197,9 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelAddress;
     private javax.swing.JLabel labelName;
-    private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelPhone;
-    private javax.swing.JLabel labelUsername;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

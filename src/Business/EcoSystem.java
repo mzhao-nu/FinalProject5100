@@ -8,6 +8,8 @@ package Business;
 
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Order.OrderDirectory;
+import Business.Restaurant.Menu;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
@@ -23,6 +25,8 @@ public class EcoSystem extends Organization{
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
+    private Menu menuDirectory;
+    private OrderDirectory orderDirectory;
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
 
@@ -50,6 +54,8 @@ public class EcoSystem extends Organization{
         customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
+        menuDirectory = new Menu();
+        orderDirectory = new OrderDirectory();
     }
 
     
@@ -89,6 +95,23 @@ public class EcoSystem extends Organization{
     public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
     }
+
+    public Menu getMenuDirectory() {
+        return menuDirectory;
+    }
+
+    public void setMenuDirectory(Menu menuDirectory) {
+        this.menuDirectory = menuDirectory;
+    }
+
+    public OrderDirectory getOrderDirectory() {
+        return orderDirectory;
+    }
+
+    public void setOrderDirectory(OrderDirectory orderDirectory) {
+        this.orderDirectory = orderDirectory;
+    }
+    
     
     
 }

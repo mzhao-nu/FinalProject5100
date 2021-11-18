@@ -34,8 +34,6 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
         txtName.setText(deliveryMan.getName());
         txtPhone.setText(deliveryMan.getPhone());
         txtLicense.setText(deliveryMan.getCarLicense());
-        txtUsername.setText(deliveryMan.getUsername());
-        txtPassword.setText(deliveryMan.getPassword());
     }
 
     /**
@@ -47,13 +45,9 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         labelLicense = new javax.swing.JLabel();
-        labelPassword = new javax.swing.JLabel();
         btnModify = new javax.swing.JButton();
-        labelUsername = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         txtLicense = new javax.swing.JTextField();
         labelName = new javax.swing.JLabel();
@@ -61,17 +55,8 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
 
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         labelLicense.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelLicense.setText("Car Lincese #:*");
-
-        labelPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelPassword.setText("Password:*");
 
         btnModify.setText("Modify");
         btnModify.addActionListener(new java.awt.event.ActionListener() {
@@ -79,9 +64,6 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
                 btnModifyActionPerformed(evt);
             }
         });
-
-        labelUsername.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelUsername.setText("Username:*");
 
         labelName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelName.setText("Name:*");
@@ -114,26 +96,16 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(195, 195, 195)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelPhone)
-                                    .addComponent(labelName)
-                                    .addComponent(labelLicense))
-                                .addGap(46, 46, 46)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtLicense, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                    .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelUsername)
-                                    .addComponent(labelPassword))
-                                .addGap(68, 68, 68)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(labelPhone)
+                            .addComponent(labelName)
+                            .addComponent(labelLicense))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtLicense, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
+                        .addGap(292, 292, 292)
                         .addComponent(btnModify)))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
@@ -156,30 +128,16 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLicense, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelLicense))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelUsername))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(42, 42, 42)
                 .addComponent(btnModify)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         String name = txtName.getText();
         String phone = txtPhone.getText();
         String license = txtLicense.getText();
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
         String errorMsg = "";
         
         // Data validation
@@ -208,27 +166,12 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
             if (boo == false)    errorMsg += "Phone number has already been taken.\n";
         }
         if (license.isEmpty())    errorMsg += "Car license number is required.\n";
-        if (username.isEmpty())    errorMsg += "Username is required.\n";
-        else if (!username.isEmpty()){
-            boolean boo = true;
-            for (int i = 0; i < ecoSystem.getUserAccountDirectory().getUserAccountList().size(); i ++){
-                UserAccount account = ecoSystem.getUserAccountDirectory().getUserAccountList().get(i);
-                if (account.getUsername().equals(username) && !account.getPassword().equals(deliveryMan.getPassword())){
-                    boo = false;
-                    break;
-                }    
-            }
-            if (boo == false)    errorMsg += "Username has already been taken.\n";
-        }
-        if (password.isEmpty())    errorMsg += "Password is required.\n";
-        
+   
         // Update
         if (errorMsg.isEmpty()){
             deliveryMan.setName(name);
             deliveryMan.setPhone(phone);
             deliveryMan.setCarLicense(license);
-            deliveryMan.setUsername(username);
-            deliveryMan.setPassword(password);
             JOptionPane.showMessageDialog(this, "Delivery man updated successfully");
         }else{
             JOptionPane.showMessageDialog(this, errorMsg);
@@ -252,13 +195,9 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelLicense;
     private javax.swing.JLabel labelName;
-    private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelPhone;
-    private javax.swing.JLabel labelUsername;
     private javax.swing.JTextField txtLicense;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
