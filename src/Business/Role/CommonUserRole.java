@@ -4,7 +4,7 @@
  */
 package Business.Role;
 
-import Business.Customer.CustomerDirectory;
+
 import Business.EcoSystem;
 
 import Business.Organization;
@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author raunak
  */
-public class CustomerRole extends Role{
+public class CommonUserRole extends Role{
 
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {

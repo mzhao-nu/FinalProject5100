@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author  raunak
  */
-public class AdminWorkAreaJPanel extends javax.swing.JPanel {
+public class ParentJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     EcoSystem ecoSystem;
@@ -29,7 +29,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     OrderDirectory orderDirectory;
     
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, UserAccount account) {
+    public ParentJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
