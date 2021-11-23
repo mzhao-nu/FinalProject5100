@@ -7,7 +7,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
-import Business.Employee.Employee;
+import Actions.PoliceDepartment.Employee;
 import Business.Role.DeliverManRole;
 import java.awt.CardLayout;
 import java.awt.Component;

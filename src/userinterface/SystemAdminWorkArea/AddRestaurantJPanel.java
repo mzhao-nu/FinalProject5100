@@ -5,9 +5,9 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
-import Business.Employee.Employee;
-import Business.Restaurant.Restaurant;
-import Business.Restaurant.RestaurantDirectory;
+import Actions.PoliceDepartment.Employee;
+import Actions.VolunteerOrg.Restaurant;
+import Actions.VolunteerOrg.RestaurantDirectory;
 import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;

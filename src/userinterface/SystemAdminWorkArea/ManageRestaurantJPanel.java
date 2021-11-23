@@ -4,8 +4,8 @@
  */
 package userinterface.SystemAdminWorkArea;
 import Business.EcoSystem;
-import Business.Restaurant.Restaurant;
-import Business.Restaurant.RestaurantDirectory;
+import Actions.VolunteerOrg.Restaurant;
+import Actions.VolunteerOrg.RestaurantDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;

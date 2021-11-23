@@ -5,9 +5,9 @@
 package userinterface.DeliveryManRole;
 
 import Business.EcoSystem;
-import Business.Order.Order;
-import Business.Order.OrderDirectory;
-import Business.Restaurant.Item;
+import Actions.Shelter.Order;
+import Actions.Shelter.OrderDirectory;
+import Actions.VolunteerOrg.Item;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;

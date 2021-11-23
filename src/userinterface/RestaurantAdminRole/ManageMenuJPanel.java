@@ -5,10 +5,10 @@
 package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
-import Business.Restaurant.Item;
-import Business.Restaurant.Menu;
-import Business.Restaurant.Restaurant;
-import Business.Restaurant.RestaurantDirectory;
+import Actions.VolunteerOrg.Item;
+import Actions.VolunteerOrg.Menu;
+import Actions.VolunteerOrg.Restaurant;
+import Actions.VolunteerOrg.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;

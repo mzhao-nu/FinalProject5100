@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Business.Order;
+package Actions.Shelter;
 import java.util.*;
 import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
-import Business.Restaurant.Item;
-import Business.Restaurant.Menu;
-import Business.Restaurant.Restaurant;
+import Actions.VolunteerOrg.Item;
+import Actions.VolunteerOrg.Menu;
+import Actions.VolunteerOrg.Restaurant;
 
 /**
  *

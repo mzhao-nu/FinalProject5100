@@ -6,11 +6,11 @@ package userinterface.CustomerRole;
 
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
-import Business.Order.Order;
-import Business.Order.OrderDirectory;
-import Business.Restaurant.Item;
-import Business.Restaurant.Menu;
-import Business.Restaurant.RestaurantDirectory;
+import Actions.Shelter.Order;
+import Actions.Shelter.OrderDirectory;
+import Actions.VolunteerOrg.Item;
+import Actions.VolunteerOrg.Menu;
+import Actions.VolunteerOrg.RestaurantDirectory;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;

@@ -1,6 +1,6 @@
 package Business;
 
-import Business.Employee.Employee;
+import Actions.PoliceDepartment.Employee;
 import Business.Role.AdminRole;
 import Business.Role.CustomerRole;
 import Business.Role.DeliverManRole;

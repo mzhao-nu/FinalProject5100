@@ -4,7 +4,7 @@
  */
 package Business.UserAccount;
 
-import Business.Employee.Employee;
+import Actions.PoliceDepartment.Employee;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
 

@@ -5,8 +5,8 @@
 package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
-import Business.Restaurant.Menu;
-import Business.Restaurant.Item;
+import Actions.VolunteerOrg.Menu;
+import Actions.VolunteerOrg.Item;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
