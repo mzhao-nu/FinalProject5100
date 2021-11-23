@@ -8,7 +8,7 @@ import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.Employee.Employee;
-import Business.Role.CustomerRole;
+import Business.Role.CommonUserRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -197,7 +197,7 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
         if (errorMsg.isEmpty()){
             ecoSystem.getCustomerDirectory().createCustomer(name, phone, address, username, password);
             Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
-            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new CustomerRole());
+            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new CommonUserRole());
             JOptionPane.showMessageDialog(this, "New customer added successfully");
             
             txtName.setText("");

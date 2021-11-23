@@ -8,7 +8,7 @@ import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
-import Business.Role.AdminRole;
+import Business.Role.ParentRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -220,7 +220,7 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
         if (errorMsg.isEmpty()){
             ecoSystem.getRestaurantDirectory().createRestaurant(name, address, phone, manager, username, password);
             Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);            
-            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new AdminRole());
+            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new ParentRole());
             JOptionPane.showMessageDialog(this, "New restaurant added successfully");
             
             txtName.setText("");
