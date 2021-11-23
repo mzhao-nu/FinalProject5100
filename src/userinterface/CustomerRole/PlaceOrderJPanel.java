@@ -364,7 +364,7 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        CustomerAreaJPanel panel = (CustomerAreaJPanel) component;
+        CommonUserJPanel panel = (CommonUserJPanel) component;
         panel.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);  
