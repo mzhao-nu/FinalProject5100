@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class CustomerAreaJPanel extends javax.swing.JPanel {
+public class CommonUserJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem; 
@@ -35,7 +35,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem) {
+    public CommonUserJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;

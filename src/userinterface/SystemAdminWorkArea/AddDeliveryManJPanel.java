@@ -8,7 +8,7 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Employee.Employee;
-import Business.Role.DeliverManRole;
+import Business.Role.PolicemanRole;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -216,7 +216,7 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
         if (errorMsg.isEmpty()){
             ecoSystem.getDeliveryManDirectory().createDeliveryMan(name, phone, license, username, password);
             Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
-            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new DeliverManRole());
+            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new PolicemanRole());
             JOptionPane.showMessageDialog(this, "New delivery man added successfully");
             
             txtName.setText("");

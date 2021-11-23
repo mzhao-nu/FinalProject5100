@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
+public class PolicemanJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem business;
@@ -30,7 +30,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+    public PolicemanJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
