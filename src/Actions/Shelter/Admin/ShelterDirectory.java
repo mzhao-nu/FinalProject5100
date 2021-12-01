@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
  */
-package Actions.Shelter;
+package Actions.Shelter.Admin;
 import Business.UserAccount.UserAccount;
 import java.util.*;
 /**
