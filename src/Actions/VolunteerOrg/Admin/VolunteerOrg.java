@@ -4,7 +4,7 @@
  */
 package Actions.VolunteerOrg.Admin;
 
-import Actions.VolunteerOrg.VolunteerDirectory;
+import Actions.VolunteerOrg.Volunteer.VolunteerDirectory;
 import Business.UserAccount.UserAccount;
 
 /**
