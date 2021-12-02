@@ -11,6 +11,7 @@ import Business.Restaurant.Menu;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Reporting.CommonReporting.ChildrenDirectory;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +24,7 @@ public class EcoSystem extends Organization{
     private RestaurantDirectory restaurantDirectory;
     private Menu menuDirectory;
     private OrderDirectory orderDirectory;
+    private ChildrenDirectory childrenDirectory;
 
     public EcoSystem(RestaurantDirectory restaurantDirectory) {
 
@@ -48,6 +50,7 @@ public class EcoSystem extends Organization{
         restaurantDirectory = new RestaurantDirectory();
         menuDirectory = new Menu();
         orderDirectory = new OrderDirectory();
+        childrenDirectory = new ChildrenDirectory();
     }
 
     
@@ -62,6 +65,14 @@ public class EcoSystem extends Organization{
 
     public static void setBusiness(EcoSystem business) {
         EcoSystem.business = business;
+    }
+
+    public ChildrenDirectory getChildrenDirectory() {
+        return childrenDirectory;
+    }
+
+    public void setChildrenDirectory(ChildrenDirectory childrenDirectory) {
+        this.childrenDirectory = childrenDirectory;
     }
 
     public RestaurantDirectory getRestaurantDirectory() {
