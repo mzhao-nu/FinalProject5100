@@ -7,6 +7,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Role.CommonUserRole;
+import Business.Role.PolicemanRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -64,7 +65,7 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
         labelName.setText("Name:*");
 
         labelPhone.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelPhone.setText("Phone:*");
+        labelPhone.setText("Gender:*");
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +74,7 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
         });
 
         labelAddress.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        labelAddress.setText("Address:*");
+        labelAddress.setText("Age:*");
 
         labelPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelPassword.setText("Password:*");
@@ -157,12 +158,12 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
-//        String name = txtName.getText();
-//        String phone = txtPhone.getText();
-//        String address = txtAddress.getText();
-//        String username = txtUsername.getText();
-//        String password = txtPassword.getText();
-//        String errorMsg = "";
+        String name = txtName.getText();
+        String gender = txtPhone.getText();
+        String age = txtAddress.getText();
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        String errorMsg = "";
 //        
 //        // Data validation
 //        if (name.isEmpty())    errorMsg += "Customer name is required.\n";
@@ -189,21 +190,28 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
 //        }
 //        if (ecoSystem.checkIfUserIsUnique(username) == true)    errorMsg += "Username already exists.\n";
 //        
-//        // Add new customer to system
-//        if (errorMsg.isEmpty()){
+        // Add new customer to system
+        if (errorMsg.isEmpty()){
+            int id = 1;
+            ecoSystem.getPolicemanDirectory().createPoliceman(name, id, gender, Integer.valueOf(age), username, password);
+            Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
+            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new PolicemanRole());
+            JOptionPane.showMessageDialog(this, "New policeman added successfully");
+
 //            ecoSystem.getCustomerDirectory().createCustomer(name, phone, address, username, password);
 //            Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
 //            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new CommonUserRole());
 //            JOptionPane.showMessageDialog(this, "New customer added successfully");
 //            
-//            txtName.setText("");
-//            txtPhone.setText("");
-//            txtAddress.setText("");
-//            txtUsername.setText("");
-//            txtPassword.setText("");
-//        }else{
-//            JOptionPane.showMessageDialog(this, errorMsg);
-//        }
+            txtName.setText("");
+            txtPhone.setText("");
+            txtAddress.setText("");
+            txtUsername.setText("");
+            txtPassword.setText("");
+            
+        }else{
+            JOptionPane.showMessageDialog(this, errorMsg);
+        }
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -222,8 +230,6 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnAdd2;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;

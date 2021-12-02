@@ -34,7 +34,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
-        this.restaurantDirectory = ecosystem.getRestaurantDirectory();
+//        this.restaurantDirectory = ecosystem.getRestaurantDirectory();
         populateTree();
     }
     

@@ -10,11 +10,13 @@ import Business.UserAccount.UserAccount;
  *
  * @author mzhao
  */
-public class Policeman {
+public class PoliceAdmin {
     String name;
     int id;
     String gender;
     int age;
+    String username;
+    String password;
     UserAccount ua;
 
     public String getName() {
@@ -55,6 +57,22 @@ public class Policeman {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     

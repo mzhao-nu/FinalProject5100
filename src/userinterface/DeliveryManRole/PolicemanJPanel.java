@@ -35,9 +35,7 @@ public class PolicemanJPanel extends javax.swing.JPanel {
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
-        this.business = business;
-        this.orderDirectory = business.getOrderDirectory();
-        
+        this.business = business;        
         populateTable();
     }
     

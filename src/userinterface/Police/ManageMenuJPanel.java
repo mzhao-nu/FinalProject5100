@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userinterface.RestaurantAdminRole;
+package userinterface.Police;
 
 import Business.EcoSystem;
 import Business.Restaurant.Item;
@@ -33,7 +33,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-        this.menuDirectory = ecoSystem.getMenuDirectory();
+//        this.menuDirectory = ecoSystem.getMenuDirectory();
         this.account = account;
         populateTable();
     }

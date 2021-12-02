@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userinterface.RestaurantAdminRole;
+package userinterface.Police;
 
 import Business.EcoSystem;
 import Business.Employee.Employee;
@@ -161,10 +161,10 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ParentJPanel panel = (ParentJPanel) component;
-        panel.setValueTxt(restaurant.getName());
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+//        ParentJPanel panel = (ParentJPanel) component;
+//        panel.setValueTxt(restaurant.getName());
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBack3ActionPerformed
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed

@@ -20,7 +20,7 @@ public abstract class Role {
     public enum RoleType{
 //        Parent("Parent"),
 //        CommonUser("Common User"),
-//        Policeman("Policeman"),
+        Policeman("Policeman"),
 //        ShelterEmployee("Shelter Employee"),
 //        Volunteer("Volunteer"),
 //        TestingCenterEmployee("Testing Cnter Employee"),

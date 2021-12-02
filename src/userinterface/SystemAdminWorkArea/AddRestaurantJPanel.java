@@ -218,7 +218,7 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
         
         // Add new restaurant to system
         if (errorMsg.isEmpty()){
-            ecoSystem.getRestaurantDirectory().createRestaurant(name, address, phone, manager, username, password);
+//            ecoSystem.getRestaurantDirectory().createRestaurant(name, address, phone, manager, username, password);
             Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);            
             ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new ParentRole());
             JOptionPane.showMessageDialog(this, "New restaurant added successfully");
