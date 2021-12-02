@@ -39,9 +39,9 @@ public class CommonUserJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.ecoSystem = ecoSystem;
-        this.orderDirectory = ecoSystem.getOrderDirectory();
-        this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
-        this.menuDirectory = ecoSystem.getMenuDirectory();
+     //   this.orderDirectory = ecoSystem.getOrderDirectory();
+       // this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+        //this.menuDirectory = ecoSystem.getMenuDirectory();
         valueLabel.setText(account.getUsername());
         populateTable();
     }
