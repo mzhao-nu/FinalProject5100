@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package userinterface.SystemAdminWorkArea;
-import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -18,32 +16,20 @@ import javax.swing.table.DefaultTableModel;
 public class ManageDeliveryManJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
     EcoSystem ecoSystem; 
-    DeliveryManDirectory deliveryManDirectory;
+   
     
     /**
      * Creates new form ManageDeliveryManJPanel
      */
-    public ManageDeliveryManJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, DeliveryManDirectory deliveryManDirectory) {
+    public ManageDeliveryManJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-        this.deliveryManDirectory = deliveryManDirectory;
         populateTable();
     }
 
     public void populateTable() {
-        DefaultTableModel model = (DefaultTableModel)tableDeliveryMan.getModel();
-        model.setRowCount(0);
-        
-        for (DeliveryMan d : ecoSystem.getDeliveryManDirectory().getDeliveryManDirectory()){
-            Object[] row = new Object[4];
-            row[0] = d;
-            row[1] = d.getPhone();
-            row[2] = d.getCarLicense();
-            row[3] = d.getUsername();
-            
-            model.addRow(row);
-        }
+       
     }   
     
     /**
@@ -153,37 +139,18 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDeliveryManActionPerformed
-        AddDeliveryManJPanel addDeliveryMan = new AddDeliveryManJPanel(userProcessContainer, ecoSystem, deliveryManDirectory);
+        AddDeliveryManJPanel addDeliveryMan = new AddDeliveryManJPanel(userProcessContainer, ecoSystem);
         userProcessContainer.add("AddDeliveryManJPanel", addDeliveryMan);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddDeliveryManActionPerformed
 
     private void btnModifyDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyDeliveryManActionPerformed
-        int selectedRowIndex = tableDeliveryMan.getSelectedRow();
-        if(selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a delivery man to modify");
-            return;
-        }
-        
-        DeliveryMan deliveryMan = (DeliveryMan)tableDeliveryMan.getValueAt(selectedRowIndex, 0);
-        ModifyDeliveryManJPanel modifyDeliveryMan = new ModifyDeliveryManJPanel(userProcessContainer, ecoSystem, deliveryManDirectory, deliveryMan);
-        userProcessContainer.add("ModifyDeliveryManJPanel",modifyDeliveryMan);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+
     }//GEN-LAST:event_btnModifyDeliveryManActionPerformed
 
     private void btnDeleteDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDeliveryManActionPerformed
-        int selectedRowIndex = tableDeliveryMan.getSelectedRow();
-        if(selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a delivery man to delete");
-            return;
-        }
-        
-        DeliveryMan deliveryMan = (DeliveryMan)tableDeliveryMan.getValueAt(selectedRowIndex, 0);
-        deliveryManDirectory.deleteDeliveryMan(deliveryMan);
-        populateTable();
-        JOptionPane.showMessageDialog(this, "Deletion successful!");
+
     }//GEN-LAST:event_btnDeleteDeliveryManActionPerformed
 
 

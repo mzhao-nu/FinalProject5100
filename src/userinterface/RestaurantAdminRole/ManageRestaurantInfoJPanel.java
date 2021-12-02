@@ -4,8 +4,6 @@
  */
 package userinterface.RestaurantAdminRole;
 
-import Business.Customer.CustomerDirectory;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Restaurant.Restaurant;
@@ -25,9 +23,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem ecoSystem;
     UserAccount account;
-    CustomerDirectory customerDirectory;
     RestaurantDirectory restaurantDirectory;
-    DeliveryManDirectory deliveryManDirectory;
     Restaurant restaurant;
     /**
      * Creates new form ManageRestaurantInfoJPanel

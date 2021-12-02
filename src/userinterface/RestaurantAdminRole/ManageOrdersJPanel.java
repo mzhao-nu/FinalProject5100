@@ -4,8 +4,6 @@
  */
 package userinterface.RestaurantAdminRole;
 
-import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
@@ -29,7 +27,6 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private OrderDirectory orderDirectory;
     private RestaurantDirectory restaurantDirectory;
-    private DeliveryManDirectory deliveryManDirectory;
     /**
      * Creates new form ManageOrdersJPanel
      */
@@ -40,42 +37,41 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.orderDirectory = ecoSystem.getOrderDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
-        this.deliveryManDirectory = ecoSystem.getDeliveryManDirectory();
         this.menuDirectory = ecoSystem.getMenuDirectory();
         populateTable();
         populateComboBox();
     }
 
     public void populateTable(){
-        DefaultTableModel model = (DefaultTableModel)tableOrders.getModel();
-        model.setRowCount(0);
-        
-        for(Order order : orderDirectory.getOrderDirectory()){
-            if(order.getRestaurant().getUsername().equals(userAccount.getUsername())) {
-                Object [] row = new Object[5];
-                row[0] = order;
-                row[1] = order.getCustomer().getName();
-                
-                String items = "";
-                for (Item key : order.getItems().keySet()){
-                    items += key.getName();
-                    items += ",";
-                }
-                row[2] = items.substring(0, items.length() - 1);
-                row[3] = order.getPrice();
-                row[4] = order.getStatus();
-                
-                model.addRow(row);
-            }
-        }
+//        DefaultTableModel model = (DefaultTableModel)tableOrders.getModel();
+//        model.setRowCount(0);
+//        
+//        for(Order order : orderDirectory.getOrderDirectory()){
+//            if(order.getRestaurant().getUsername().equals(userAccount.getUsername())) {
+//                Object [] row = new Object[5];
+//                row[0] = order;
+//                row[1] = order.getCustomer().getName();
+//                
+//                String items = "";
+//                for (Item key : order.getItems().keySet()){
+//                    items += key.getName();
+//                    items += ",";
+//                }
+//                row[2] = items.substring(0, items.length() - 1);
+//                row[3] = order.getPrice();
+//                row[4] = order.getStatus();
+//                
+//                model.addRow(row);
+//            }
+//        }
     }
     
     public void populateComboBox() {
-        comboBoxDeliveryMan.removeAllItems();
-        comboBoxDeliveryMan.addItem("-Select One-");
-        for(DeliveryMan d : ecoSystem.getDeliveryManDirectory().getDeliveryManDirectory()) {
-            comboBoxDeliveryMan.addItem(d.getName());
-        }
+//        comboBoxDeliveryMan.removeAllItems();
+//        comboBoxDeliveryMan.addItem("-Select One-");
+//        for(DeliveryMan d : ecoSystem.getDeliveryManDirectory().getDeliveryManDirectory()) {
+//            comboBoxDeliveryMan.addItem(d.getName());
+//        }
     }
     
     /**
@@ -268,29 +264,29 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnFinishedActionPerformed
 
     private void btnAssignDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDeliveryManActionPerformed
-        DefaultTableModel modelOrders = (DefaultTableModel) tableOrders.getModel();
-        int selectedRowIndex = tableOrders.getSelectedRow();
-        Order order = (Order) tableOrders.getValueAt(selectedRowIndex, 0);
-        String deliveryMan = comboBoxDeliveryMan.getSelectedItem().toString();
-        
-        if (selectedRowIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select an order first.");
-            return;
-        }
-        if (!order.getStatus().equals("Order Finished Cooking")){
-            JOptionPane.showMessageDialog(this, "Invalid Selection.");
-            return;
-        }
-        if (!deliveryMan.equals("-Select One-")){
-            DeliveryMan man = ecoSystem.getDeliveryManDirectory().getDeliveryMan(deliveryMan);
-            order.setDeliveryMan(man);
-            order.setStatus("Awaiting for pick up");
-            JOptionPane.showMessageDialog(this, "Assign Successful!");
-            populateTable();
-        }else{
-            JOptionPane.showMessageDialog(this, "Select a delivery man.");
-            return;
-        }
+//        DefaultTableModel modelOrders = (DefaultTableModel) tableOrders.getModel();
+//        int selectedRowIndex = tableOrders.getSelectedRow();
+//        Order order = (Order) tableOrders.getValueAt(selectedRowIndex, 0);
+//        String deliveryMan = comboBoxDeliveryMan.getSelectedItem().toString();
+//        
+//        if (selectedRowIndex < 0){
+//            JOptionPane.showMessageDialog(this, "Please select an order first.");
+//            return;
+//        }
+//        if (!order.getStatus().equals("Order Finished Cooking")){
+//            JOptionPane.showMessageDialog(this, "Invalid Selection.");
+//            return;
+//        }
+//        if (!deliveryMan.equals("-Select One-")){
+//            DeliveryMan man = ecoSystem.getDeliveryManDirectory().getDeliveryMan(deliveryMan);
+//            order.setDeliveryMan(man);
+//            order.setStatus("Awaiting for pick up");
+//            JOptionPane.showMessageDialog(this, "Assign Successful!");
+//            populateTable();
+//        }else{
+//            JOptionPane.showMessageDialog(this, "Select a delivery man.");
+//            return;
+//        }
     }//GEN-LAST:event_btnAssignDeliveryManActionPerformed
 
 

@@ -4,8 +4,6 @@
  */
 package userinterface.SystemAdminWorkArea;
 
-import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Role.PolicemanRole;
@@ -21,16 +19,15 @@ import javax.swing.JPanel;
 public class AddDeliveryManJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
     EcoSystem ecoSystem; 
-    DeliveryManDirectory deliveryManDirectory;
     
     /**
      * Creates new form AddDeliveryManJPanel
      */
-    public AddDeliveryManJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, DeliveryManDirectory deliveryManDirectory) {
+    public AddDeliveryManJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-        this.deliveryManDirectory = deliveryManDirectory;
+      
     }
 
     /**
@@ -180,53 +177,7 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        String name = txtName.getText();
-        String phone = txtPhone.getText();
-        String license = txtLicense.getText();
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-        String errorMsg = "";
-        
-        // Data validation
-        if (name.isEmpty())    errorMsg += "Customer name is required.\n";
-        if (phone.isEmpty())    errorMsg += "Phone number is required.\n";
-        else if (!phone.isEmpty()){
-            boolean isNum = true;
-            for (int i = 0; i < phone.length(); i++) {
-                char c = phone.charAt(i);
-                if (c < '0' || c > '9') {
-                    isNum = false;
-                    break;
-                }
-            }
-            if (isNum == false)    errorMsg += "Phone number must contain only numbers.\n";
-            if (phone.length() != 10)    errorMsg += "Phone number must be 10 digits.\n";
-        }
-        if (license.isEmpty())    errorMsg += "Car license number is required.\n";
-        if (username.isEmpty())    errorMsg += "Username is required.\n";
-        if (password.isEmpty())    errorMsg += "Password is required.\n";
-        for (DeliveryMan deliveryMan : deliveryManDirectory.getDeliveryManDirectory()) {
-            if (deliveryMan.getPhone().equals(phone)) {
-                errorMsg += "Phone number already exists.\n";
-            }
-        }
-        if (ecoSystem.checkIfUserIsUnique(username) == true)    errorMsg += "Username already exists.\n";
-        
-        // Add new customer to system
-        if (errorMsg.isEmpty()){
-            ecoSystem.getDeliveryManDirectory().createDeliveryMan(name, phone, license, username, password);
-            Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
-            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new PolicemanRole());
-            JOptionPane.showMessageDialog(this, "New delivery man added successfully");
-            
-            txtName.setText("");
-            txtPhone.setText("");
-            txtLicense.setText("");
-            txtUsername.setText("");
-            txtPassword.setText("");
-        }else{
-            JOptionPane.showMessageDialog(this, errorMsg);
-        }
+
     }//GEN-LAST:event_btnAddActionPerformed
 
 
