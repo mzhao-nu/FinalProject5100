@@ -9,8 +9,10 @@ import Business.EcoSystem;
 
 import Business.Organization;
 import Business.UserAccount.UserAccount;
-import userinterface.Reporting.CommonUserJPanel;
+
 import javax.swing.JPanel;
+import userinterface.CustomerRole.CommonUserJPanel;
+import userinterface.Reporting.CommonReporting;
 
 /**
  *
@@ -20,7 +22,8 @@ public class CommonUserRole extends Role{
 
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new CommonUserJPanel(userProcessContainer, account, business);
+    //    return new CommonUserJPanel(userProcessContainer, account, business);
+    return  new CommonUserJPanel( userProcessContainer,  account,  business);
     }
     
     
