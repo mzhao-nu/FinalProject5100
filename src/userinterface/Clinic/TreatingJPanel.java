@@ -75,6 +75,7 @@ public class TreatingJPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btnDetails = new javax.swing.JButton();
+        btnTreat = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
@@ -111,13 +112,37 @@ public class TreatingJPanel extends javax.swing.JPanel {
         btnDetails.setBackground(new java.awt.Color(255, 204, 153));
         btnDetails.setForeground(new java.awt.Color(255, 153, 0));
         btnDetails.setText("view details");
+        btnDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetailsActionPerformed(evt);
+            }
+        });
         add(btnDetails);
         btnDetails.setBounds(220, 240, 141, 29);
+
+        btnTreat.setText("treat");
+        btnTreat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTreatActionPerformed(evt);
+            }
+        });
+        add(btnTreat);
+        btnTreat.setBounds(400, 240, 77, 29);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailsActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnDetailsActionPerformed
+
+    private void btnTreatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTreatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTreatActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDetails;
+    private javax.swing.JButton btnTreat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
