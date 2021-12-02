@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userinterface.CustomerRole;
+package userinterface.Reporting;
 import java.util.*;
 import Business.EcoSystem;
 import Business.Order.Order;
@@ -16,7 +16,7 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import userinterface.Police.ManageMenuJPanel;
+import userinterface.RestaurantAdminRole.ManageMenuJPanel;
 
 /**
  *

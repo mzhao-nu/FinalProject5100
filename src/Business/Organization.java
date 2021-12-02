@@ -27,7 +27,8 @@ public abstract class Organization {
         RestaurantAdmin("RestaurantAdmin"),
         Customer("Customer"),
         DeliveryMan("Delivery"),
-        SysAdmin("Sysadmin");
+        SysAdmin("Sysadmin"),
+        Policeman("Policeman");
         
         private String value;
         private Type(String value) {

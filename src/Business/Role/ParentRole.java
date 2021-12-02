@@ -9,8 +9,9 @@ import Business.EcoSystem;
 
 import Business.Organization;
 import Business.UserAccount.UserAccount;
-import userinterface.RestaurantAdminRole.ParentJPanel;
+//import userinterface.Police.ParentJPanel;
 import javax.swing.JPanel;
+import userinterface.Police.PoliceAdminJPanel;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ParentRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new ParentJPanel(userProcessContainer, business, account);
+        return new PoliceAdminJPanel(userProcessContainer, business, account);
     }
 
     

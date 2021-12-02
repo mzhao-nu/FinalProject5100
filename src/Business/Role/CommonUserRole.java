@@ -9,7 +9,7 @@ import Business.EcoSystem;
 
 import Business.Organization;
 import Business.UserAccount.UserAccount;
-import userinterface.CustomerRole.CommonUserJPanel;
+import userinterface.Reporting.CommonUserJPanel;
 import javax.swing.JPanel;
 
 /**

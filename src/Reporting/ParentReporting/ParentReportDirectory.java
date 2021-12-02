@@ -36,7 +36,7 @@ public class ParentReportDirectory {
     String height;
     String weight;
 */
-    public ParentReport createCustomer(String name,String missingSince,String missingFrom,String doB,String ageNow,String sex,String race,String hairColor,String eyeColor,String height,String weight){
+    public ParentReport createMissingReport(String name,String missingSince,String missingFrom,String doB,String ageNow,String sex,String race,String hairColor,String eyeColor,String height,String weight){
         ParentReport parentReport = new ParentReport();
         parentReport.setName(name);
         parentReport.setAgeNow(ageNow);

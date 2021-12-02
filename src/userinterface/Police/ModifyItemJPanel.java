@@ -2,37 +2,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userinterface.RestaurantAdminRole;
+package userinterface.Police;
 
 import Business.EcoSystem;
 import Business.Restaurant.Menu;
-import Business.Restaurant.RestaurantDirectory;
+import Business.Restaurant.Item;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import userinterface.SystemAdminWorkArea.ManageRestaurantJPanel;
+
 
 /**
  *
  * @author mzhao
  */
-public class AddItemJPanel extends javax.swing.JPanel {
+public class ModifyItemJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
     EcoSystem ecoSystem; 
     Menu menuDirectory;
     UserAccount account;
+    Item item;
     
     /**
-     * Creates new form AddItemJPanel
+     * Creates new form ModifyItemJPanel
      */
-    public AddItemJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, Menu menuDirectory, UserAccount account) {
+    public ModifyItemJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, Menu menuDirectory, UserAccount account, Item item) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         this.menuDirectory = menuDirectory;
         this.account = account;
+        this.item = item;
+        
+        txtItemName.setText(item.getName());
+        txtItemPrice.setText(String.valueOf(item.getPrice()));
     }
 
     /**
@@ -44,27 +49,15 @@ public class AddItemJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtItemPrice = new javax.swing.JTextField();
-        txtItemName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        btnAdd = new javax.swing.JButton();
+        txtItemName = new javax.swing.JTextField();
+        txtItemPrice = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        btnModify = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jLabel6.setText("Item Price:");
-
-        jLabel5.setText("Item Name:");
-
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel1.setText("Add New Item");
-
-        btnAdd.setText("Add Item");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -73,15 +66,24 @@ public class AddItemJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnModify.setText("Modify Item");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel1.setText("Modify Item");
+
+        jLabel5.setText("Item Name:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,11 +95,14 @@ public class AddItemJPanel extends javax.swing.JPanel {
                             .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(257, 257, 257)
-                        .addComponent(btnAdd))
+                        .addComponent(btnModify))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(btnBack)))
-                .addContainerGap(199, Short.MAX_VALUE))
+                        .addComponent(btnBack))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(jLabel1)))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,8 +120,8 @@ public class AddItemJPanel extends javax.swing.JPanel {
                     .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(47, 47, 47)
-                .addComponent(btnAdd)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addComponent(btnModify)
+                .addContainerGap(265, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -127,13 +132,12 @@ public class AddItemJPanel extends javax.swing.JPanel {
         ManageMenuJPanel panel = (ManageMenuJPanel) component;
         panel.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);        
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         String name = txtItemName.getText();
         String price = txtItemPrice.getText();
-        String restaurantName = account.getEmployee().getName();
         String errorMsg = "";
         
         if (name.isEmpty())    errorMsg += "Item name cannot be empty.\n";
@@ -146,22 +150,20 @@ public class AddItemJPanel extends javax.swing.JPanel {
             }
         }
         
-        //Add item to menu
+        // Update
         if (errorMsg.isEmpty()){
-            menuDirectory.addItem(name, Double.parseDouble(price), restaurantName);
-            JOptionPane.showMessageDialog(this, "Item successfully added to menu.");
-            
-            txtItemName.setText("");
-            txtItemPrice.setText("");
+            item.setName(name);
+            item.setPrice(Double.parseDouble(price));
+            JOptionPane.showMessageDialog(this, "Item updated successfully");
         }else{
             JOptionPane.showMessageDialog(this, errorMsg);
         }
-    }//GEN-LAST:event_btnAddActionPerformed
+    }//GEN-LAST:event_btnModifyActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnModify;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
