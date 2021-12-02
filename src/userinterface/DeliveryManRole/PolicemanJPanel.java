@@ -42,22 +42,22 @@ public class PolicemanJPanel extends javax.swing.JPanel {
     }
     
     public void populateTable(){
-        DefaultTableModel model = (DefaultTableModel)workRequestJTable.getModel();
-        model.setRowCount(0);
-        
-        for(Order order : orderDirectory.getOrderDirectory()){
-            if(order.getDeliveryMan() != null && order.getDeliveryMan().getUsername().equals(userAccount.getUsername())) {
-                Object [] row = new Object[6];
-                row[0] = order;
-                row[1] = order.getCustomer().getName();
-                row[2] = order.getCustomer().getAddress();
-                row[3] = order.getRestaurant().getName();
-                row[4] = order.getRestaurant().getAddress();
-                row[5] = order.getStatus();
-                
-                model.addRow(row);
-            }
-        }
+//        DefaultTableModel model = (DefaultTableModel)workRequestJTable.getModel();
+//        model.setRowCount(0);
+//        
+//        for(Order order : orderDirectory.getOrderDirectory()){
+//            if(order.getDeliveryMan() != null && order.getDeliveryMan().getUsername().equals(userAccount.getUsername())) {
+//                Object [] row = new Object[6];
+//                row[0] = order;
+//                row[1] = order.getCustomer().getName();
+//                row[2] = order.getCustomer().getAddress();
+//                row[3] = order.getRestaurant().getName();
+//                row[4] = order.getRestaurant().getAddress();
+//                row[5] = order.getStatus();
+//                
+//                model.addRow(row);
+//            }
+//        }
     }
 
     /**

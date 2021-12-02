@@ -5,10 +5,6 @@
  */
 package userinterface.SystemAdminWorkArea;
 
-import Business.Customer.Customer;
-import Business.Customer.CustomerDirectory;
-import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 
 import Business.Organization;
@@ -31,56 +27,18 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem ecosystem;
-    CustomerDirectory customerDirectory;
     RestaurantDirectory restaurantDirectory;
-    DeliveryManDirectory deliveryManDirectory;
+
     
     public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
-        this.customerDirectory = ecosystem.getCustomerDirectory();
         this.restaurantDirectory = ecosystem.getRestaurantDirectory();
-        this.deliveryManDirectory = ecosystem.getDeliveryManDirectory();
         populateTree();
     }
     
     public void populateTree(){
-        DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
-       // Add the code for draw your system structure shown by JTree
-        
-        DefaultMutableTreeNode networks = new DefaultMutableTreeNode("SystemAdmin");
-        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
-        root.removeAllChildren();
-        root.insert(networks, 0);
-        
-        DefaultMutableTreeNode customerListNode = new DefaultMutableTreeNode("Customer");
-        DefaultMutableTreeNode deliveryManListNode  = new DefaultMutableTreeNode("Delivery Man");
-        DefaultMutableTreeNode restaurantListNode = new DefaultMutableTreeNode("Restaurant");
-        networks.insert(customerListNode, 0);
-        networks.insert(restaurantListNode, 1);
-        networks.insert(deliveryManListNode, 2);
-
-        
-        for(int i = 0; i < customerDirectory.getCustomerDirectory().size(); i ++){
-            Customer customer = customerDirectory.getCustomerDirectory().get(i);
-            DefaultMutableTreeNode networkNode = new DefaultMutableTreeNode(customer.getName());
-            customerListNode.insert(networkNode, i);    
-        }  
-
-        for(int j = 0; j < restaurantDirectory.getRestaurantDirectory().size(); j ++){
-            Restaurant restaurant = restaurantDirectory.getRestaurantDirectory().get(j);
-            DefaultMutableTreeNode organizationNode = new DefaultMutableTreeNode(restaurant.getName());
-            restaurantListNode.insert(organizationNode, j);
-        }
-        
-        for(int k = 0; k < deliveryManDirectory.getDeliveryManDirectory().size(); k ++){
-            DeliveryMan deliveryMan = deliveryManDirectory.getDeliveryManDirectory().get(k);
-            DefaultMutableTreeNode enterpriseNode = new DefaultMutableTreeNode(deliveryMan.getName());
-            deliveryManListNode.insert(enterpriseNode, k);
-        }   
-        
-        model.reload();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -195,7 +153,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
-        ManageCustomerJPanel manageCustomerPane = new ManageCustomerJPanel(userProcessContainer, ecosystem, customerDirectory);
+        ManageCustomerJPanel manageCustomerPane = new ManageCustomerJPanel(userProcessContainer, ecosystem);
         userProcessContainer.add("ManageCustomersJPanel",manageCustomerPane);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);       
@@ -209,7 +167,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageEnterpriseActionPerformed
 
     private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
-        ManageDeliveryManJPanel manageDeliveryManPane = new ManageDeliveryManJPanel(userProcessContainer, ecosystem, deliveryManDirectory);
+        ManageDeliveryManJPanel manageDeliveryManPane = new ManageDeliveryManJPanel(userProcessContainer, ecosystem);
         userProcessContainer.add("ManageDeliveryManJPanel",manageDeliveryManPane);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);    

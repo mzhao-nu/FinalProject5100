@@ -4,8 +4,6 @@
  */
 package Business.Order;
 import java.util.*;
-import Business.Customer.Customer;
-import Business.DeliveryMan.DeliveryMan;
 import Business.Restaurant.Item;
 import Business.Restaurant.Menu;
 import Business.Restaurant.Restaurant;
@@ -19,8 +17,6 @@ public class Order {
     String status;
     String price;
     Restaurant restaurant;
-    Customer customer;
-    DeliveryMan deliveryMan;
     Map<Item, Integer> items;
     String comment;
 //    boolean assign;
@@ -55,22 +51,6 @@ public class Order {
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public DeliveryMan getDeliveryMan() {
-        return deliveryMan;
-    }
-
-    public void setDeliveryMan(DeliveryMan deliveryMan) {
-        this.deliveryMan = deliveryMan;
     }
 
     public Map<Item, Integer> getItems() {

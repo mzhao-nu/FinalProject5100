@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package userinterface.SystemAdminWorkArea;
-import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -18,22 +16,15 @@ import javax.swing.JPanel;
  */
 public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
-    DeliveryManDirectory deliveryManDirectory;
-    DeliveryMan deliveryMan;
     EcoSystem ecoSystem;
     
     /**
      * Creates new form ModifyDeliveryManJPanel
      */
-    public ModifyDeliveryManJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, DeliveryManDirectory deliveryManDirectory, DeliveryMan deliveryMan) {
+    public ModifyDeliveryManJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-        this.deliveryManDirectory = deliveryManDirectory;
-        this.deliveryMan = deliveryMan;
-        txtName.setText(deliveryMan.getName());
-        txtPhone.setText(deliveryMan.getPhone());
-        txtLicense.setText(deliveryMan.getCarLicense());
     }
 
     /**
@@ -135,47 +126,7 @@ public class ModifyDeliveryManJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
-        String name = txtName.getText();
-        String phone = txtPhone.getText();
-        String license = txtLicense.getText();
-        String errorMsg = "";
-        
-        // Data validation
-        if (name.isEmpty())    errorMsg += "Customer name is required.\n";
-        if (phone.isEmpty())    errorMsg += "Phone number is required.\n";
-        else if (!phone.isEmpty()){
-            boolean isNum = true;
-            for (int i = 0; i < phone.length(); i++) {
-                char c = phone.charAt(i);
-                if (c < '0' || c > '9') {
-                    isNum = false;
-                    break;
-                }
-            }
-            if (isNum == false)    errorMsg += "Phone number must contain only numbers.\n";
-            if (phone.length() != 10)    errorMsg += "Phone number must be 10 digits.\n";
-            
-            boolean boo = true;
-            for (int i = 0; i < deliveryManDirectory.getDeliveryManDirectory().size(); i ++){
-                DeliveryMan d = deliveryManDirectory.getDeliveryManDirectory().get(i);
-                if (d.getPhone().equals(phone) && !d.getUsername().equals(deliveryMan.getUsername())){
-                    boo = false;
-                    break;
-                }    
-            }
-            if (boo == false)    errorMsg += "Phone number has already been taken.\n";
-        }
-        if (license.isEmpty())    errorMsg += "Car license number is required.\n";
-   
-        // Update
-        if (errorMsg.isEmpty()){
-            deliveryMan.setName(name);
-            deliveryMan.setPhone(phone);
-            deliveryMan.setCarLicense(license);
-            JOptionPane.showMessageDialog(this, "Delivery man updated successfully");
-        }else{
-            JOptionPane.showMessageDialog(this, errorMsg);
-        }
+
     }//GEN-LAST:event_btnModifyActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

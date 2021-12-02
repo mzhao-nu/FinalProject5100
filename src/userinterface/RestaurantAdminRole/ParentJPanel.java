@@ -2,9 +2,6 @@
 
 package userinterface.RestaurantAdminRole;
 
-
-import Business.Customer.CustomerDirectory;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.Menu;
@@ -22,9 +19,7 @@ public class ParentJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem ecoSystem;
     UserAccount account;
-    CustomerDirectory customerDirectory;
     RestaurantDirectory restaurantDirectory;
-    DeliveryManDirectory deliveryManDirectory;
     Menu menuDirectory;
     OrderDirectory orderDirectory;
     
@@ -34,9 +29,7 @@ public class ParentJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecoSystem = ecoSystem;
-        this.customerDirectory = ecoSystem.getCustomerDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
-        this.deliveryManDirectory = ecoSystem.getDeliveryManDirectory();
         this.menuDirectory = ecoSystem.getMenuDirectory();
         this.orderDirectory = ecoSystem.getOrderDirectory();
         valueLabel.setText(restaurantDirectory.getRestaurant(account.getUsername()).toString());

@@ -6,7 +6,6 @@
 package Business;
 
 
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.Menu;
 import Business.Restaurant.RestaurantDirectory;
@@ -22,16 +21,12 @@ public class EcoSystem extends Organization{
     
     private static EcoSystem business;
     private RestaurantDirectory restaurantDirectory;
-    private CustomerDirectory customerDirectory;
-    private DeliveryManDirectory deliveryManDirectory;
     private Menu menuDirectory;
     private OrderDirectory orderDirectory;
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
+    public EcoSystem(RestaurantDirectory restaurantDirectory) {
 
         this.restaurantDirectory = restaurantDirectory;
-        this.customerDirectory = customerDirectory;
-        this.deliveryManDirectory = deliveryManDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -50,9 +45,7 @@ public class EcoSystem extends Organization{
     private EcoSystem(){
         super(null);
        // networkList=new ArrayList<Network>();
-        customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
-        deliveryManDirectory = new DeliveryManDirectory();
         menuDirectory = new Menu();
         orderDirectory = new OrderDirectory();
     }
@@ -77,22 +70,6 @@ public class EcoSystem extends Organization{
 
     public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
         this.restaurantDirectory = restaurantDirectory;
-    }
-
-    public CustomerDirectory getCustomerDirectory() {
-        return customerDirectory;
-    }
-
-    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
-        this.customerDirectory = customerDirectory;
-    }
-
-    public DeliveryManDirectory getDeliveryManDirectory() {
-        return deliveryManDirectory;
-    }
-
-    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
-        this.deliveryManDirectory = deliveryManDirectory;
     }
 
     public Menu getMenuDirectory() {

@@ -3,8 +3,6 @@
  * and open the template in the editor.
  */
 package userinterface.CustomerRole;
-
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
@@ -31,7 +29,7 @@ public class CommonUserJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private OrderDirectory orderDirectory;
     private RestaurantDirectory restaurantDirectory;
-    private DeliveryManDirectory deliveryManDirectory;
+
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
@@ -43,34 +41,33 @@ public class CommonUserJPanel extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         this.orderDirectory = ecoSystem.getOrderDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
-        this.deliveryManDirectory = ecoSystem.getDeliveryManDirectory();
         this.menuDirectory = ecoSystem.getMenuDirectory();
         valueLabel.setText(account.getUsername());
         populateTable();
     }
     
     public void populateTable(){
-        DefaultTableModel model = (DefaultTableModel)ordersTable.getModel();
-        model.setRowCount(0);
-        
-        for(Order order : orderDirectory.getOrderDirectory()){
-            if(order.getCustomer().getUsername().equals(userAccount.getUsername())) {
-                Object [] row = new Object[5];
-                row[0] = order;
-                row[1] = order.getRestaurant().getName();
-                
-                String items = "";
-                for (Item key : order.getItems().keySet()){
-                    items += key.getName();
-                    items += ",";
-                }
-                row[2] = items.substring(0, items.length() - 1);
-                row[3] = order.getPrice();
-                row[4] = order.getStatus();
-                
-                model.addRow(row);
-            }
-        }
+//        DefaultTableModel model = (DefaultTableModel)ordersTable.getModel();
+//        model.setRowCount(0);
+//        
+//        for(Order order : orderDirectory.getOrderDirectory()){
+//            if(order.getCustomer().getUsername().equals(userAccount.getUsername())) {
+//                Object [] row = new Object[5];
+//                row[0] = order;
+//                row[1] = order.getRestaurant().getName();
+//                
+//                String items = "";
+//                for (Item key : order.getItems().keySet()){
+//                    items += key.getName();
+//                    items += ",";
+//                }
+//                row[2] = items.substring(0, items.length() - 1);
+//                row[3] = order.getPrice();
+//                row[4] = order.getStatus();
+//                
+//                model.addRow(row);
+//            }
+//        }
     }
 
     
@@ -413,36 +410,36 @@ public class CommonUserJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCommentDetailsActionPerformed
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
-        int selectedRowIndex = ordersTable.getSelectedRow();
-        
-        if (selectedRowIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select an order to view details.");
-            return;
-        }
-        
-        DefaultTableModel model = (DefaultTableModel)ordersTable.getModel();
-        Order selectedOrder = (Order)model.getValueAt(selectedRowIndex, 0);
-        
-        txtID.setText(selectedOrder.getOrderId());
-        txtRestaurant.setText(selectedOrder.getRestaurant().getName());
-        String items = "";
-        for (Item key : selectedOrder.getItems().keySet()){
-            items += key.getName();
-            items += ",";
-        }
-        txtItems.setText(items.substring(0, items.length() - 1));
-        txtPrice.setText(selectedOrder.getPrice());
-        txtStatus.setText(selectedOrder.getStatus());
-        if (selectedOrder.getDeliveryMan() == null){
-            txtDeliveryMan.setText("Not Assigned Yet");
-        }else{
-            txtDeliveryMan.setText(selectedOrder.getDeliveryMan().getName());
-        }
-        if (selectedOrder.getComment() == null){
-            txtCommentDetails.setText("No Comment Yet");
-        }else{
-            txtCommentDetails.setText(selectedOrder.getComment());
-        }
+//        int selectedRowIndex = ordersTable.getSelectedRow();
+//        
+//        if (selectedRowIndex < 0){
+//            JOptionPane.showMessageDialog(this, "Please select an order to view details.");
+//            return;
+//        }
+//        
+//        DefaultTableModel model = (DefaultTableModel)ordersTable.getModel();
+//        Order selectedOrder = (Order)model.getValueAt(selectedRowIndex, 0);
+//        
+//        txtID.setText(selectedOrder.getOrderId());
+//        txtRestaurant.setText(selectedOrder.getRestaurant().getName());
+//        String items = "";
+//        for (Item key : selectedOrder.getItems().keySet()){
+//            items += key.getName();
+//            items += ",";
+//        }
+//        txtItems.setText(items.substring(0, items.length() - 1));
+//        txtPrice.setText(selectedOrder.getPrice());
+//        txtStatus.setText(selectedOrder.getStatus());
+//        if (selectedOrder.getDeliveryMan() == null){
+//            txtDeliveryMan.setText("Not Assigned Yet");
+//        }else{
+//            txtDeliveryMan.setText(selectedOrder.getDeliveryMan().getName());
+//        }
+//        if (selectedOrder.getComment() == null){
+//            txtCommentDetails.setText("No Comment Yet");
+//        }else{
+//            txtCommentDetails.setText(selectedOrder.getComment());
+//        }
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
