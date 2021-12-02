@@ -4,8 +4,6 @@
  */
 package userinterface.SystemAdminWorkArea;
 
-import Business.Customer.Customer;
-import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -19,16 +17,16 @@ import javax.swing.table.DefaultTableModel;
 public class ManageCustomerJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
     EcoSystem ecoSystem; 
-    CustomerDirectory customerDirectory;
+   
     
     /**
      * Creates new form ManageCustomerJPanel
      */
-    public ManageCustomerJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, CustomerDirectory customerDirectory) {
+    public ManageCustomerJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-        this.customerDirectory = customerDirectory;
+       
         populateTable();
     }
 
@@ -142,53 +140,23 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
-        AddCustomerJPanel addCustomer = new AddCustomerJPanel(userProcessContainer, ecoSystem, customerDirectory);
+        AddCustomerJPanel addCustomer = new AddCustomerJPanel(userProcessContainer, ecoSystem);
         userProcessContainer.add("CreateCustomersJPanel", addCustomer);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddCustomerActionPerformed
 
     private void btnModifyCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyCustomerActionPerformed
-        int selectedRowIndex = tableCustomer.getSelectedRow();
-        if(selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a customer to modify");
-            return;
-        }
         
-        Customer customer = (Customer)tableCustomer.getValueAt(selectedRowIndex, 0);
-        ModifyCustomerJPanel modifyCustomer = new ModifyCustomerJPanel(userProcessContainer, ecoSystem, customerDirectory, customer);
-        userProcessContainer.add("ModifyCustomersJPanel",modifyCustomer);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnModifyCustomerActionPerformed
 
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
-        int selectedRowIndex = tableCustomer.getSelectedRow();
-        if(selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a customer to delete");
-            return;
-        }
         
-        Customer customer = (Customer)tableCustomer.getValueAt(selectedRowIndex, 0);
-        customerDirectory.deleteCustomer(customer);
-        populateTable();
-        JOptionPane.showMessageDialog(this, "Deletion successful!");
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
 
     public void populateTable() {
-        DefaultTableModel model = (DefaultTableModel)tableCustomer.getModel();
-        model.setRowCount(0);
-        
-        for (Customer c : ecoSystem.getCustomerDirectory().getCustomerDirectory()){
-            Object[] row = new Object[4];
-            row[0] = c;
-            row[1] = c.getName();
-            row[2] = c.getAddress();
-            row[3] = c.getPhone();
-            
-            model.addRow(row);
-        }
+       
     }   
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

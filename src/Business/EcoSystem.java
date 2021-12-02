@@ -6,12 +6,12 @@
 package Business;
 
 
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.Menu;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Reporting.CommonReporting.ChildrenDirectory;
 import java.util.ArrayList;
 
 /**
@@ -22,16 +22,13 @@ public class EcoSystem extends Organization{
     
     private static EcoSystem business;
     private RestaurantDirectory restaurantDirectory;
-    private CustomerDirectory customerDirectory;
-    private DeliveryManDirectory deliveryManDirectory;
     private Menu menuDirectory;
     private OrderDirectory orderDirectory;
+    private ChildrenDirectory childrenDirectory;
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
+    public EcoSystem(RestaurantDirectory restaurantDirectory) {
 
         this.restaurantDirectory = restaurantDirectory;
-        this.customerDirectory = customerDirectory;
-        this.deliveryManDirectory = deliveryManDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -50,11 +47,10 @@ public class EcoSystem extends Organization{
     private EcoSystem(){
         super(null);
        // networkList=new ArrayList<Network>();
-        customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
-        deliveryManDirectory = new DeliveryManDirectory();
         menuDirectory = new Menu();
         orderDirectory = new OrderDirectory();
+        childrenDirectory = new ChildrenDirectory();
     }
 
     
@@ -71,28 +67,20 @@ public class EcoSystem extends Organization{
         EcoSystem.business = business;
     }
 
+    public ChildrenDirectory getChildrenDirectory() {
+        return childrenDirectory;
+    }
+
+    public void setChildrenDirectory(ChildrenDirectory childrenDirectory) {
+        this.childrenDirectory = childrenDirectory;
+    }
+
     public RestaurantDirectory getRestaurantDirectory() {
         return restaurantDirectory;
     }
 
     public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
         this.restaurantDirectory = restaurantDirectory;
-    }
-
-    public CustomerDirectory getCustomerDirectory() {
-        return customerDirectory;
-    }
-
-    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
-        this.customerDirectory = customerDirectory;
-    }
-
-    public DeliveryManDirectory getDeliveryManDirectory() {
-        return deliveryManDirectory;
-    }
-
-    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
-        this.deliveryManDirectory = deliveryManDirectory;
     }
 
     public Menu getMenuDirectory() {

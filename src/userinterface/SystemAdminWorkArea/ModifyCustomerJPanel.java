@@ -4,8 +4,6 @@
  */
 package userinterface.SystemAdminWorkArea;
 
-import Business.Customer.Customer;
-import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -20,21 +18,14 @@ import javax.swing.JPanel;
 public class ModifyCustomerJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
     EcoSystem ecoSystem;
-    CustomerDirectory customerDirectory;
-    Customer customer;
-    
+
     /**
      * Creates new form ModifyCustomerJPanel
      */
-    public ModifyCustomerJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, CustomerDirectory customerDirectory, Customer customer) {
+    public ModifyCustomerJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.customerDirectory = customerDirectory;
-        this.customer = customer;
         this.ecoSystem = ecoSystem;
-        txtName.setText(customer.getName());
-        txtPhone.setText(customer.getPhone());
-        txtAddress.setText(customer.getAddress());
     }
 
     /**
@@ -136,47 +127,6 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
-        String name = txtName.getText();
-        String phone = txtPhone.getText();
-        String address = txtAddress.getText();
-        String errorMsg = "";
-        
-        // Data validation
-        if (name.isEmpty())    errorMsg += "Customer name is required.\n";
-        if (phone.isEmpty())    errorMsg += "Phone number is required.\n";
-        else if (!phone.isEmpty()){
-            boolean isNum = true;
-            for (int i = 0; i < phone.length(); i++) {
-                char c = phone.charAt(i);
-                if (c < '0' || c > '9') {
-                    isNum = false;
-                    break;
-                }
-            }
-            if (isNum == false)    errorMsg += "Phone number must contain only numbers.\n";
-            if (phone.length() != 10)    errorMsg += "Phone number must be 10 digits.\n";
-            
-            boolean boo = true;
-            for (int i = 0; i < customerDirectory.getCustomerDirectory().size(); i ++){
-                Customer c = customerDirectory.getCustomerDirectory().get(i);
-                if (c.getPhone().equals(phone) && !c.getUsername().equals(customer.getUsername())){
-                    boo = false;
-                    break;
-                }    
-            }
-            if (boo == false)    errorMsg += "Phone number has already been taken.\n";
-        }
-        if (address.isEmpty())    errorMsg += "Address is required.\n";
-
-        // Update
-        if (errorMsg.isEmpty()){
-            customer.setName(name);
-            customer.setPhone(phone);
-            customer.setAddress(address);
-            JOptionPane.showMessageDialog(this, "Customer updated successfully");
-        }else{
-            JOptionPane.showMessageDialog(this, errorMsg);
-        }
 
     }//GEN-LAST:event_btnModifyActionPerformed
 

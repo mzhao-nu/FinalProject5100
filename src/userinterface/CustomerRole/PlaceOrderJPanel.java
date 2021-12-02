@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package userinterface.CustomerRole;
-import Business.Customer.Customer;
 import java.util.*;
 import Business.EcoSystem;
 import Business.Order.Order;
@@ -300,52 +299,52 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_tableCartComponentHidden
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        DefaultTableModel model = (DefaultTableModel)tableCart.getModel();
-        Map<Item, Integer> items = new HashMap<>();
-        
-        // Get restaurant
-        String restaurantName = comboBoxSearch.getSelectedItem().toString();
-        Restaurant restaurant = ecoSystem.getRestaurantDirectory().getRestaurantByName(restaurantName);
-        // Get customer
-        String customerName = account.getUsername();
-        Customer customer = ecoSystem.getCustomerDirectory().getCustomerByUsername(customerName);
-        // Get orders
-        for (int count = 0; count < model.getRowCount(); count++){
-            Item selectedItem = (Item)model.getValueAt(count, 0);
-            if (!items.keySet().contains(selectedItem)){
-                items.put(selectedItem, 1);
-            }else if (items.keySet().contains(selectedItem)){
-                items.put(selectedItem, items.get(selectedItem) + 1);
-            }
-        }
-        // Get order id
-        int min = 10000;
-        int max = 99999;
-        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
-//        int counter = 0;
-//        for (Order o : orderDirectory.getOrderDirectory()){
-//            if (o.getCustomer().getUsername().equals(customerName))    counter ++;
+//        DefaultTableModel model = (DefaultTableModel)tableCart.getModel();
+//        Map<Item, Integer> items = new HashMap<>();
+//        
+//        // Get restaurant
+//        String restaurantName = comboBoxSearch.getSelectedItem().toString();
+//        Restaurant restaurant = ecoSystem.getRestaurantDirectory().getRestaurantByName(restaurantName);
+//        // Get customer
+//        String customerName = account.getUsername();
+//        Customer customer = ecoSystem.getCustomerDirectory().getCustomerByUsername(customerName);
+//        // Get orders
+//        for (int count = 0; count < model.getRowCount(); count++){
+//            Item selectedItem = (Item)model.getValueAt(count, 0);
+//            if (!items.keySet().contains(selectedItem)){
+//                items.put(selectedItem, 1);
+//            }else if (items.keySet().contains(selectedItem)){
+//                items.put(selectedItem, items.get(selectedItem) + 1);
+//            }
 //        }
-
-        // Get price
-        double price = 0;
-        for (int count = 0; count < model.getRowCount(); count++){
-            Item selectedItem = (Item)model.getValueAt(count, 0);
-            price += selectedItem.getPrice();
-        }
-        
-        Order order = orderDirectory.createOrder();
-        order.setOrderId(String.valueOf(random_int));
-        order.setStatus("Order Received");
-        order.setPrice(String.valueOf(price));
-        order.setRestaurant(restaurant);
-        order.setCustomer(customer);
-        order.setDeliveryMan(null);
-        order.setItems(items);
-        
-        JOptionPane.showMessageDialog(this, "Order placed successfully!");
-        cart = new ArrayList<>();
-        populateCartTableUpdate();
+//        // Get order id
+//        int min = 10000;
+//        int max = 99999;
+//        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+////        int counter = 0;
+////        for (Order o : orderDirectory.getOrderDirectory()){
+////            if (o.getCustomer().getUsername().equals(customerName))    counter ++;
+////        }
+//
+//        // Get price
+//        double price = 0;
+//        for (int count = 0; count < model.getRowCount(); count++){
+//            Item selectedItem = (Item)model.getValueAt(count, 0);
+//            price += selectedItem.getPrice();
+//        }
+//        
+//        Order order = orderDirectory.createOrder();
+//        order.setOrderId(String.valueOf(random_int));
+//        order.setStatus("Order Received");
+//        order.setPrice(String.valueOf(price));
+//        order.setRestaurant(restaurant);
+//        order.setCustomer(customer);
+//        order.setDeliveryMan(null);
+//        order.setItems(items);
+//        
+//        JOptionPane.showMessageDialog(this, "Order placed successfully!");
+//        cart = new ArrayList<>();
+//        populateCartTableUpdate();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
