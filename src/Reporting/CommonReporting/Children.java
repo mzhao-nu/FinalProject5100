@@ -5,28 +5,72 @@
  */
 package Reporting.CommonReporting;
 
+import Actions.Shelter.Admin.Shelter;
+import java.awt.Image;
+import java.util.Date;
+
 /**
  *
  * @author harold
  */
-public class CommonReporting {
-    String name;
-    String foundDate;
-    String foundLocaion;
-    String approxAge;
-    String sex;
-    String race;
-    String hairColor;
-    String eyeColor;
-    String height;
-    String weight;
-    String wearing;
+public class Children {
+    private String name;
+    private Date foundDate;
+    private String foundLocaion;
+    private int approxAge;
+    private String sex;
+    private String race;
+    private String hairColor;
+    private String eyeColor;
+    private String height;
+    private String weight;
+    private String wearing;
+    private String status;
+    private String mediclinAdvice;
+    private Shelter shelter;
+    private int id;
+    private static int count =1;
+    
 
-    public String getFoundDate() {
+    public Children() {
+        id = count;
+        count++;
+    }
+
+    public Shelter getShelter() {
+        return shelter;
+    }
+
+    public void setShelter(Shelter shelter) {
+        this.shelter = shelter;
+    }
+
+    public String getMediclinAdvice() {
+        return mediclinAdvice;
+    }
+
+    public void setMediclinAdvice(String mediclinAdvice) {
+        this.mediclinAdvice = mediclinAdvice;
+    }    
+    
+    public int getId() {
+        return id;
+    }
+    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getFoundDate() {
         return foundDate;
     }
 
-    public void setFoundDate(String foundDate) {
+    public void setFoundDate(Date foundDate) {
         this.foundDate = foundDate;
     }
 
@@ -38,11 +82,11 @@ public class CommonReporting {
         this.foundLocaion = foundLocaion;
     }
 
-    public String getApproxAge() {
+    public int getApproxAge() {
         return approxAge;
     }
 
-    public void setApproxAge(String approxAge) {
+    public void setApproxAge(int approxAge) {
         this.approxAge = approxAge;
     }
 
