@@ -16,7 +16,7 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import userinterface.RestaurantAdminRole.ManageMenuJPanel;
+import userinterface.Police.ManageMenuJPanel;
 
 /**
  *

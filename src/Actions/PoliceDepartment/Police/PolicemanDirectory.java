@@ -12,43 +12,44 @@ import java.util.*;
  */
 public class PolicemanDirectory {
 
-    private ArrayList<Policeman> policemanList;
+    private ArrayList<PoliceAdmin> policemanList;
 
     public PolicemanDirectory() {
         this.policemanList = new ArrayList<>();
     }
 
-    public ArrayList<Policeman> getPolicemanList() {
+    public ArrayList<PoliceAdmin> getPolicemanList() {
         return policemanList;
     }
 
-    public void setPolicemanList(ArrayList<Policeman> policemanList) {
+    public void setPolicemanList(ArrayList<PoliceAdmin> policemanList) {
         this.policemanList = policemanList;
     }
     
-    public Policeman createPoliceman(){
-        Policeman officer = new Policeman();
+    public PoliceAdmin createPoliceman(){
+        PoliceAdmin officer = new PoliceAdmin();
         policemanList.add(officer);
         return officer;
     }
     
-    public Policeman createPoliceman(String name, int id, String gender, int age, UserAccount ua){
-        Policeman officer = new Policeman();
+    public PoliceAdmin createPoliceman(String name, int id, String gender, int age, String username, String password){
+        PoliceAdmin officer = new PoliceAdmin();
         officer.setName(name);
         officer.setId(id);
         officer.setGender(gender);
         officer.setAge(age);
-        officer.setUa(ua);
+        officer.setUsername(username);
+        officer.setPassword(password);
         policemanList.add(officer);
         return officer;
     }
     
-    public void removePoliceman(Policeman p){
+    public void removePoliceman(PoliceAdmin p){
         policemanList.remove(p);
     }
     
-    public Policeman getPoliceman(int id){
-        for(Policeman p: policemanList){
+    public PoliceAdmin getPoliceman(int id){
+        for(PoliceAdmin p: policemanList){
             if(p.getId() == id){
                 return p;
             }

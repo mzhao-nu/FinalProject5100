@@ -6,6 +6,7 @@
 package Business;
 
 
+import Actions.PoliceDepartment.Police.PolicemanDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.Menu;
 import Business.Restaurant.RestaurantDirectory;
@@ -20,13 +21,10 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
-    private RestaurantDirectory restaurantDirectory;
-    private Menu menuDirectory;
-    private OrderDirectory orderDirectory;
+    private PolicemanDirectory policemanDirectory;
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory) {
-
-        this.restaurantDirectory = restaurantDirectory;
+    public EcoSystem(PolicemanDirectory policemanDirectory) {
+        this.policemanDirectory = policemanDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -45,9 +43,7 @@ public class EcoSystem extends Organization{
     private EcoSystem(){
         super(null);
        // networkList=new ArrayList<Network>();
-        restaurantDirectory = new RestaurantDirectory();
-        menuDirectory = new Menu();
-        orderDirectory = new OrderDirectory();
+        policemanDirectory = new PolicemanDirectory();
     }
 
     
@@ -64,28 +60,12 @@ public class EcoSystem extends Organization{
         EcoSystem.business = business;
     }
 
-    public RestaurantDirectory getRestaurantDirectory() {
-        return restaurantDirectory;
+    public PolicemanDirectory getPolicemanDirectory() {
+        return policemanDirectory;
     }
 
-    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
-        this.restaurantDirectory = restaurantDirectory;
-    }
-
-    public Menu getMenuDirectory() {
-        return menuDirectory;
-    }
-
-    public void setMenuDirectory(Menu menuDirectory) {
-        this.menuDirectory = menuDirectory;
-    }
-
-    public OrderDirectory getOrderDirectory() {
-        return orderDirectory;
-    }
-
-    public void setOrderDirectory(OrderDirectory orderDirectory) {
-        this.orderDirectory = orderDirectory;
+    public void setPolicemanDirectory(PolicemanDirectory policemanDirectory) {
+        this.policemanDirectory = policemanDirectory;
     }
     
     

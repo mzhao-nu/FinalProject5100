@@ -35,15 +35,15 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel)tableRestaurant.getModel();
         model.setRowCount(0);
         
-        for (Restaurant r : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
-            Object[] row = new Object[4];
-            row[0] = r;
-            row[1] = r.getAddress();
-            row[2] = r.getPhone();
-            row[3] = r.getManager();
-            
-            model.addRow(row);
-        }
+//        for (Restaurant r : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
+//            Object[] row = new Object[4];
+//            row[0] = r;
+//            row[1] = r.getAddress();
+//            row[2] = r.getPhone();
+//            row[3] = r.getManager();
+//            
+//            model.addRow(row);
+//        }
     }   
     
     /**
