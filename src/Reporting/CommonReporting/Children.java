@@ -8,6 +8,7 @@ package Reporting.CommonReporting;
 import Actions.Shelter.Admin.Shelter;
 import java.awt.Image;
 import java.util.Date;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -26,8 +27,10 @@ public class Children {
     private String weight;
     private String wearing;
     private String status;
-    private String mediclinAdvice;
+    private String medicalAdvice;
     private Shelter shelter;
+    private String injury;
+    private ImageIcon photo;
     private int id;
     private static int count =1;
     
@@ -35,6 +38,23 @@ public class Children {
     public Children() {
         id = count;
         count++;
+    }
+
+    public ImageIcon getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(ImageIcon photo) {
+        this.photo = photo;
+    }
+
+    
+    public String getInjury() {
+        return injury;
+    }
+
+    public void setInjury(String injury) {
+        this.injury = injury;
     }
 
     public Shelter getShelter() {
@@ -45,12 +65,12 @@ public class Children {
         this.shelter = shelter;
     }
 
-    public String getMediclinAdvice() {
-        return mediclinAdvice;
+    public String getMedicalAdvice() {
+        return medicalAdvice;
     }
 
-    public void setMediclinAdvice(String mediclinAdvice) {
-        this.mediclinAdvice = mediclinAdvice;
+    public void setMedicalAdvice(String medicalAdvice) {
+        this.medicalAdvice = medicalAdvice;
     }    
     
     public int getId() {
