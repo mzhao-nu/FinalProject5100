@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.util.Date;
 import javax.swing.ImageIcon;
 
+
 /**
  *
  * @author harold
@@ -40,6 +41,7 @@ public class Children {
         count++;
     }
 
+
     public ImageIcon getPhoto() {
         return photo;
     }
@@ -57,6 +59,7 @@ public class Children {
         this.injury = injury;
     }
 
+
     public Shelter getShelter() {
         return shelter;
     }
@@ -64,6 +67,7 @@ public class Children {
     public void setShelter(Shelter shelter) {
         this.shelter = shelter;
     }
+
 
     public String getMedicalAdvice() {
         return medicalAdvice;

@@ -6,6 +6,7 @@
 package Clinic.Treating;
 
 import Business.UserAccount.UserAccount;
+import Clinic.Admin.Clinic;
 import java.util.ArrayList;
 
 /**
@@ -23,12 +24,12 @@ public class TreatDorDirectory {
         return treatDorList;
     }
     
-    public TreatmentDoctors createTreatDr(String name, int age, long phoneNum,String position, UserAccount ua){
+    public TreatmentDoctors createTreatDr(String name, int age, long phoneNum,Clinic clinic, UserAccount ua){
         TreatmentDoctors treatmentDoctors = new TreatmentDoctors();
         treatmentDoctors.setAge(age);
         treatmentDoctors.setName(name);
         treatmentDoctors.setPhoneNum(phoneNum);
-        treatmentDoctors.setPositon(position);
+        treatmentDoctors.setClinic(clinic);
         treatmentDoctors.setUa(ua);
         treatDorList.add(treatmentDoctors);
         return treatmentDoctors;
@@ -38,13 +39,13 @@ public class TreatDorDirectory {
         treatDorList.remove(t);
     }
     
-    public void updateTreatDr(int id,String name, int age, long phoneNum,String position, UserAccount ua){
+    public void updateTreatDr(int id,String name, int age, long phoneNum,Clinic clinic, UserAccount ua){
         for(TreatmentDoctors td:this.treatDorList){
             if(td.getId()==id){
                 td.setAge(age);
                 td.setName(name);
                 td.setPhoneNum(phoneNum);
-                td.setPositon(position);
+                td.setClinic(clinic);
                 td.setUa(ua);
             }
         }

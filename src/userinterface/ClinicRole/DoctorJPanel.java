@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.Clinic;
+package userinterface.ClinicRole;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
@@ -44,6 +44,8 @@ public class DoctorJPanel extends javax.swing.JPanel {
         btnSearch.setBorder(new LineBorder(Color.ORANGE, 2));
         btnBack.setBackground(new java.awt.Color(255, 255, 255, 0));
         btnBack.setBorder(new LineBorder(Color.ORANGE, 2));
+        
+        populateTable();
        
     }
     
@@ -54,15 +56,15 @@ public class DoctorJPanel extends javax.swing.JPanel {
         
         for(Children children:ecoSystem.getChildrenDirectory().getChildrenDirectory()){
             if(children.getStatus().equals("found")||children.getStatus().equals("treated")){
-            Object[] row = new Object[5];
-            row[0] = children.getId();
-            row[1] = children.getName();
-            row[2] = children.getApproxAge();
-            row[3] = children.getStatus();
-            row[4] = children.getMedicalAdvice();
+                Object[] row = new Object[5];
+                row[0] = children.getId();
+                row[1] = children.getName();
+                row[2] = children.getApproxAge();
+                row[3] = children.getStatus();
+                row[4] = children.getMedicalAdvice();
             
-            model.addRow(row);
-        }
+                model.addRow(row);
+            }
         }
     
     
