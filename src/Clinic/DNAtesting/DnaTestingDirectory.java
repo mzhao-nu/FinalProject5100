@@ -5,6 +5,7 @@
  */
 package Clinic.DNAtesting;
 
+import Clinic.Admin.Clinic;
 import java.util.ArrayList;
 
 /**
@@ -22,12 +23,13 @@ public class DnaTestingDirectory {
         return dnaTesterList;
     }
 
-    public DnaTester createDnaTester(String name, int age,long phoneNum){
+    public DnaTester createDnaTester(String name, int age,long phoneNum,Clinic clinic){
         DnaTester dnaTester = new DnaTester();
         dnaTester.setAge(age);
         dnaTester.setName(name);
         dnaTester.setPhoneNum(phoneNum);
-        dnaTesterList.add(dnaTester);
+        dnaTester.setClinic(clinic);
+        dnaTesterList.add(dnaTester);      
         return dnaTester;
     }
     
@@ -35,12 +37,13 @@ public class DnaTestingDirectory {
         dnaTesterList.remove(dnaTester);
     }
     
-    public void updateTester(int id,String name, int age,long phoneNum){
+    public void updateTester(int id,String name, int age,long phoneNum,Clinic clinic){
         for(DnaTester dnaTester:this.getDnaTesterList()){
             if(dnaTester.getId()==id){
                 dnaTester.setAge(age);
                 dnaTester.setName(name);
                 dnaTester.setPhoneNum(phoneNum);
+                dnaTester.setClinic(clinic);
             }
         }
     }

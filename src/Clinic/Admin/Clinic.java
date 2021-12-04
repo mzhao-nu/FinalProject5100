@@ -14,9 +14,9 @@ import Business.UserAccount.UserAccount;
 public class Clinic {
     private UserAccount ua;
     private String name;
-    private String adress;
+    private String address;
     private long phoneNum;
-    private int zipcode;
+    private String zipcode;
     private int id;
     private static int count =1;
 
@@ -46,12 +46,12 @@ public class Clinic {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public long getPhoneNum() {
@@ -62,11 +62,11 @@ public class Clinic {
         this.phoneNum = phoneNum;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
     

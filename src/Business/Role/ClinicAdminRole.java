@@ -8,17 +8,17 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.ClinicRole.DoctorJPanel;
+import userinterface.ClinicRole.ClinicAdmin;
 
 /**
  *
  * @author gyt
  */
-public class PrimaryCareDoctorRole extends Role{
+public class ClinicAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new DoctorJPanel(userProcessContainer, account, business); 
+        return new ClinicAdmin(userProcessContainer, account, business);
     }
     
 }

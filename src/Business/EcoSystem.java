@@ -12,6 +12,7 @@ import Business.Restaurant.Menu;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Clinic.Admin.ClinicDirectory;
 import Clinic.Treating.TreatDorDirectory;
 import Reporting.CommonReporting.ChildrenDirectory;
 import java.util.ArrayList;
@@ -26,9 +27,12 @@ public class EcoSystem extends Organization{
     private ChildrenDirectory childrenDirectory;
     private PolicemanDirectory policemanDirectory;
     private TreatDorDirectory treatDorDirectory;
+    private ClinicDirectory clinicDirectory;
+
 
     public EcoSystem(PolicemanDirectory policemanDirectory) {
         this.policemanDirectory = policemanDirectory;
+        
     }
     
     public static EcoSystem getInstance(){
@@ -47,9 +51,12 @@ public class EcoSystem extends Organization{
     private EcoSystem(){
         super(null);
        // networkList=new ArrayList<Network>();
+
 	childrenDirectory = new ChildrenDirectory();
         policemanDirectory = new PolicemanDirectory();
         treatDorDirectory = new TreatDorDirectory();
+        clinicDirectory = new ClinicDirectory();
+
     }
 
     
@@ -88,6 +95,15 @@ public class EcoSystem extends Organization{
 
     public void setTreatDorDirectory(TreatDorDirectory treatDorDirectory) {
         this.treatDorDirectory = treatDorDirectory;
+
+    }
+
+    public ClinicDirectory getClinicDirectory() {
+        return clinicDirectory;
+    }
+
+    public void setClinicDirectory(ClinicDirectory clinicDirectory) {
+        this.clinicDirectory = clinicDirectory;
     }
 	
     

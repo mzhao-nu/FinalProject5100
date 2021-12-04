@@ -23,9 +23,9 @@ public class ClinicDirectory {
         return clinicList;
     }
     
-    public Clinic createClinic(String name, String address, long phoneNum, int zipcode, UserAccount ua){
+    public Clinic createClinic(String name, String address, long phoneNum, String zipcode, UserAccount ua){
         Clinic clinicAdmin = new Clinic();
-        clinicAdmin.setAdress(address);
+        clinicAdmin.setAddress(address);
         clinicAdmin.setName(name);
         clinicAdmin.setPhoneNum(phoneNum);
         clinicAdmin.setUa(ua);
@@ -38,10 +38,10 @@ public class ClinicDirectory {
         clinicList.remove(clinicAdmin);
     }
     
-    public void updateClinic(int id, String name, String address, long phoneNum, int zipcode, UserAccount ua){
+    public void updateClinic(int id, String name, String address, long phoneNum, String zipcode, UserAccount ua){
         for(Clinic clinic :this.getClinicList()){
             if(clinic.getId()==id){
-                clinic.setAdress(address);
+                clinic.setAddress(address);
                 clinic.setName(name);
                 clinic.setPhoneNum(phoneNum);
                 clinic.setUa(ua);

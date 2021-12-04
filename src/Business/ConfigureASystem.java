@@ -6,6 +6,7 @@ import Business.Role.CommonUserRole;
 import Business.Role.PolicemanRole;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccount;
+import Clinic.Admin.ClinicDirectory;
 
 /**
  *
@@ -22,6 +23,8 @@ public class ConfigureASystem {
         //initialize some organizations
         //have some employees 
         //create user account
+        
+        
         
         Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
 
