@@ -3,9 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/91914/OneDrive/Documents/GitHub/Group/FinalProject5100/src/userinterface/Clinic/TreatingJPanel.java</file>
-            <file>file:/C:/Users/91914/OneDrive/Documents/GitHub/Group/FinalProject5100/src/userinterface/CustomerRole/CommonUserJPanel.java</file>
-            <file>file:/C:/Users/91914/OneDrive/Documents/GitHub/Group/FinalProject5100/src/userinterface/CustomerRole/PlaceOrderJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/SystemAdminWorkArea/SystemAdminWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/Reporting/CommonReporting.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Reporting/CommonReporting/Children.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/SystemAdminWorkArea/AddClinicJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Clinic/Treating/TreatDorDirectory.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/ClinicRole/ClinicAdmin.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Clinic/DNAtesting/DnaTester.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/SystemAdminWorkArea/ManageCustomerJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/ClinicRole/DoctorJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/MainJFrame.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Clinic/Admin/Clinic.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Business/EcoSystem.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Reporting/CommonReporting/ChildrenDirectory.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Business/ConfigureASystem.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Business/Role/PrimaryCareDoctorRole.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Business/Role/ParentRole.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/SystemAdminWorkArea/AddCustomerJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Business/DB4OUtil/DB4OUtil.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/SystemAdminWorkArea/ManageClinicJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/Reporting/ParentReporting.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/SystemAdminWorkArea/ModifyCustomerJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Clinic/Admin/ClinicDirectory.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/ClinicRole/DetailsJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Clinic/Treating/TreatmentDoctors.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Clinic/DNAtesting/DnaTestingDirectory.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/SystemAdminWorkArea/ManageDeliveryManJPanel.java</file>
         </group>
     </open-files>
 </project-private>

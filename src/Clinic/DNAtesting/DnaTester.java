@@ -5,6 +5,8 @@
  */
 package Clinic.DNAtesting;
 
+import Clinic.Admin.Clinic;
+
 /**
  *
  * @author gyt
@@ -15,6 +17,7 @@ public class DnaTester {
     private int id;
     private static int count =1;
     private long phoneNum;
+    private Clinic clinic;
 
     public DnaTester() {
         id = count;
@@ -47,6 +50,14 @@ public class DnaTester {
 
     public void setPhoneNum(long phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public Clinic getClinic() {
+        return clinic;
+    }
+
+    public void setClinic(Clinic clinic) {
+        this.clinic = clinic;
     }
     
     

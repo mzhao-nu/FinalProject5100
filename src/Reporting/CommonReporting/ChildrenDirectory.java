@@ -28,11 +28,12 @@ public class ChildrenDirectory {
         return childrenDirectory;
     }
 
-    public void setCommonReportDirectory(ArrayList<Children> childrenDirectory) {
+    public void setChildrenDirectory(ArrayList<Children> childrenDirectory) {
         this.childrenDirectory = childrenDirectory;
     }
     
-    public Children createCommonReport(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String wearing){
+    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String wearing){
+
         Children children = new Children();
         children.setName(name);
         children.setApproxAge(approxAge);
@@ -57,16 +58,25 @@ public class ChildrenDirectory {
         return children;
     }
     
-    public void deleteDeliveryMan(Children d){
+
+    public void deleteChildren(Children d){
         childrenDirectory.remove(d);
     }
     
-    public Children getCommonReport(String name){
+    public Children getChildren(int id){
         for(Children d: childrenDirectory){
-            if(d.getName().equals(name)){
+            if(d.getId()==id){
+
                 return d;
             }
         }
         return null;
     }
+
+    
+    public void addMedicalAdvice(String medcialAdvice, Children c){
+        c.setMedicalAdvice(medcialAdvice);
+        c.setStatus("treated");
+    }
+
 }
