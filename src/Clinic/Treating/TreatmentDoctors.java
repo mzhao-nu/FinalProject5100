@@ -6,6 +6,7 @@
 package Clinic.Treating;
 
 import Business.UserAccount.UserAccount;
+import Clinic.Admin.Clinic;
 
 /**
  *
@@ -17,7 +18,7 @@ public class TreatmentDoctors {
     private String name;
     private int age;
     private long phoneNum;
-    private String positon;
+    private Clinic clinic;
     private UserAccount ua;
 
     public TreatmentDoctors() {
@@ -61,13 +62,15 @@ public class TreatmentDoctors {
         this.phoneNum = phoneNum;
     }
 
-    public String getPositon() {
-        return positon;
+    public Clinic getClinic() {
+        return clinic;
     }
 
-    public void setPositon(String positon) {
-        this.positon = positon;
+    public void setClinic(Clinic clinic) {
+        this.clinic = clinic;
     }
+
+    
     
     
 }
