@@ -7,9 +7,7 @@ package Business;
 
 
 import Actions.PoliceDepartment.Police.PolicemanDirectory;
-import Business.Order.OrderDirectory;
-import Business.Restaurant.Menu;
-import Business.Restaurant.RestaurantDirectory;
+import Actions.Shelter.Admin.ShelterDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Clinic.Admin.ClinicDirectory;
@@ -28,6 +26,7 @@ public class EcoSystem extends Organization{
     private PolicemanDirectory policemanDirectory;
     private TreatDorDirectory treatDorDirectory;
     private ClinicDirectory clinicDirectory;
+    private ShelterDirectory shelterDirectory;
 
 
     public EcoSystem(PolicemanDirectory policemanDirectory) {
@@ -56,7 +55,7 @@ public class EcoSystem extends Organization{
         policemanDirectory = new PolicemanDirectory();
         treatDorDirectory = new TreatDorDirectory();
         clinicDirectory = new ClinicDirectory();
-
+        shelterDirectory = new ShelterDirectory();
     }
 
     
@@ -104,6 +103,14 @@ public class EcoSystem extends Organization{
 
     public void setClinicDirectory(ClinicDirectory clinicDirectory) {
         this.clinicDirectory = clinicDirectory;
+    }
+
+    public ShelterDirectory getShelterDirectory() {
+        return shelterDirectory;
+    }
+
+    public void setShelterDirectory(ShelterDirectory shelterDirectory) {
+        this.shelterDirectory = shelterDirectory;
     }
 	
     
