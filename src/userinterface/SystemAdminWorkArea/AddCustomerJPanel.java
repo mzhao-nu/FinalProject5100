@@ -7,7 +7,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Role.CommonUserRole;
-import Business.Role.PolicemanRole;
+import Business.Role.PoliceAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -195,7 +195,7 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
             int id = 1;
             ecoSystem.getPolicemanDirectory().createPoliceman(name, id, gender, Integer.valueOf(age), username, password);
             Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
-            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new PolicemanRole());
+            ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new PoliceAdminRole());
             JOptionPane.showMessageDialog(this, "New policeman added successfully");
 
 //            ecoSystem.getCustomerDirectory().createCustomer(name, phone, address, username, password);

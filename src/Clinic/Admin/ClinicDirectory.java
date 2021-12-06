@@ -23,13 +23,15 @@ public class ClinicDirectory {
         return clinicList;
     }
     
-    public Clinic createClinic(String name, String address, long phoneNum, String zipcode, UserAccount ua){
+    public Clinic createClinic(String name, String address, long phoneNum, String zipcode, UserAccount ua, String username, String password){
         Clinic clinicAdmin = new Clinic();
         clinicAdmin.setAddress(address);
         clinicAdmin.setName(name);
         clinicAdmin.setPhoneNum(phoneNum);
         clinicAdmin.setUa(ua);
         clinicAdmin.setZipcode(zipcode);
+        clinicAdmin.setUsername(username);
+        clinicAdmin.setPassword(password);
         clinicList.add(clinicAdmin);
         return clinicAdmin;
     }

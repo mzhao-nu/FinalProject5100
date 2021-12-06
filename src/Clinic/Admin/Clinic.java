@@ -18,6 +18,8 @@ public class Clinic {
     private long phoneNum;
     private String zipcode;
     private int id;
+    private String username;
+    private String password;
     private static int count =1;
 
     public Clinic() {
@@ -68,6 +70,30 @@ public class Clinic {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Clinic.count = count;
     }
     
     

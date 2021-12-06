@@ -49,7 +49,7 @@ public class ParentReporting extends javax.swing.JPanel {
         Sex = new javax.swing.JLabel();
         race = new javax.swing.JLabel();
         HairColor = new javax.swing.JLabel();
-        txtname = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         txtMissingSince = new javax.swing.JTextField();
         txtDOB = new javax.swing.JTextField();
         txtAgeNow = new javax.swing.JTextField();
@@ -67,7 +67,7 @@ public class ParentReporting extends javax.swing.JPanel {
         Height = new javax.swing.JLabel();
         Weight = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 153, 153));
+        setBackground(new java.awt.Color(204, 204, 204));
         setForeground(new java.awt.Color(255, 153, 153));
         setPreferredSize(new java.awt.Dimension(1000, 733));
 
@@ -164,7 +164,7 @@ public class ParentReporting extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(145, 145, 145)
-                                        .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(MissingSince, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(145, 145, 145)
@@ -215,7 +215,7 @@ public class ParentReporting extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -273,13 +273,13 @@ public class ParentReporting extends javax.swing.JPanel {
     private void SubmitMissingReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitMissingReportActionPerformed
     // TODO add your handling code here:
     try{
-    if(txtname.getText().equals("") || txtRace.getText().equals("") || txtMissingSince.getText().equals("") || txtAgeNow.getText().equals("") || txtHairColor.getText().equals("") || txtDOB.getText().equals("")
+    if(txtName.getText().equals("") || txtRace.getText().equals("") || txtMissingSince.getText().equals("") || txtAgeNow.getText().equals("") || txtHairColor.getText().equals("") || txtDOB.getText().equals("")
                 || txtSex.getText().equals("") || txtMissingFrom.getText().equals("") || txtEyeColor.getText().equals("") || txtHeight.getText().equals("") || txtWeight.getText().equals("") )
              {
                  JOptionPane.showMessageDialog(null, "Please fill complete information");
              }
     else{
-        String name=txtname.getText();
+        String name=txtName.getText();
         String race=txtRace.getText();
         String missingSince=txtMissingSince.getText();
         String ageNow=txtAgeNow.getText();
@@ -308,7 +308,7 @@ public class ParentReporting extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "New Missing Report Submit.");
         
-        txtname.setText("");
+        txtName.setText("");
         txtRace.setText("");
         txtMissingSince.setText("");
         txtAgeNow.setText("");
@@ -397,9 +397,9 @@ public class ParentReporting extends javax.swing.JPanel {
     private javax.swing.JTextField txtHeight;
     private javax.swing.JTextField txtMissingFrom;
     private javax.swing.JTextField txtMissingSince;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtRace;
     private javax.swing.JTextField txtSex;
     private javax.swing.JTextField txtWeight;
-    private javax.swing.JTextField txtname;
     // End of variables declaration//GEN-END:variables
 }

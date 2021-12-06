@@ -31,13 +31,15 @@ public class ShelterDirectory {
         return s;
     }
     
-    public Shelter createShelter(UserAccount ua, String shelterName, int zipcode, String address, long phoneNum){
+    public Shelter createShelter(UserAccount ua, String shelterName, int zipcode, String address, long phoneNum, String username, String password){
         Shelter s = new Shelter();
         s.setUa(ua);
         s.setShelterName(shelterName);
         s.setZipcode(zipcode);
         s.setAddress(address);
         s.setPhoneNum(phoneNum);
+        s.setUsername(username);
+        s.setPassword(password);
         shelterDir.add(s);
         return s;
     }

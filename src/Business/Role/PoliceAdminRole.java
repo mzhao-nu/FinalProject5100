@@ -14,7 +14,7 @@ import userinterface.Police.PoliceAdminJPanel;
  *
  * @author harold
  */
-public class PolicemanRole extends Role {
+public class PoliceAdminRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {

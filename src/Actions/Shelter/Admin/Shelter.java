@@ -15,10 +15,12 @@ public class Shelter {
     int zipcode;
     String address;
     long phoneNum;
-    ShelterDirectory employeeDir;
+    ShelterDirectory shelterDir;
+    String username;
+    String password;
 
     public Shelter(){
-        this.employeeDir = new ShelterDirectory();
+        this.shelterDir = new ShelterDirectory();
     }
     
     public UserAccount getUa() {
@@ -59,6 +61,30 @@ public class Shelter {
 
     public void setPhoneNum(long phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public ShelterDirectory getShelterDir() {
+        return shelterDir;
+    }
+
+    public void setShelterDir(ShelterDirectory shelterDir) {
+        this.shelterDir = shelterDir;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     

@@ -16,17 +16,17 @@ import javax.swing.border.LineBorder;
  *
  * @author gyt
  */
-public class ClinicAdmin extends javax.swing.JPanel {
+public class ClinicAdminJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ClinicAdmin
+     * Creates new form ClinicAdminJPanel
      */
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem;
     private UserAccount userAccount;
     private Clinic clinic;
     
-    public ClinicAdmin(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem) {
+    public ClinicAdminJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem) {
         initComponents();
         this.ecoSystem = ecoSystem;
         this.userAccount = account;
@@ -75,6 +75,11 @@ public class ClinicAdmin extends javax.swing.JPanel {
         btnDNATester.setText("Manage DNA Testers");
 
         btnInfo.setText("Manage Information");
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -108,6 +113,10 @@ public class ClinicAdmin extends javax.swing.JPanel {
     private void btnDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDoctorsActionPerformed
+
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInfoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
