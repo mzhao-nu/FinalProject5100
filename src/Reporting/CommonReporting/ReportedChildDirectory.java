@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
  */
 package Reporting.CommonReporting;
+import java.awt.Image;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -27,7 +28,7 @@ public class ReportedChildDirectory {
         this.reportedChildDirectory = reportedChildDirectory;
     }
     
-    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id){
+    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id, Image childImage){
 
         Children children = new Children();
         children.setName(name);
@@ -50,6 +51,7 @@ public class ReportedChildDirectory {
         children.setWeight(weight);     
         children.setDob(dob);
         children.setId(id);
+        children.setChildImage(childImage);
         children.setStatus("Information Submitted");
         reportedChildDirectory.add(children);
         return children;

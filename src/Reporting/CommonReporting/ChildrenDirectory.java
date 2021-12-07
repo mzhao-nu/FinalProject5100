@@ -5,6 +5,7 @@
  */
 package Reporting.CommonReporting;
 
+import java.awt.Image;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class ChildrenDirectory {
         this.childrenDirectory = childrenDirectory;
     }
     
-    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id){
+    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id, Image childImage){
 
         Children children = new Children();
         children.setName(name);
@@ -55,6 +56,7 @@ public class ChildrenDirectory {
         children.setWeight(weight);     
         children.setDob(dob);
         children.setId(id);
+        children.setChildImage(childImage);
         children.setStatus("Information Submitted");
         childrenDirectory.add(children);
         return children;

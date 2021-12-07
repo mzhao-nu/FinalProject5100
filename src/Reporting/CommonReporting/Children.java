@@ -32,12 +32,21 @@ public class Children {
     private String reporter;
     private String reporterType;
     private String missingDate;
+    private Image childImage;
             
     private String medicalAdvice;
     private Shelter shelter;
     private String injury;
     private ImageIcon photo;
     private static int count =1;
+
+    public Image getChildImage() {
+        return childImage;
+    }
+
+    public void setChildImage(Image childImage) {
+        this.childImage = childImage;
+    }
     
 
     public Children() {
