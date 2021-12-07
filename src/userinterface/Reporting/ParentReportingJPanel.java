@@ -10,6 +10,7 @@ import Business.Role.ParentRole;
 import Business.UserAccount.UserAccount;
 import Reporting.CommonReporting.Children;
 import Reporting.CommonReporting.ChildrenDirectory;
+import Reporting.CommonReporting.ReportedChildDirectory;
 import Reporting.Parent.ParentDirectory;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -25,6 +26,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private ChildrenDirectory childrenDirectory;
     private ParentDirectory parentDirectory;
+    private ReportedChildDirectory reportedChildDirectory;
     
     /**
      * Creates new form ParentReportingJPanel
@@ -34,6 +36,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         this.childrenDirectory = ecoSystem.getChildrenDirectory();
         this.parentDirectory = ecoSystem.getParentDirectory();
+        this.reportedChildDirectory = ecoSystem.getReportedChildDirectory();
     }
 
     /**
@@ -353,8 +356,9 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             String id = String.format("%05d", num); 
             
             // Add Child Data
-            childrenDirectory.createChildren(name, missingDate, missingPlace, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id);
-          
+            Children c = reportedChildDirectory.createChildren(name, missingDate, missingPlace, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id);
+            c.setReportBy(parentName);
+            
             // Add Parent Data
             // If user account is not created yet, then create one; otherwise just linke the child data with the parent
             if (!parentDirectory.containsParent(parentUsername)){

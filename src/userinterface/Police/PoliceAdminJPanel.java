@@ -47,27 +47,19 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
     }
 
     public void populateTable(){
-//        DefaultTableModel model = (DefaultTableModel)tableOrders.getModel();
-//        model.setRowCount(0);
-//        
-//        for(Order order : orderDirectory.getOrderDirectory()){
-//            if(order.getRestaurant().getUsername().equals(userAccount.getUsername())) {
-//                Object [] row = new Object[5];
-//                row[0] = order;
-//                row[1] = order.getCustomer().getName();
-//                
-//                String items = "";
-//                for (Item key : order.getItems().keySet()){
-//                    items += key.getName();
-//                    items += ",";
-//                }
-//                row[2] = items.substring(0, items.length() - 1);
-//                row[3] = order.getPrice();
-//                row[4] = order.getStatus();
-//                
-//                model.addRow(row);
-//            }
-//        }
+        DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
+        model.setRowCount(0);
+        
+        for(Children c : childrenDirectory.getChildrenDirectory()){
+            Object [] row = new Object[6];
+            row[0] = c.getId();
+            row[1] = c;
+            row[2] = c.getApproxAge();
+            row[3] = c.getSex();
+            row[4] = c.getRace();
+            row[5] = c.getStatus();
+            model.addRow(row);
+        }
     }
     
     public void populateComboBox() {

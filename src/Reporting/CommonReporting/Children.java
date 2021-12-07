@@ -29,6 +29,8 @@ public class Children {
     private String weight;
     private String status;
     private String id;
+    private String reportBy;
+    private String missingDate;
             
     private String medicalAdvice;
     private Shelter shelter;
@@ -187,13 +189,6 @@ public class Children {
     public static void setCount(int count) {
         Children.count = count;
     }
-
-    @Override
-    public String toString() {
-        return name;
-    }
-    
-    private String reportBy;
     
     public String getReportBy() {
         return reportBy;
@@ -202,4 +197,21 @@ public class Children {
     public void setReportBy(String reportBy) {
         this.reportBy = reportBy;
     }
+
+    public String getMissingDate() {
+        return missingDate;
+    }
+
+    public void setMissingDate(String missingDate) {
+        this.missingDate = missingDate;
+    }
+    
+    
+    
+    @Override
+    public String toString() {
+        return name;
+    }
+    
+
 }
