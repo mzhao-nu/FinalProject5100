@@ -18,7 +18,8 @@ import javax.swing.ImageIcon;
 public class Children {
     private String name;
     private Date foundDate;
-    private String foundLocaion;
+    private String foundLocation;
+    private String dob;
     private int approxAge;
     private String sex;
     private String race;
@@ -26,21 +27,19 @@ public class Children {
     private String eyeColor;
     private String height;
     private String weight;
-    private String wearing;
     private String status;
+    private String id;
+    
     private String medicalAdvice;
     private Shelter shelter;
     private String injury;
     private ImageIcon photo;
-    private int id;
     private static int count =1;
     
 
     public Children() {
-        id = count;
-        count++;
+        
     }
-
 
     public ImageIcon getPhoto() {
         return photo;
@@ -76,11 +75,14 @@ public class Children {
     public void setMedicalAdvice(String medicalAdvice) {
         this.medicalAdvice = medicalAdvice;
     }    
-    
-    public int getId() {
+
+    public String getId() {
         return id;
     }
-    
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getStatus() {
         return status;
@@ -98,12 +100,12 @@ public class Children {
         this.foundDate = foundDate;
     }
 
-    public String getFoundLocaion() {
-        return foundLocaion;
+    public String getFoundLocation() {
+        return foundLocation;
     }
 
-    public void setFoundLocaion(String foundLocaion) {
-        this.foundLocaion = foundLocaion;
+    public void setFoundLocation(String foundLocaion) {
+        this.foundLocation = foundLocaion;
     }
 
     public int getApproxAge() {
@@ -161,15 +163,6 @@ public class Children {
     public void setWeight(String weight) {
         this.weight = weight;
     }
-
-    public String getWearing() {
-        return wearing;
-    }
-
-    public void setWearing(String wearing) {
-        this.wearing = wearing;
-    }
-    
     
     public String getName() {
         return name;
@@ -177,6 +170,22 @@ public class Children {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Children.count = count;
     }
 
     @Override

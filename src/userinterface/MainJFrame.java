@@ -8,7 +8,9 @@ import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import Business.Employee.Employee;
 import Business.Role.ClinicAdminRole;
+import Business.Role.ParentRole;
 import Business.Role.PoliceAdminRole;
+import static Business.Role.Role.RoleType.Parent;
 import Business.Role.ShelterAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -18,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import userinterface.Reporting.ParentReportingJPanel;
 
 /**
  *
@@ -126,6 +129,11 @@ public class MainJFrame extends javax.swing.JFrame {
         reportJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         reportJButton.setForeground(new java.awt.Color(255, 204, 0));
         reportJButton.setText("Report Missing Child");
+        reportJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportJButtonActionPerformed(evt);
+            }
+        });
 
         registerJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         registerJButton.setForeground(new java.awt.Color(255, 204, 0));
@@ -272,6 +280,17 @@ public class MainJFrame extends javax.swing.JFrame {
     private void registerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerJButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registerJButtonActionPerformed
+
+    private void reportJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportJButtonActionPerformed
+//        ParentReportingJPanel prjp = new ParentReportingJPanel(userProcessContainer, ecoSystem);
+//        userProcessContainer.add("ViewReportingsJPanel", view);
+//        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
+          ParentReportingJPanel prjp = new ParentReportingJPanel(system);
+          CardLayout layout = (CardLayout)container.getLayout();
+          container.add("workArea", prjp);
+          layout.next(container);
+    }//GEN-LAST:event_reportJButtonActionPerformed
 
     /**
      * @param args the command line arguments
