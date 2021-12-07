@@ -49,7 +49,7 @@ public class ParentReporting extends javax.swing.JPanel {
         Sex = new javax.swing.JLabel();
         race = new javax.swing.JLabel();
         HairColor = new javax.swing.JLabel();
-        txtname = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         txtMissingSince = new javax.swing.JTextField();
         txtDOB = new javax.swing.JTextField();
         txtAgeNow = new javax.swing.JTextField();
@@ -67,41 +67,41 @@ public class ParentReporting extends javax.swing.JPanel {
         Height = new javax.swing.JLabel();
         Weight = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 153, 153));
+        setBackground(new java.awt.Color(204, 204, 204));
         setForeground(new java.awt.Color(255, 153, 153));
         setPreferredSize(new java.awt.Dimension(1000, 733));
 
-        Header.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        Header.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Header.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Header.setText("Report a missing child");
 
-        Name.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        Name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         Name.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Name.setText("Name");
+        Name.setText("Name:");
 
-        MissingSince.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        MissingSince.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         MissingSince.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        MissingSince.setText("Missing Since");
+        MissingSince.setText("Missing Since:");
 
-        doB.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        doB.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         doB.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        doB.setText("Date fo Birth");
+        doB.setText("Date of Birth:");
 
-        ageNow.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        ageNow.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         ageNow.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        ageNow.setText("Age Now");
+        ageNow.setText("Age:");
 
-        Sex.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        Sex.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         Sex.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Sex.setText("Sex");
+        Sex.setText("Sex:");
 
-        race.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        race.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         race.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        race.setText("Race");
+        race.setText("Race:");
 
-        HairColor.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        HairColor.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         HairColor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        HairColor.setText("Hair color");
+        HairColor.setText("Hair color:");
 
         SubmitMissingReport.setBackground(new java.awt.Color(204, 204, 255));
         SubmitMissingReport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -112,9 +112,9 @@ public class ParentReporting extends javax.swing.JPanel {
             }
         });
 
-        MissingFrom.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        MissingFrom.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         MissingFrom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        MissingFrom.setText("Missing From");
+        MissingFrom.setText("Missing Place:");
 
         btnImport.setBackground(new java.awt.Color(204, 204, 255));
         btnImport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -125,30 +125,35 @@ public class ParentReporting extends javax.swing.JPanel {
             }
         });
 
-        EyeColor.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        EyeColor.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         EyeColor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        EyeColor.setText("Eye Color");
+        EyeColor.setText("Eye Color:");
 
-        Height.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        Height.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         Height.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Height.setText("Height");
+        Height.setText("Height:");
 
-        Weight.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        Weight.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         Weight.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Weight.setText("Weight");
+        Weight.setText("Weight:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(302, 302, 302))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
+                        .addContainerGap()
+                        .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(524, 524, 524)
+                        .addComponent(SubmitMissingReport, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(HairColor, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,7 +169,7 @@ public class ParentReporting extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(145, 145, 145)
-                                        .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(MissingSince, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(145, 145, 145)
@@ -196,13 +201,7 @@ public class ParentReporting extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Height, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(145, 145, 145)
-                                        .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(498, 498, 498)
-                        .addComponent(SubmitMissingReport, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -210,12 +209,12 @@ public class ParentReporting extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -260,9 +259,9 @@ public class ParentReporting extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Weight, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(44, 44, 44)
                 .addComponent(SubmitMissingReport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -273,13 +272,13 @@ public class ParentReporting extends javax.swing.JPanel {
     private void SubmitMissingReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitMissingReportActionPerformed
     // TODO add your handling code here:
     try{
-    if(txtname.getText().equals("") || txtRace.getText().equals("") || txtMissingSince.getText().equals("") || txtAgeNow.getText().equals("") || txtHairColor.getText().equals("") || txtDOB.getText().equals("")
+    if(txtName.getText().equals("") || txtRace.getText().equals("") || txtMissingSince.getText().equals("") || txtAgeNow.getText().equals("") || txtHairColor.getText().equals("") || txtDOB.getText().equals("")
                 || txtSex.getText().equals("") || txtMissingFrom.getText().equals("") || txtEyeColor.getText().equals("") || txtHeight.getText().equals("") || txtWeight.getText().equals("") )
              {
                  JOptionPane.showMessageDialog(null, "Please fill complete information");
              }
     else{
-        String name=txtname.getText();
+        String name=txtName.getText();
         String race=txtRace.getText();
         String missingSince=txtMissingSince.getText();
         String ageNow=txtAgeNow.getText();
@@ -308,7 +307,7 @@ public class ParentReporting extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "New Missing Report Submit.");
         
-        txtname.setText("");
+        txtName.setText("");
         txtRace.setText("");
         txtMissingSince.setText("");
         txtAgeNow.setText("");
@@ -397,9 +396,9 @@ public class ParentReporting extends javax.swing.JPanel {
     private javax.swing.JTextField txtHeight;
     private javax.swing.JTextField txtMissingFrom;
     private javax.swing.JTextField txtMissingSince;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtRace;
     private javax.swing.JTextField txtSex;
     private javax.swing.JTextField txtWeight;
-    private javax.swing.JTextField txtname;
     // End of variables declaration//GEN-END:variables
 }

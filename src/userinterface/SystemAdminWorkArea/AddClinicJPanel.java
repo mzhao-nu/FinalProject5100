@@ -222,7 +222,7 @@ public class AddClinicJPanel extends javax.swing.JPanel {
             long phoneNum = Long.valueOf(phone);
             Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
             UserAccount ua =ecoSystem.getUserAccountDirectory().createUserAccount(username, password, employee, new ClinicAdminRole());
-            ecoSystem.getClinicDirectory().createClinic(name, address, phoneNum, zipcode, ua);
+            ecoSystem.getClinicDirectory().createClinic(name, address, phoneNum, zipcode, ua, username, password);
             JOptionPane.showMessageDialog(this, "New clinic added successfully");
             
             txtName.setText("");

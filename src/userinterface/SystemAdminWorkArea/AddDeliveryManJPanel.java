@@ -6,7 +6,7 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
 import Business.Employee.Employee;
-import Business.Role.PolicemanRole;
+import Business.Role.PoliceAdminRole;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;

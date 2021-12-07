@@ -16,7 +16,6 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import userinterface.Police.ManageMenuJPanel;
 
 /**
  *
@@ -45,24 +44,14 @@ public class PlaceOrderJPanel extends javax.swing.JPanel {
     public void populateComboBox() {
         comboBoxSearch.removeAllItems();
         comboBoxSearch.addItem("-Select One-");
-      /*  for(Restaurant r : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()) {
-            comboBoxSearch.addItem(r.getName());
-        }*/
+
     }
     
     public void populateMenuTable(){
         DefaultTableModel model = (DefaultTableModel) tableMenu.getModel();
         model.setRowCount(0);
         String restaurantName = comboBoxSearch.getSelectedItem().toString();
-        
-       /* for(Item item : ecoSystem.getMenuDirectory().getMenuDirectory()){
-            if(restaurantName.equals(item.getRestaurant())) {
-                Object [] row = new Object[2];
-                row[0] = item;
-                row[1] = item.getPrice();
-                model.addRow(row);
-            }
-        }*/
+
     }
     
     public void populateCartTable(){

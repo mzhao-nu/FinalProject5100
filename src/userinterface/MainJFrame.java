@@ -6,6 +6,12 @@ package userinterface;
 
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
+import Business.Employee.Employee;
+import Business.Role.ClinicAdminRole;
+import Business.Role.ParentRole;
+import Business.Role.PoliceAdminRole;
+import static Business.Role.Role.RoleType.Parent;
+import Business.Role.ShelterAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -14,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import userinterface.Reporting.ParentReportingJPanel;
 
 /**
  *
@@ -38,8 +45,28 @@ public class MainJFrame extends javax.swing.JFrame {
         registerJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         reportJButton.setBorder(new LineBorder(Color.ORANGE, 2));
         reportJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
+        
+        initAdminRoles();
     }
 
+    public void initAdminRoles(){
+        //Add Police Admin
+        system.getPolicemanDirectory().createPoliceman("Police Admin", 1, "Male", 40, "policeadmin", "policeadmin");
+        Employee policeAdmin = system.getEmployeeDirectory().createEmployee("Police Admin");
+        system.getUserAccountDirectory().createUserAccount("policeadmin", "policeadmin", policeAdmin, new PoliceAdminRole());
+        
+        // Add Shelter Admin
+        Employee shelterAdmin = system.getEmployeeDirectory().createEmployee("Shelter Admin");
+        UserAccount shelter = system.getUserAccountDirectory().createUserAccount("shelteradmin", "shelteradmin", shelterAdmin, new ShelterAdminRole());
+        system.getShelterDirectory().createShelter(shelter, "Shelter1", 02115, "360 Huntington Ave, Boston, MA", 1234567890L, "shelteradmin", "shelteradmin");
+
+        // Add Clinic Admin
+        Employee clinicAdmin = system.getEmployeeDirectory().createEmployee("Clinic Admin");
+        UserAccount clinic = system.getUserAccountDirectory().createUserAccount("clinicadmin", "clinicadmin", clinicAdmin, new ClinicAdminRole());
+        system.getClinicDirectory().createClinic("Clinic1", "100 Main St, Boston, MA", 2345678901L, "", clinic, "clinicadmin", "clinicadmin");
+
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,6 +130,11 @@ public class MainJFrame extends javax.swing.JFrame {
         reportJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         reportJButton.setForeground(new java.awt.Color(255, 204, 0));
         reportJButton.setText("Report Missing Child");
+        reportJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportJButtonActionPerformed(evt);
+            }
+        });
 
         registerJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         registerJButton.setForeground(new java.awt.Color(255, 204, 0));
@@ -167,7 +199,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(registerJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(reportJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -186,13 +218,13 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addContainerGap(188, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(132, 132, 132))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
         );
 
         container.add(jPanel2, "card2");
@@ -215,6 +247,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         container.removeAll();
         JPanel blankJP = new JPanel();
+        blankJP = jPanel2;
         container.add("blank", blankJP);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
@@ -248,6 +281,17 @@ public class MainJFrame extends javax.swing.JFrame {
     private void registerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerJButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registerJButtonActionPerformed
+
+    private void reportJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportJButtonActionPerformed
+//        ParentReportingJPanel prjp = new ParentReportingJPanel(userProcessContainer, ecoSystem);
+//        userProcessContainer.add("ViewReportingsJPanel", view);
+//        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
+          ParentReportingJPanel prjp = new ParentReportingJPanel(system);
+          CardLayout layout = (CardLayout)container.getLayout();
+          container.add("workArea", prjp);
+          layout.next(container);
+    }//GEN-LAST:event_reportJButtonActionPerformed
 
     /**
      * @param args the command line arguments

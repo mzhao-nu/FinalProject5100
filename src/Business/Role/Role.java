@@ -18,10 +18,10 @@ import javax.swing.JPanel;
 public abstract class Role {
     
     public enum RoleType{
-//        Parent("Parent"),
+        Parent("Parent"),
 //        CommonUser("Common User"),
         Policeman("Policeman"),
-//        ShelterEmployee("Shelter Employee"),
+        ShelterEmployee("Shelter Employee"),
 //        Volunteer("Volunteer"),
 //        TestingCenterEmployee("Testing Cnter Employee"),
 //        PrimaryCareDoctor("Primary Care Doctor"),

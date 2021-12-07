@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
  */
 package Actions.Shelter.Admin;
-
-import Actions.Shelter.ShelterEmployee.ShelterEmployeeDirectory;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -17,10 +15,12 @@ public class Shelter {
     int zipcode;
     String address;
     long phoneNum;
-    ShelterEmployeeDirectory employeeDir;
+    ShelterDirectory shelterDir;
+    String username;
+    String password;
 
     public Shelter(){
-        this.employeeDir = new ShelterEmployeeDirectory();
+        this.shelterDir = new ShelterDirectory();
     }
     
     public UserAccount getUa() {
@@ -63,12 +63,29 @@ public class Shelter {
         this.phoneNum = phoneNum;
     }
 
-    public ShelterEmployeeDirectory getEmployeeDir() {
-        return employeeDir;
+    public ShelterDirectory getShelterDir() {
+        return shelterDir;
     }
 
-    public void setEmployeeDir(ShelterEmployeeDirectory employeeDir) {
-        this.employeeDir = employeeDir;
+    public void setShelterDir(ShelterDirectory shelterDir) {
+        this.shelterDir = shelterDir;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     
 }

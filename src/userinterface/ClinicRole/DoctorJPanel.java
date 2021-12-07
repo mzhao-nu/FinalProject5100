@@ -185,7 +185,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
         if(item.equals("ID")){
             int id =Integer.parseInt(txtSearch.getText());
             for(Children c : ecoSystem.getChildrenDirectory().getChildrenDirectory()){
-                if(c.getId()==id){
+                if(c.getId().equals(txtSearch.getText())){
                 selectedc.add(c);
                 }
             }

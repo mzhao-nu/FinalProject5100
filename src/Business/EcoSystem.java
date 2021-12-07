@@ -7,14 +7,14 @@ package Business;
 
 
 import Actions.PoliceDepartment.Police.PolicemanDirectory;
-import Business.Order.OrderDirectory;
-import Business.Restaurant.Menu;
-import Business.Restaurant.RestaurantDirectory;
+import Actions.Shelter.Admin.ShelterDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Clinic.Admin.ClinicDirectory;
 import Clinic.Treating.TreatDorDirectory;
 import Reporting.CommonReporting.ChildrenDirectory;
+import Reporting.CommonReporting.ReportedChildDirectory;
+import Reporting.Parent.ParentDirectory;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +28,9 @@ public class EcoSystem extends Organization{
     private PolicemanDirectory policemanDirectory;
     private TreatDorDirectory treatDorDirectory;
     private ClinicDirectory clinicDirectory;
-
+    private ShelterDirectory shelterDirectory;
+    private ParentDirectory parentDirectory;
+    private ReportedChildDirectory reportedChildDirectory;
 
     public EcoSystem(PolicemanDirectory policemanDirectory) {
         this.policemanDirectory = policemanDirectory;
@@ -56,7 +58,9 @@ public class EcoSystem extends Organization{
         policemanDirectory = new PolicemanDirectory();
         treatDorDirectory = new TreatDorDirectory();
         clinicDirectory = new ClinicDirectory();
-
+        shelterDirectory = new ShelterDirectory();
+        parentDirectory = new ParentDirectory();
+        reportedChildDirectory = new ReportedChildDirectory();
     }
 
     
@@ -104,6 +108,30 @@ public class EcoSystem extends Organization{
 
     public void setClinicDirectory(ClinicDirectory clinicDirectory) {
         this.clinicDirectory = clinicDirectory;
+    }
+
+    public ShelterDirectory getShelterDirectory() {
+        return shelterDirectory;
+    }
+
+    public void setShelterDirectory(ShelterDirectory shelterDirectory) {
+        this.shelterDirectory = shelterDirectory;
+    }
+
+    public ParentDirectory getParentDirectory() {
+        return parentDirectory;
+    }
+
+    public void setParentDirectory(ParentDirectory parentDirectory) {
+        this.parentDirectory = parentDirectory;
+    }
+
+    public ReportedChildDirectory getReportedChildDirectory() {
+        return reportedChildDirectory;
+    }
+
+    public void setReportedChildDirectory(ReportedChildDirectory reportedChildDirectory) {
+        this.reportedChildDirectory = reportedChildDirectory;
     }
 	
     

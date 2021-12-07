@@ -5,6 +5,7 @@
  */
 package Reporting.CommonReporting;
 
+import java.awt.Image;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class ChildrenDirectory {
         this.childrenDirectory = childrenDirectory;
     }
     
-    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String wearing){
+    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id, Image childImage){
 
         Children children = new Children();
         children.setName(name);
@@ -46,14 +47,17 @@ public class ChildrenDirectory {
             
         }
         children.setFoundDate(date);
-        children.setFoundLocaion(foundLocaion);
+        children.setFoundLocation(foundLocaion);
         children.setHairColor(hairColor);
         children.setHeight(height);
         children.setName(name);
         children.setRace(race);
         children.setSex(sex);
-        children.setWearing(wearing);
-        children.setWeight(weight);                
+        children.setWeight(weight);     
+        children.setDob(dob);
+        children.setId(id);
+        children.setChildImage(childImage);
+        children.setStatus("Information Submitted");
         childrenDirectory.add(children);
         return children;
     }
@@ -65,14 +69,12 @@ public class ChildrenDirectory {
     
     public Children getChildren(int id){
         for(Children d: childrenDirectory){
-            if(d.getId()==id){
-
+            if(d.getId().equals(id)){
                 return d;
             }
         }
         return null;
     }
-
     
     public void addMedicalAdvice(String medcialAdvice, Children c){
         c.setMedicalAdvice(medcialAdvice);

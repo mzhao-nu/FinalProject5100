@@ -11,6 +11,8 @@ import Business.Restaurant.Item;
 import Business.Restaurant.Menu;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
+import Reporting.CommonReporting.Children;
+import Reporting.CommonReporting.ChildrenDirectory;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -24,10 +26,9 @@ import javax.swing.table.DefaultTableModel;
 public class PoliceAdminJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem; 
-    private Menu menuDirectory;
     private UserAccount userAccount;
-    private OrderDirectory orderDirectory;
-    private RestaurantDirectory restaurantDirectory;
+    private ChildrenDirectory childrenDirectory;
+
     /**
      * Creates new form ManageOrdersJPanel
      */
@@ -36,12 +37,13 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         this.userAccount = userAccount;
-
-        populateTable();
-        populateComboBox();
+        this.childrenDirectory = ecoSystem.getChildrenDirectory();
         
-        tableChildren.getTableHeader().setOpaque(false);
-        tableChildren.getTableHeader().setBackground(Color.ORANGE);
+        populateTable();
+//        populateComboBox();
+//        
+//        tableChildren.getTableHeader().setOpaque(false);
+//        tableChildren.getTableHeader().setBackground(Color.ORANGE);
     }
 
     public void populateTable(){
@@ -86,14 +88,13 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableChildren = new javax.swing.JTable();
-        btnAccept = new javax.swing.JButton();
-        btnDecline = new javax.swing.JButton();
-        btnFinished = new javax.swing.JButton();
+        btnUpdateStatus = new javax.swing.JButton();
+        btnViewDetails = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        btnViewReporting = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(null);
@@ -101,27 +102,18 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Police Admin Missing Children Database");
         add(jLabel1);
-        jLabel1.setBounds(200, 50, 480, 40);
-
-        btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack);
-        btnBack.setBounds(708, 46, 93, 29);
+        jLabel1.setBounds(190, 50, 480, 40);
 
         tableChildren.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Name", "Approx. Age", "Sex", "Race", "Found Date", "Found Location"
+                "ID", "Name", "Age", "Sex", "Race", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -136,41 +128,30 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             tableChildren.getColumnModel().getColumn(3).setResizable(false);
             tableChildren.getColumnModel().getColumn(4).setResizable(false);
             tableChildren.getColumnModel().getColumn(5).setResizable(false);
-            tableChildren.getColumnModel().getColumn(6).setResizable(false);
         }
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(87, 161, 714, 229);
+        jScrollPane2.setBounds(70, 160, 714, 229);
 
-        btnAccept.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        btnAccept.setText("Add Missing Child");
-        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateStatus.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnUpdateStatus.setText("Update Status");
+        btnUpdateStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptActionPerformed(evt);
+                btnUpdateStatusActionPerformed(evt);
             }
         });
-        add(btnAccept);
-        btnAccept.setBounds(141, 406, 168, 29);
+        add(btnUpdateStatus);
+        btnUpdateStatus.setBounds(320, 410, 139, 29);
 
-        btnDecline.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        btnDecline.setText("Update Status");
-        btnDecline.addActionListener(new java.awt.event.ActionListener() {
+        btnViewDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnViewDetails.setText("View Details");
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeclineActionPerformed(evt);
+                btnViewDetailsActionPerformed(evt);
             }
         });
-        add(btnDecline);
-        btnDecline.setBounds(375, 406, 139, 29);
-
-        btnFinished.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        btnFinished.setText("View Details");
-        btnFinished.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinishedActionPerformed(evt);
-            }
-        });
-        add(btnFinished);
-        btnFinished.setBounds(578, 406, 126, 29);
+        add(btnViewDetails);
+        btnViewDetails.setBounds(500, 410, 126, 29);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel2.setText("Search By Name:");
@@ -178,60 +159,56 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         jLabel2.setBounds(270, 110, 112, 17);
         add(jTextField1);
         jTextField1.setBounds(400, 110, 176, 26);
+
+        btnViewReporting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnViewReporting.setText("View Pending Reportings");
+        btnViewReporting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewReportingActionPerformed(evt);
+            }
+        });
+        add(btnViewReporting);
+        btnViewReporting.setBounds(70, 410, 210, 29);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       userProcessContainer.remove(this);
-       CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-       layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+    private void btnUpdateStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateStatusActionPerformed
         int selectedRow = tableChildren.getSelectedRow();
         if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(this,"Please select an order first.");
-            return;
-        }
-        
-        Order order = (Order) tableChildren.getValueAt(selectedRow, 0);
-        order.setStatus("Order Accepted");
-        populateTable();
-    }//GEN-LAST:event_btnAcceptActionPerformed
-
-    private void btnDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclineActionPerformed
-        int selectedRow = tableChildren.getSelectedRow();
-        if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(this,"Please select an order first.");
+            JOptionPane.showMessageDialog(this,"Please select a children first.");
             return;
         }
         
         Order order = (Order) tableChildren.getValueAt(selectedRow, 0);
         order.setStatus("Order Declined");
         populateTable();
-    }//GEN-LAST:event_btnDeclineActionPerformed
+    }//GEN-LAST:event_btnUpdateStatusActionPerformed
 
-    private void btnFinishedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishedActionPerformed
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         int selectedRow = tableChildren.getSelectedRow();
         if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(this,"Please select an order first.");
+            JOptionPane.showMessageDialog(this,"Please select a children first.");
             return;
         }
         
-        Order order = (Order) tableChildren.getValueAt(selectedRow, 0);
-        if (!order.getStatus().equals("Order Accepted")){
-            JOptionPane.showMessageDialog(this, "Invalid choice of order.");
-            return;
-        }
-        order.setStatus("Order Finished Cooking");
-        populateTable();
-    }//GEN-LAST:event_btnFinishedActionPerformed
+        Children child = (Children) tableChildren.getValueAt(selectedRow, 0);
+        PoliceViewDetailsJPanel pvdp = new PoliceViewDetailsJPanel(userProcessContainer, ecoSystem, child);
+        userProcessContainer.add("ViewDetailsJPanel", pvdp);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void btnViewReportingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewReportingActionPerformed
+        PoliceViewReportingJPanel view = new PoliceViewReportingJPanel(userProcessContainer, ecoSystem, childrenDirectory);
+        userProcessContainer.add("ViewReportingsJPanel", view);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewReportingActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccept;
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnDecline;
-    private javax.swing.JButton btnFinished;
+    private javax.swing.JButton btnUpdateStatus;
+    private javax.swing.JButton btnViewDetails;
+    private javax.swing.JButton btnViewReporting;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;

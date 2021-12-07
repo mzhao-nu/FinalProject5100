@@ -67,7 +67,7 @@ public class CommonReporting extends javax.swing.JPanel {
         Height = new javax.swing.JLabel();
         Weight = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 153, 153));
+        setBackground(new java.awt.Color(204, 204, 204));
         setForeground(new java.awt.Color(255, 153, 153));
         setPreferredSize(new java.awt.Dimension(1000, 733));
 
@@ -262,7 +262,7 @@ public class CommonReporting extends javax.swing.JPanel {
                     .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(SubmitMissingReport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

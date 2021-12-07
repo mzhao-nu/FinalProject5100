@@ -8,16 +8,17 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.Shelter.ShelterAdminJPanel;
 
 /**
  *
  * @author gyt
  */
-public class ShelterEmployeeRole extends Role{
+public class ShelterAdminRole extends Role{
 
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+        return new ShelterAdminJPanel(userProcessContainer, system, account);
     }
     
 }
