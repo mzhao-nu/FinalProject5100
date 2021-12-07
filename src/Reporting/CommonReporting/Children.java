@@ -29,6 +29,9 @@ public class Children {
     private String weight;
     private String status;
     private String id;
+    private Image childImage;
+
+
             
     private String medicalAdvice;
     private Shelter shelter;
@@ -186,6 +189,14 @@ public class Children {
 
     public static void setCount(int count) {
         Children.count = count;
+    }
+    
+        public Image getChildImage() {
+        return childImage;
+    }
+
+    public void setChildImage(Image childImage) {
+        this.childImage = childImage;
     }
 
     @Override

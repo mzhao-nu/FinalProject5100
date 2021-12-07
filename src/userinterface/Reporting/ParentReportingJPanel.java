@@ -10,10 +10,16 @@ import Business.Role.ParentRole;
 import Business.UserAccount.UserAccount;
 import Reporting.CommonReporting.Children;
 import Reporting.CommonReporting.ChildrenDirectory;
+import Reporting.CommonReporting.ReportedChildDirectory;
 import Reporting.Parent.ParentDirectory;
+import java.awt.Image;
+import java.io.File;
 import java.util.Random;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -25,6 +31,8 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private ChildrenDirectory childrenDirectory;
     private ParentDirectory parentDirectory;
+    private ReportedChildDirectory reportedChildDirectory;
+    private Children children = new Children();
     
     /**
      * Creates new form ParentReportingJPanel
@@ -34,6 +42,8 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         this.childrenDirectory = ecoSystem.getChildrenDirectory();
         this.parentDirectory = ecoSystem.getParentDirectory();
+        this.reportedChildDirectory = ecoSystem.getReportedChildDirectory();
+      
     }
 
     /**
@@ -70,7 +80,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         txtWeight = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnSubmit = new javax.swing.JButton();
+        btnbrowseImage = new javax.swing.JButton();
         Name1 = new javax.swing.JLabel();
         txtParentName = new javax.swing.JTextField();
         Name2 = new javax.swing.JLabel();
@@ -81,6 +91,8 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         txtParentUsername = new javax.swing.JTextField();
         Name6 = new javax.swing.JLabel();
         txtParentPassword = new javax.swing.JTextField();
+        btnSubmit1 = new javax.swing.JButton();
+        childImage = new javax.swing.JLabel();
 
         MissingFrom.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         MissingFrom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -136,11 +148,11 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Your Info");
 
-        btnSubmit.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        btnSubmit.setText("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+        btnbrowseImage.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnbrowseImage.setText("Upload Image");
+        btnbrowseImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
+                btnbrowseImageActionPerformed(evt);
             }
         });
 
@@ -164,62 +176,18 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         Name6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Name6.setText("Password:");
 
+        btnSubmit1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnSubmit1.setText("Submit");
+        btnSubmit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmit1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Name)
-                    .addComponent(MissingSince)
-                    .addComponent(MissingFrom)
-                    .addComponent(doB)
-                    .addComponent(ageNow, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Sex)
-                    .addComponent(race)
-                    .addComponent(HairColor)
-                    .addComponent(EyeColor)
-                    .addComponent(Height)
-                    .addComponent(Weight))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtHeight)
-                            .addComponent(txtEyeColor)
-                            .addComponent(txtHairColor)
-                            .addComponent(txtRace)
-                            .addComponent(txtSex)
-                            .addComponent(txtAge)
-                            .addComponent(txtDOB)
-                            .addComponent(txtMissingPlace)
-                            .addComponent(txtMissingSince, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Name2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtParentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Name1)
-                        .addGap(96, 96, 96)
-                        .addComponent(txtParentName, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Name3)
-                        .addGap(96, 96, 96)
-                        .addComponent(txtParentEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Name5)
-                            .addComponent(Name6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtParentUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtParentPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(90, 90, 90))
             .addGroup(layout.createSequentialGroup()
                 .addGap(175, 175, 175)
                 .addComponent(jLabel1)
@@ -229,19 +197,80 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Name)
+                                .addComponent(MissingSince)
+                                .addComponent(MissingFrom)
+                                .addComponent(doB)
+                                .addComponent(ageNow, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Sex)
+                                .addComponent(race)
+                                .addComponent(HairColor)
+                                .addComponent(EyeColor)
+                                .addComponent(Height)
+                                .addComponent(Weight))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnbrowseImage)
+                                .addGap(4, 4, 4)))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtHeight)
+                                            .addComponent(txtEyeColor)
+                                            .addComponent(txtHairColor)
+                                            .addComponent(txtRace)
+                                            .addComponent(txtSex)
+                                            .addComponent(txtAge)
+                                            .addComponent(txtDOB)
+                                            .addComponent(txtMissingPlace)
+                                            .addComponent(txtMissingSince, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(122, 122, 122)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(Name2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtParentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(Name1)
+                                            .addGap(96, 96, 96)
+                                            .addComponent(txtParentName, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(Name3)
+                                            .addGap(96, 96, 96)
+                                            .addComponent(txtParentEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Name5)
+                                            .addComponent(Name6))
+                                        .addGap(66, 66, 66)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtParentUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                                            .addComponent(txtParentPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)))))
+                            .addComponent(childImage, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(377, 377, 377)
-                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(228, 228, 228)
+                        .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(387, 387, 387)
+                    .addComponent(btnSubmit1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(393, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -314,14 +343,49 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Name6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtParentPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnbrowseImage, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(childImage, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(615, Short.MAX_VALUE)
+                    .addComponent(btnSubmit1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(10, 10, 10)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        String name = txtName.getText();
+    private void btnbrowseImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbrowseImageActionPerformed
+      
+        JFileChooser browseImageFile = new JFileChooser();
+        FileNameExtensionFilter img_ext = new FileNameExtensionFilter("IMAGES", "png", "jpeg", "jpg");
+        browseImageFile.addChoosableFileFilter(img_ext);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+
+        if (showOpenDialogue == JFileChooser.APPROVE_OPTION){
+        File selectedImageFile = browseImageFile.getSelectedFile();
+        String selectedImagePath = selectedImageFile.getAbsolutePath();
+        JOptionPane.showMessageDialog(null, selectedImagePath);
+
+        ImageIcon img_icon = new ImageIcon(selectedImagePath);
+        
+        Image image = img_icon.getImage().getScaledInstance(childImage.getWidth(), childImage.getHeight(), Image.SCALE_SMOOTH);
+        
+      //  childrenDirectory.setChildImage(image);
+        //childImage.setIcon(new ImageIcon(image));
+        
+        children.setChildImage(image);
+       
+        childImage.setIcon(new ImageIcon(image));
+        }
+    }//GEN-LAST:event_btnbrowseImageActionPerformed
+
+    private void btnSubmit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmit1ActionPerformed
+        // TODO add your handling code here:
+               String name = txtName.getText();
         String missingDate = txtMissingSince.getText();
         String missingPlace = txtMissingPlace.getText();
         String dob = txtDOB.getText();
@@ -339,6 +403,11 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         String parentUsername = txtParentUsername.getText();
         String parentPassword = txtParentPassword.getText();
         
+        Image image = children.getChildImage();
+        
+        
+        
+        
         String errorMsg = "";
         
         // Data Validation Needed
@@ -353,7 +422,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             String id = String.format("%05d", num); 
             
             // Add Child Data
-            childrenDirectory.createChildren(name, missingDate, missingPlace, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id);
+            childrenDirectory.createChildren(name, missingDate, missingPlace, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id, image);
           
             // Add Parent Data
             // If user account is not created yet, then create one; otherwise just linke the child data with the parent
@@ -386,7 +455,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             txtParentUsername.setText("");  
             txtParentPassword.setText(""); 
         }
-    }//GEN-LAST:event_btnSubmitActionPerformed
+    }//GEN-LAST:event_btnSubmit1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -405,7 +474,9 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel Sex;
     private javax.swing.JLabel Weight;
     private javax.swing.JLabel ageNow;
-    private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton btnSubmit1;
+    private javax.swing.JButton btnbrowseImage;
+    private javax.swing.JLabel childImage;
     private javax.swing.JLabel doB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
