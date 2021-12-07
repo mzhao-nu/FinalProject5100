@@ -24,7 +24,7 @@ public class TreatDorDirectory {
         return treatDorList;
     }
     
-    public TreatmentDoctors createTreatDr(String name, int age, long phoneNum,Clinic clinic, UserAccount ua){
+    public TreatmentDoctors createTreatDr(String name, int age, String phoneNum,Clinic clinic, UserAccount ua){
         TreatmentDoctors treatmentDoctors = new TreatmentDoctors();
         treatmentDoctors.setAge(age);
         treatmentDoctors.setName(name);
@@ -39,7 +39,7 @@ public class TreatDorDirectory {
         treatDorList.remove(t);
     }
     
-    public void updateTreatDr(int id,String name, int age, long phoneNum,Clinic clinic, UserAccount ua){
+    public void updateTreatDr(int id,String name, int age, String phoneNum,Clinic clinic, UserAccount ua){
         for(TreatmentDoctors td:this.treatDorList){
             if(td.getId()==id){
                 td.setAge(age);

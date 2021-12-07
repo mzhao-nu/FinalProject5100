@@ -7,11 +7,13 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
 import Clinic.Admin.Clinic;
+import Clinic.Treating.TreatmentDoctors;
 import Reporting.CommonReporting.Children;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.ClinicRole.ModifyDoctorsJPanel;
 
 /**
  *
@@ -170,8 +172,15 @@ public class ManageClinicJPanel extends javax.swing.JPanel {
 
     private void btnModifyCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyCustomerActionPerformed
 
-        AddClinicJPanel addClinicJPanel = new AddClinicJPanel(userProcessContainer, ecoSystem);
-        userProcessContainer.add("CreateClinicJPanel", addClinicJPanel);
+        int selectRowIndex = tableClinic.getSelectedRow();
+        if(selectRowIndex<0){
+           JOptionPane.showMessageDialog(this, "Please select a row to update.");
+           return;
+       }
+        DefaultTableModel model = (DefaultTableModel) tableClinic.getModel();
+        Clinic c = (Clinic)model.getValueAt(selectRowIndex, 1);
+        ModifyClinicJPanel modifyClinicJPanel = new ModifyClinicJPanel(userProcessContainer,ecoSystem,c);
+        userProcessContainer.add(modifyClinicJPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnModifyCustomerActionPerformed

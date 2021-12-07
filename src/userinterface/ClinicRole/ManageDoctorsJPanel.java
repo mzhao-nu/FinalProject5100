@@ -9,8 +9,10 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import Clinic.Admin.Clinic;
 import Clinic.Treating.TreatmentDoctors;
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,15 +29,24 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
     private EcoSystem ecoSystem; 
     private UserAccount userAccount;
     private Clinic clinic;
+    private ArrayList<TreatmentDoctors> doctorList;
     public ManageDoctorsJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem ecoSystem) {
         initComponents();
         this.ecoSystem = ecoSystem;
         this.userAccount = account;
         this.userProcessContainer = userProcessContainer;
+        doctorList = new ArrayList<TreatmentDoctors>();
         for(Clinic c:ecoSystem.getClinicDirectory().getClinicList()){
             if(c.getUsername().equals(account.getUsername())) clinic=c;
         }
         
+        for(TreatmentDoctors t:ecoSystem.getTreatDorDirectory().getTreatDorList()){
+            if(t.getClinic().getId()==clinic.getId()){
+                doctorList.add(t);
+            }
+        }
+        
+        populateTable();
         
         
     }
@@ -51,7 +62,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
 
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableClinic = new javax.swing.JTable();
+        tableDoctor = new javax.swing.JTable();
         btnAddCustomer = new javax.swing.JButton();
         btnModifyCustomer = new javax.swing.JButton();
         btnDeleteCustomer = new javax.swing.JButton();
@@ -63,7 +74,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         lblTitle.setForeground(new java.awt.Color(255, 153, 51));
         lblTitle.setText("Doctors Management");
 
-        tableClinic.setModel(new javax.swing.table.DefaultTableModel(
+        tableDoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -82,8 +93,9 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tableClinic);
+        jScrollPane1.setViewportView(tableDoctor);
 
+        btnAddCustomer.setForeground(new java.awt.Color(255, 153, 51));
         btnAddCustomer.setText("Add Doctors");
         btnAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +103,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnModifyCustomer.setForeground(new java.awt.Color(255, 153, 51));
         btnModifyCustomer.setText("Modify Doctors");
         btnModifyCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +111,7 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDeleteCustomer.setForeground(new java.awt.Color(255, 153, 51));
         btnDeleteCustomer.setText("Delete Doctors");
         btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,11 +133,11 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAddCustomer)
-                        .addGap(183, 183, 183)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnModifyCustomer)
                         .addGap(137, 137, 137)
                         .addComponent(btnDeleteCustomer))
@@ -154,19 +168,17 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateTable(){
-        DefaultTableModel model = (DefaultTableModel) tableClinic.getModel();
+        DefaultTableModel model = (DefaultTableModel) tableDoctor.getModel();
         model.setRowCount(0);
-        List<TreatmentDoctors> doctorsList = new ArrayList<>();
         
-        for(Clinic clinic:ecoSystem.getClinicDirectory().getClinicList()){
+        for(TreatmentDoctors t:this.doctorList){
             
-                Object[] row = new Object[6];
-                row[0] = clinic.getUa().getUsername();
-                row[1] = clinic;
-                row[2] = clinic.getName();
-                row[3] = clinic.getAddress();
-                row[4] = clinic.getPhoneNum();
-                row[5] = clinic.getZipcode();
+                Object[] row = new Object[5];
+                row[0] = t.getUa().getUsername();
+                row[1] = t;
+                row[2] = t.getName();
+                row[3] = t.getAge();
+                row[4] = t.getPhoneNum();
             
                model.addRow(row);
             
@@ -174,39 +186,46 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
     
     }
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
-     //   AddClinicJPanel addClinicJPanel = new AddClinicJPanel(userProcessContainer, ecoSystem);
-       // userProcessContainer.add("CreateClinicJPanel", addClinicJPanel);
-      //  CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-      //  layout.next(userProcessContainer);
+        AddDoctorsJPanel addDoctorsJPanel = new AddDoctorsJPanel(userProcessContainer,userAccount,ecoSystem);
+        userProcessContainer.add("CreateClinicJPanel", addDoctorsJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddCustomerActionPerformed
 
     private void btnModifyCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyCustomerActionPerformed
 
-    //    AddClinicJPanel addClinicJPanel = new AddClinicJPanel(userProcessContainer, ecoSystem);
-      //  userProcessContainer.add("CreateClinicJPanel", addClinicJPanel);
-      //  CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-      //  layout.next(userProcessContainer);
+        int selectRowIndex = tableDoctor.getSelectedRow();
+        if(selectRowIndex<0){
+           JOptionPane.showMessageDialog(this, "Please select a row to update.");
+           return;
+       }
+        DefaultTableModel model = (DefaultTableModel) tableDoctor.getModel();
+        TreatmentDoctors d = (TreatmentDoctors)model.getValueAt(selectRowIndex, 1);
+        ModifyDoctorsJPanel modifyDoctorsJPanel = new ModifyDoctorsJPanel(userProcessContainer, userAccount,ecoSystem,d);
+        userProcessContainer.add(modifyDoctorsJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnModifyCustomerActionPerformed
 
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
 
-        int selectRowIndex = tableClinic.getSelectedRow();
+        int selectRowIndex = tableDoctor.getSelectedRow();
         if(selectRowIndex<0){
-      //      JOptionPane.showMessageDialog(this, "Please select a row to delete.");
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.");
             return;
         }
-        DefaultTableModel model = (DefaultTableModel) tableClinic.getModel();
-        Clinic clinic = (Clinic)model.getValueAt(selectRowIndex, 1);
-        ecoSystem.getClinicDirectory().removeClinic(clinic);
+        DefaultTableModel model = (DefaultTableModel) tableDoctor.getModel();
+        TreatmentDoctors treatmentDoctors = (TreatmentDoctors)model.getValueAt(selectRowIndex, 1);
+        ecoSystem.getTreatDorDirectory().removeTreatDr(treatmentDoctors);
 
-    //    JOptionPane.showMessageDialog(this, "Clinic deleted.");
+        JOptionPane.showMessageDialog(this, "Doctors deleted.");
         populateTable();
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         userProcessContainer.remove(this);
-     //   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        //layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -217,6 +236,6 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnModifyCustomer;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTable tableClinic;
+    private javax.swing.JTable tableDoctor;
     // End of variables declaration//GEN-END:variables
 }

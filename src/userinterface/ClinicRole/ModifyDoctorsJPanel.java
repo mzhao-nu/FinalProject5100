@@ -7,9 +7,9 @@ package userinterface.ClinicRole;
 
 import Business.EcoSystem;
 import Business.Employee.Employee;
-import Business.Role.ClinicAdminRole;
 import Business.UserAccount.UserAccount;
 import Clinic.Admin.Clinic;
+import Clinic.Treating.TreatmentDoctors;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,31 +18,32 @@ import javax.swing.JPanel;
  *
  * @author gyt
  */
-public class ManageInfoJPanel extends javax.swing.JPanel {
+public class ModifyDoctorsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageInfoJPanel
+     * Creates new form ModifyDoctorsJPanel
      */
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem; 
     private UserAccount userAccount;
     private Clinic clinic;
+    private TreatmentDoctors doctors;
     
-    public ManageInfoJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem) {
+    public ModifyDoctorsJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem ecoSystem,TreatmentDoctors doctors) {
         initComponents();
         this.ecoSystem = ecoSystem;
         this.userAccount = account;
         this.userProcessContainer = userProcessContainer;
+        this.doctors = doctors;
         for(Clinic c:ecoSystem.getClinicDirectory().getClinicList()){
             if(c.getUsername().equals(account.getUsername())) clinic=c;
         }
         
-        txtAddress.setText(clinic.getAddress());
-        txtName.setText(clinic.getName());
-        txtPassword.setText(clinic.getUa().getPassword());
-        txtPhoneNum.setText(String.valueOf(clinic.getPhoneNum()));
-        txtUsername.setText(clinic.getUsername());
-        txtZipcode.setText(clinic.getZipcode());
+        txtAge.setText(String.valueOf(doctors.getAge()));
+        txtName.setText(doctors.getName());
+        txtPassword.setText(doctors.getUa().getPassword());
+        txtPhoneNum.setText(doctors.getPhoneNum());
+        txtUsername.setText(doctors.getUa().getUsername());
         
     }
 
@@ -55,60 +56,32 @@ public class ManageInfoJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtPhoneNum = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtZipcode = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
+        txtAge = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
-
-        setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel1.setText("Clinic Information");
-
-        jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel2.setText("clinic name:");
-
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel3.setText("address:");
-
-        jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel4.setText("phone number:");
-
-        jLabel5.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel5.setText("zipcode:");
-
-        jLabel6.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel6.setText("username:");
-
-        jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 153, 51));
-        jLabel7.setText("password:");
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtPhoneNum = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/catoon doctor.png"))); // NOI18N
         jLabel8.setText("jLabel8");
 
+        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel3.setText("age:");
+
         btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
         btnUpdate.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 153, 51));
-        btnUpdate.setText("update");
+        btnUpdate.setText("modify");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -125,6 +98,26 @@ public class ManageInfoJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel4.setText("phone number:");
+
+        jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel1.setText("Modify doctors");
+
+        jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel7.setText("password:");
+
+        jLabel6.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel6.setText("username:");
+
+        jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel2.setText("name:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,67 +127,61 @@ public class ManageInfoJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                                    .addComponent(txtZipcode, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPhoneNum)
-                                    .addComponent(txtPassword))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(131, 131, 131)
                         .addComponent(btnUpdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                         .addComponent(btnBack)
-                        .addGap(33, 33, 33))))
+                        .addGap(33, 33, 33))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                            .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPhoneNum)
+                            .addComponent(txtPassword))
+                        .addContainerGap(208, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(226, 226, 226))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
-                    .addComponent(jLabel5))
-                .addGap(34, 34, 34)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnBack))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -205,14 +192,13 @@ public class ManageInfoJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String name = txtName.getText();
         String phone = txtPhoneNum.getText();
-        String address = txtAddress.getText();
-        String zipcode = txtZipcode.getText();
+        String age = txtAge.getText();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
         String errorMsg = "";
-        
-           // Data validation
-        if (name.isEmpty())    errorMsg += "Customer name is required.\n";
+
+        // Data validation
+        if (name.isEmpty())    errorMsg += "Doctor name is required.\n";
         if (phone.isEmpty())    errorMsg += "Phone number is required.\n";
         else if (!phone.isEmpty()){
             boolean isNum = true;
@@ -226,54 +212,38 @@ public class ManageInfoJPanel extends javax.swing.JPanel {
             if (isNum == false)    errorMsg += "Phone number must contain only numbers.\n";
             if (phone.length() != 10)    errorMsg += "Phone number must be 10 digits.\n";
         }
-        if (address.isEmpty())    errorMsg += "Address is required.\n";
-        if (zipcode.isEmpty())    errorMsg += "Zipcode is required.\n";
-        else if (!zipcode.isEmpty()){
-                boolean isNum = true;
-                for (int i = 0; i < zipcode.length(); i++) {
-                    char c = zipcode.charAt(i);
-                    if (c < '0' || c > '9') {
-                        isNum = false;
-                        break;
-                    }
-                }
-                if (isNum == false)    errorMsg += "Zipcode must contain only numbers.\n";
-                if (zipcode.length() != 5)    errorMsg += "Zipcode must be 5 digits.\n";
-            }
+        if (age.isEmpty())    errorMsg += "Age is required.\n";
         if (username.isEmpty())    errorMsg += "Username is required.\n";
         if (password.isEmpty())    errorMsg += "Password is required.\n";
-               
+
         if (ecoSystem.checkIfUserIsUnique(username) == true)    errorMsg += "Username already exists.\n";
-        
-        // Add new customer to system
+
+        // Add new doctor to system
         if (errorMsg.isEmpty()){
-            long phoneNum = Long.valueOf(phone);
+            int agei = Integer.valueOf(age);
+            int id = doctors.getId();
             UserAccount ua =ecoSystem.getUserAccountDirectory().updateUserAccount(username, password);
-            ecoSystem.getClinicDirectory().updateClinic(clinic.getId(), name, address, phoneNum, zipcode, ua);
+            ecoSystem.getTreatDorDirectory().updateTreatDr(id, name, agei, phone, clinic, ua);
             JOptionPane.showMessageDialog(this, "Information updated successfully");
-            
-            txtAddress.setText(clinic.getAddress());
-            txtName.setText(clinic.getName());
-            txtPassword.setText(clinic.getUa().getPassword());
-            txtPhoneNum.setText(String.valueOf(clinic.getPhoneNum()));
-            txtUsername.setText(clinic.getUsername());
-            txtZipcode.setText(clinic.getZipcode());
-            txtPassword.setText(clinic.getUa().getPassword());
+
+            txtAge.setText("");
+            txtName.setText("");
+            txtPassword.setText("");
+            txtPhoneNum.setText("");
+            txtUsername.setText("");
+            txtPassword.setText("");
 
         }else{
             JOptionPane.showMessageDialog(this, errorMsg);
         }
-        
-        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        ClinicAdminJPanel panel = new ClinicAdminJPanel(userProcessContainer, userAccount, ecoSystem);
+        ManageDoctorsJPanel panel = new ManageDoctorsJPanel(userProcessContainer, userAccount, ecoSystem);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         userProcessContainer.add(panel);
         layout.next(userProcessContainer);
-        
     }//GEN-LAST:event_btnBackActionPerformed
 
 
@@ -284,15 +254,13 @@ public class ManageInfoJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPhoneNum;
     private javax.swing.JTextField txtUsername;
-    private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
 }
