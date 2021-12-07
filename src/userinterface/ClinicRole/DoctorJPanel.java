@@ -137,6 +137,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
         txtSearch.setBounds(290, 270, 140, 27);
 
         btnSearch.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 153, 51));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +154,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
         jComboBox1.setBounds(190, 270, 87, 28);
 
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 153, 51));
         btnBack.setText("<<back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

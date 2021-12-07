@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.SystemAdminWorkArea;
+package userinterface.ClinicRole;
 
 import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
 import Clinic.Admin.Clinic;
-import Reporting.CommonReporting.Children;
-import java.awt.CardLayout;
-import javax.swing.JOptionPane;
+import Clinic.Treating.TreatmentDoctors;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,19 +18,26 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author gyt
  */
-public class ManageClinicJPanel extends javax.swing.JPanel {
+public class ManageDoctorsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageClinicJPanel
+     * Creates new form ManageDoctorsJPanel
      */
-    JPanel userProcessContainer; 
-    EcoSystem ecoSystem;
-    public ManageClinicJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
+    private JPanel userProcessContainer;
+    private EcoSystem ecoSystem; 
+    private UserAccount userAccount;
+    private Clinic clinic;
+    public ManageDoctorsJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem ecoSystem) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
+        this.userAccount = account;
+        this.userProcessContainer = userProcessContainer;
+        for(Clinic c:ecoSystem.getClinicDirectory().getClinicList()){
+            if(c.getUsername().equals(account.getUsername())) clinic=c;
+        }
         
-        populateTable();
+        
+        
     }
 
     /**
@@ -49,22 +57,25 @@ public class ManageClinicJPanel extends javax.swing.JPanel {
         btnDeleteCustomer = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        lblTitle.setText("Clinic Management");
+        lblTitle.setForeground(new java.awt.Color(255, 153, 51));
+        lblTitle.setText("Doctors Management");
 
         tableClinic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Username", "ID", "Name", "Address", "Phone Number", "Zipcode"
+                "Username", "ID", "Name", "Age", "Phone Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true
+                false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -73,27 +84,29 @@ public class ManageClinicJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableClinic);
 
-        btnAddCustomer.setText("Add Clinic");
+        btnAddCustomer.setText("Add Doctors");
         btnAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddCustomerActionPerformed(evt);
             }
         });
 
-        btnModifyCustomer.setText("Modify Clinic");
+        btnModifyCustomer.setText("Modify Doctors");
         btnModifyCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifyCustomerActionPerformed(evt);
             }
         });
 
-        btnDeleteCustomer.setText("Delete Clinic");
+        btnDeleteCustomer.setText("Delete Doctors");
         btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteCustomerActionPerformed(evt);
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 153, 51));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,22 +120,20 @@ public class ManageClinicJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(164, 164, 164)
-                                .addComponent(lblTitle)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAddCustomer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(183, 183, 183)
                         .addComponent(btnModifyCustomer)
-                        .addGap(148, 148, 148)
-                        .addComponent(btnDeleteCustomer)
-                        .addGap(44, 44, 44))))
+                        .addGap(137, 137, 137)
+                        .addComponent(btnDeleteCustomer))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnBack)
+                            .addGap(164, 164, 164)
+                            .addComponent(lblTitle))))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,13 +149,14 @@ public class ManageClinicJPanel extends javax.swing.JPanel {
                     .addComponent(btnAddCustomer)
                     .addComponent(btnModifyCustomer)
                     .addComponent(btnDeleteCustomer))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel) tableClinic.getModel();
         model.setRowCount(0);
+        List<TreatmentDoctors> doctorsList = new ArrayList<>();
         
         for(Clinic clinic:ecoSystem.getClinicDirectory().getClinicList()){
             
@@ -159,43 +171,42 @@ public class ManageClinicJPanel extends javax.swing.JPanel {
                model.addRow(row);
             
        }
-    }
     
+    }
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
-        AddClinicJPanel addClinicJPanel = new AddClinicJPanel(userProcessContainer, ecoSystem);
-        userProcessContainer.add("CreateClinicJPanel", addClinicJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+     //   AddClinicJPanel addClinicJPanel = new AddClinicJPanel(userProcessContainer, ecoSystem);
+       // userProcessContainer.add("CreateClinicJPanel", addClinicJPanel);
+      //  CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+      //  layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddCustomerActionPerformed
 
     private void btnModifyCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyCustomerActionPerformed
 
-        AddClinicJPanel addClinicJPanel = new AddClinicJPanel(userProcessContainer, ecoSystem);
-        userProcessContainer.add("CreateClinicJPanel", addClinicJPanel);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+    //    AddClinicJPanel addClinicJPanel = new AddClinicJPanel(userProcessContainer, ecoSystem);
+      //  userProcessContainer.add("CreateClinicJPanel", addClinicJPanel);
+      //  CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+      //  layout.next(userProcessContainer);
     }//GEN-LAST:event_btnModifyCustomerActionPerformed
 
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
 
-       int selectRowIndex = tableClinic.getSelectedRow();
-       if(selectRowIndex<0){
-           JOptionPane.showMessageDialog(this, "Please select a row to delete.");
-           return;
-       }
+        int selectRowIndex = tableClinic.getSelectedRow();
+        if(selectRowIndex<0){
+      //      JOptionPane.showMessageDialog(this, "Please select a row to delete.");
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) tableClinic.getModel();
         Clinic clinic = (Clinic)model.getValueAt(selectRowIndex, 1);
         ecoSystem.getClinicDirectory().removeClinic(clinic);
-        
-        
-        JOptionPane.showMessageDialog(this, "Clinic deleted.");
+
+    //    JOptionPane.showMessageDialog(this, "Clinic deleted.");
         populateTable();
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+     //   CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        //layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

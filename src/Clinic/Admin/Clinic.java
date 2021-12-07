@@ -95,6 +95,11 @@ public class Clinic {
     public static void setCount(int count) {
         Clinic.count = count;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(id);
+    }
     
     
     

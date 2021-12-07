@@ -56,4 +56,14 @@ public class UserAccountDirectory {
         userAccountList.remove(username);
         return;
     }
+    
+    public UserAccount updateUserAccount(String username,String password){
+        for(UserAccount ua:this.userAccountList){
+            if(ua.getUsername().equals(username)){
+                ua.setPassword(password);
+                return ua;
+            }
+        }
+        return null;
+    }
 }
