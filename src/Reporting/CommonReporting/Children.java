@@ -29,7 +29,7 @@ public class Children {
     private String weight;
     private String status;
     private String id;
-    
+            
     private String medicalAdvice;
     private Shelter shelter;
     private String injury;
@@ -193,4 +193,13 @@ public class Children {
         return name;
     }
     
+    private String reportBy;
+    
+    public String getReportBy() {
+        return reportBy;
+    }
+
+    public void setReportBy(String reportBy) {
+        this.reportBy = reportBy;
+    }
 }

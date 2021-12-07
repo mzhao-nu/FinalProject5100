@@ -65,6 +65,7 @@ public class MainJFrame extends javax.swing.JFrame {
         UserAccount clinic = system.getUserAccountDirectory().createUserAccount("clinicadmin", "clinicadmin", clinicAdmin, new ClinicAdminRole());
         system.getClinicDirectory().createClinic("Clinic1", "100 Main St, Boston, MA", 2345678901L, "", clinic, "clinicadmin", "clinicadmin");
 
+        
     }
 
     /**
