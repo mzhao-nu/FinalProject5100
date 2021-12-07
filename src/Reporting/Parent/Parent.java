@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
  */
 package Reporting.Parent;
+import java.util.*;
 
 /**
  *
@@ -15,9 +16,10 @@ public class Parent {
     private long phoneNum;
     private String username;
     private String password;
+    private ArrayList<String> childrenList;
     
     public Parent(){
-        
+        childrenList = new ArrayList<>();
     }
     
     public String getName() {
@@ -58,6 +60,14 @@ public class Parent {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public ArrayList<String> getChildrenList() {
+        return childrenList;
+    }
+
+    public void setChildrenList(ArrayList<String> childrenList) {
+        this.childrenList = childrenList;
     }
     
     

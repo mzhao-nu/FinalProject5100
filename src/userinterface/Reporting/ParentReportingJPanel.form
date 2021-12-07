@@ -40,78 +40,65 @@
                           <Component id="txtHairColor" max="32767" attributes="0"/>
                           <Component id="txtRace" max="32767" attributes="0"/>
                           <Component id="txtSex" max="32767" attributes="0"/>
-                          <Component id="txtAgeNow" max="32767" attributes="0"/>
+                          <Component id="txtAge" max="32767" attributes="0"/>
                           <Component id="txtDOB" max="32767" attributes="0"/>
-                          <Component id="txtMissingFrom" max="32767" attributes="0"/>
+                          <Component id="txtMissingPlace" max="32767" attributes="0"/>
                           <Component id="txtMissingSince" min="-2" pref="161" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtMissingSince1" min="-2" pref="161" max="-2" attributes="0"/>
+                      <Component id="txtName" min="-2" pref="161" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="txtMissingSince2" min="-2" pref="161" max="-2" attributes="0"/>
+                  <Component id="txtWeight" min="-2" pref="161" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="118" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="Name2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtMissingSince4" min="-2" pref="161" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="Name1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                          <Component id="txtMissingSince3" min="-2" pref="161" max="-2" attributes="0"/>
-                      </Group>
+              <EmptySpace pref="122" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="Name2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="txtParentPhone" min="-2" pref="161" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Name4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="Name3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtMissingSince5" min="-2" pref="161" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="Name1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      <Component id="txtParentName" min="-2" pref="161" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="Name3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      <Component id="txtParentEmail" min="-2" pref="161" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Name5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="Name6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtMissingSince7" min="-2" pref="161" max="-2" attributes="0"/>
-                          <Component id="txtMissingSince6" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Component id="txtParentUsername" alignment="1" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Component id="txtParentPassword" alignment="1" min="-2" pref="161" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
-                          <Component id="Header" min="-2" pref="438" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
-                          <Component id="btnSubmit" min="-2" pref="108" max="-2" attributes="0"/>
-                      </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
+                      <Component id="Header" min="-2" pref="438" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
+                      <Component id="btnSubmit" min="-2" pref="108" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,7 +117,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Name" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtMissingSince1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtName" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -158,11 +145,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txtMissingSince" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtMissingFrom" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtMissingPlace" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtDOB" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtAgeNow" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtAge" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtSex" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -174,7 +161,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtHeight" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtMissingSince2" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtWeight" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -182,33 +169,27 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Name1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtMissingSince3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtParentName" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Name2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtMissingSince4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtParentPhone" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Name3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtMissingSince5" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtParentEmail" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Name4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Name5" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtMissingSince6" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtParentUsername" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Name6" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtMissingSince7" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtParentPassword" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -233,7 +214,7 @@
         <Property name="text" type="java.lang.String" value="Missing Place:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMissingFrom">
+    <Component class="javax.swing.JTextField" name="txtMissingPlace">
     </Component>
     <Component class="javax.swing.JTextField" name="txtEyeColor">
     </Component>
@@ -324,7 +305,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtDOB">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAgeNow">
+    <Component class="javax.swing.JTextField" name="txtAge">
     </Component>
     <Component class="javax.swing.JTextField" name="txtSex">
     </Component>
@@ -346,9 +327,9 @@
         <Property name="text" type="java.lang.String" value="Weight:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMissingSince1">
+    <Component class="javax.swing.JTextField" name="txtName">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMissingSince2">
+    <Component class="javax.swing.JTextField" name="txtWeight">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -386,7 +367,7 @@
         <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMissingSince3">
+    <Component class="javax.swing.JTextField" name="txtParentName">
     </Component>
     <Component class="javax.swing.JLabel" name="Name2">
       <Properties>
@@ -406,45 +387,20 @@
         <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="Name4">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="18" style="0"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Existing User?"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="14" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Yes"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="14" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="No"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="Name5">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Create Username:"/>
+        <Property name="text" type="java.lang.String" value="Username:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMissingSince4">
+    <Component class="javax.swing.JTextField" name="txtParentPhone">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMissingSince5">
+    <Component class="javax.swing.JTextField" name="txtParentEmail">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMissingSince6">
+    <Component class="javax.swing.JTextField" name="txtParentUsername">
     </Component>
     <Component class="javax.swing.JLabel" name="Name6">
       <Properties>
@@ -452,10 +408,10 @@
           <Font name="Times New Roman" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Create Password:"/>
+        <Property name="text" type="java.lang.String" value="Password:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMissingSince7">
+    <Component class="javax.swing.JTextField" name="txtParentPassword">
     </Component>
   </SubComponents>
 </Form>

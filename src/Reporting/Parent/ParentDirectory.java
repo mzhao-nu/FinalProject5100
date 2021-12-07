@@ -47,4 +47,11 @@ public class ParentDirectory {
         }
         return null;
     }
+    
+    public boolean containsParent(String parentUsername){
+        for (Parent p : parentDirectory){
+            if (p.getUsername().equals(parentUsername))    return true;
+        }
+        return false;
+    }
 }

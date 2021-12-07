@@ -109,11 +109,11 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Name", "Approx. Age", "Sex", "Race", "Found Date", "Found Location", "Status"
+                "ID", "Name", "Age", "Sex", "Race", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -128,7 +128,6 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             tableChildren.getColumnModel().getColumn(3).setResizable(false);
             tableChildren.getColumnModel().getColumn(4).setResizable(false);
             tableChildren.getColumnModel().getColumn(5).setResizable(false);
-            tableChildren.getColumnModel().getColumn(6).setResizable(false);
         }
 
         add(jScrollPane2);

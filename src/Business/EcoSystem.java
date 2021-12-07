@@ -13,6 +13,7 @@ import Business.Role.SystemAdminRole;
 import Clinic.Admin.ClinicDirectory;
 import Clinic.Treating.TreatDorDirectory;
 import Reporting.CommonReporting.ChildrenDirectory;
+import Reporting.Parent.ParentDirectory;
 import java.util.ArrayList;
 
 /**
@@ -27,6 +28,7 @@ public class EcoSystem extends Organization{
     private TreatDorDirectory treatDorDirectory;
     private ClinicDirectory clinicDirectory;
     private ShelterDirectory shelterDirectory;
+    private ParentDirectory parentDirectory;
 
 
     public EcoSystem(PolicemanDirectory policemanDirectory) {
@@ -56,6 +58,7 @@ public class EcoSystem extends Organization{
         treatDorDirectory = new TreatDorDirectory();
         clinicDirectory = new ClinicDirectory();
         shelterDirectory = new ShelterDirectory();
+        parentDirectory = new ParentDirectory();
     }
 
     
@@ -111,6 +114,14 @@ public class EcoSystem extends Organization{
 
     public void setShelterDirectory(ShelterDirectory shelterDirectory) {
         this.shelterDirectory = shelterDirectory;
+    }
+
+    public ParentDirectory getParentDirectory() {
+        return parentDirectory;
+    }
+
+    public void setParentDirectory(ParentDirectory parentDirectory) {
+        this.parentDirectory = parentDirectory;
     }
 	
     
