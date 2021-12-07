@@ -43,7 +43,7 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Children c : reportedChildDirectory.getReportedChildDirectory()){
-            Object [] row = new Object[2];
+            Object [] row = new Object[5];
             row[0] = c;
             row[1] = c.getApproxAge();
             row[2] = c.getSex();
