@@ -357,7 +357,8 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             
             // Add Child Data
             Children c = reportedChildDirectory.createChildren(name, missingDate, missingPlace, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id);
-            c.setReportBy(parentName);
+            c.setReporter(parentName);
+            c.setReporterType("Parent");
             
             // Add Parent Data
             // If user account is not created yet, then create one; otherwise just linke the child data with the parent

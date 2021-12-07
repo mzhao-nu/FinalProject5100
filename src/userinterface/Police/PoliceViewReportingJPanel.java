@@ -29,11 +29,11 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PoliceViewReportingJPanel
      */
-    public PoliceViewReportingJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, ChildrenDirectory childrenDirectory) {
+    public PoliceViewReportingJPanel(JPanel userProcessContainer, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-        this.childrenDirectory = childrenDirectory;
+        this.childrenDirectory = ecoSystem.getChildrenDirectory();
         this.reportedChildDirectory = ecoSystem.getReportedChildDirectory();
         populateTable();
     }
@@ -43,12 +43,13 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Children c : reportedChildDirectory.getReportedChildDirectory()){
-            Object [] row = new Object[5];
+            Object [] row = new Object[6];
             row[0] = c;
             row[1] = c.getApproxAge();
             row[2] = c.getSex();
             row[3] = c.getRace();
-            row[4] = c.getReportBy();
+            row[4] = c.getReporter();
+            row[5] = c.getReporterType();
             model.addRow(row);
         }
     }
@@ -94,11 +95,11 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Age", "Sex", "Race", "Report By"
+                "Name", "Age", "Sex", "Race", "Reporter Name", "Reporter Role"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -164,6 +165,8 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         selectedChild.setStatus("Missing");
         childrenDirectory.getChildrenDirectory().add(selectedChild);
         reportedChildDirectory.deleteChildren(selectedChild);
+        JOptionPane.showMessageDialog(this, "Added Successfully!");
+        populateTable();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

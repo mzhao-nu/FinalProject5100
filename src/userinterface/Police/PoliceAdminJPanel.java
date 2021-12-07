@@ -190,7 +190,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
     private void btnViewReportingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewReportingActionPerformed
-        PoliceViewReportingJPanel view = new PoliceViewReportingJPanel(userProcessContainer, ecoSystem, childrenDirectory);
+        PoliceViewReportingJPanel view = new PoliceViewReportingJPanel(userProcessContainer, ecoSystem);
         userProcessContainer.add("ViewReportingsJPanel", view);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
