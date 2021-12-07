@@ -29,14 +29,24 @@ public class Children {
     private String weight;
     private String status;
     private String id;
-    private String reportBy;
+    private String reporter;
+    private String reporterType;
     private String missingDate;
+    private Image childImage;
             
     private String medicalAdvice;
     private Shelter shelter;
     private String injury;
     private ImageIcon photo;
     private static int count =1;
+
+    public Image getChildImage() {
+        return childImage;
+    }
+
+    public void setChildImage(Image childImage) {
+        this.childImage = childImage;
+    }
     
 
     public Children() {
@@ -189,13 +199,21 @@ public class Children {
     public static void setCount(int count) {
         Children.count = count;
     }
-    
-    public String getReportBy() {
-        return reportBy;
+
+    public String getReporter() {
+        return reporter;
     }
 
-    public void setReportBy(String reportBy) {
-        this.reportBy = reportBy;
+    public void setReporter(String reporter) {
+        this.reporter = reporter;
+    }
+
+    public String getReporterType() {
+        return reporterType;
+    }
+
+    public void setReporterType(String reporterType) {
+        this.reporterType = reporterType;
     }
 
     public String getMissingDate() {
