@@ -17,7 +17,7 @@ public class TreatmentDoctors {
     private static int count = 1;
     private String name;
     private int age;
-    private long phoneNum;
+    private String phoneNum;
     private Clinic clinic;
     private UserAccount ua;
 
@@ -54,11 +54,11 @@ public class TreatmentDoctors {
         this.age = age;
     }
 
-    public long getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(long phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
@@ -68,6 +68,11 @@ public class TreatmentDoctors {
 
     public void setClinic(Clinic clinic) {
         this.clinic = clinic;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(id);
     }
 
     

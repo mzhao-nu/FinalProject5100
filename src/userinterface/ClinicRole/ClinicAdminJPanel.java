@@ -136,6 +136,11 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
 
     private void btnDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorsActionPerformed
         // TODO add your handling code here:
+        ManageDoctorsJPanel panel = new ManageDoctorsJPanel(userProcessContainer, userAccount, ecoSystem);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add(panel);
+        layout.next(userProcessContainer);
+        
     }//GEN-LAST:event_btnDoctorsActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed

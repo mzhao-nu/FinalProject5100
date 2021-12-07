@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/Users/mzhao/Desktop/FinalProject5100/src/Actions/Shelter/Admin/ShelterDirectory.java</file>
-            <file>file:/Users/mzhao/Desktop/FinalProject5100/src/userinterface/MainJFrame.java</file>
-            <file>file:/Users/mzhao/Desktop/FinalProject5100/src/Actions/Shelter/Admin/Shelter.java</file>
-            <file>file:/Users/mzhao/Desktop/FinalProject5100/src/Actions/Shelter/ShelterEmployee/ShelterEmployee.java</file>
-
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Clinic/Treating/TreatmentDoctors.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/ClinicRole/ClinicAdminJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/ClinicRole/ManageDoctorsJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/userinterface/ClinicRole/AddDoctorsJPanel.java</file>
+            <file>file:/C:/Users/gyt/Documents/NetBeansProjects/FinalProject5100/src/Clinic/Treating/TreatDorDirectory.java</file>
         </group>
     </open-files>
 </project-private>
