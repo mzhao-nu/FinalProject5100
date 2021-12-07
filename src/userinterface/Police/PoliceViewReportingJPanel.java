@@ -6,10 +6,14 @@ package userinterface.Police;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import Reporting.CommonReporting.Children;
 import Reporting.CommonReporting.ChildrenDirectory;
+import Reporting.CommonReporting.ReportedChildDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +24,7 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
     private EcoSystem ecoSystem; 
     private UserAccount userAccount;
     private ChildrenDirectory childrenDirectory;
+    private ReportedChildDirectory reportedChildDirectory;
     
     /**
      * Creates new form PoliceViewReportingJPanel
@@ -29,8 +34,26 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         this.childrenDirectory = childrenDirectory;
+        this.reportedChildDirectory = ecoSystem.getReportedChildDirectory();
+        populateTable();
     }
 
+    public void populateTable(){
+        DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
+        model.setRowCount(0);
+        
+        for(Children c : reportedChildDirectory.getReportedChildDirectory()){
+            Object [] row = new Object[2];
+            row[0] = c;
+            row[1] = c.getApproxAge();
+            row[2] = c.getSex();
+            row[3] = c.getRace();
+            row[4] = c.getReportBy();
+            model.addRow(row);
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,15 +125,13 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
                 .addComponent(btnBack)
                 .addGap(94, 94, 94))
             .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
                         .addComponent(btnAdd)
-                        .addGap(30, 30, 30)
+                        .addGap(22, 22, 22)
                         .addComponent(btnConfirm))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -131,7 +152,18 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        int selectedRowIndex = tableChildren.getSelectedRow();
+        
+        if (selectedRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a reporting first.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
+        Children selectedChild = (Children)model.getValueAt(selectedRowIndex, 0);
+        selectedChild.setStatus("Missing");
+        childrenDirectory.getChildrenDirectory().add(selectedChild);
+        reportedChildDirectory.deleteChildren(selectedChild);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

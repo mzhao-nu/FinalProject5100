@@ -39,7 +39,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.childrenDirectory = ecoSystem.getChildrenDirectory();
         
-//        populateTable();
+        populateTable();
 //        populateComboBox();
 //        
 //        tableChildren.getTableHeader().setOpaque(false);

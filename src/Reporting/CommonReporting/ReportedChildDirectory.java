@@ -1,35 +1,30 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
  */
 package Reporting.CommonReporting;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import java.util.*;
 
 /**
  *
- * @author harold
+ * @author mzhao
  */
-public class ChildrenDirectory {
-    private ArrayList<Children> childrenDirectory;
+public class ReportedChildDirectory {
+
+    private ArrayList<Children> reportedChildDirectory;
     
-    public ChildrenDirectory(){
-        childrenDirectory = new ArrayList<>();
+    public ReportedChildDirectory(){
+        this.reportedChildDirectory = new ArrayList<>();
     }
 
-    public ArrayList<Children> getChildrenDirectory() {
-        return childrenDirectory;
+    public ArrayList<Children> getReportedChildDirectory() {
+        return reportedChildDirectory;
     }
 
-    public void setChildrenDirectory(ArrayList<Children> childrenDirectory) {
-        this.childrenDirectory = childrenDirectory;
+    public void setReportedChildDirectory(ArrayList<Children> reportedChildDirectory) {
+        this.reportedChildDirectory = reportedChildDirectory;
     }
     
     public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id){
@@ -56,27 +51,21 @@ public class ChildrenDirectory {
         children.setDob(dob);
         children.setId(id);
         children.setStatus("Information Submitted");
-        childrenDirectory.add(children);
+        reportedChildDirectory.add(children);
         return children;
     }
     
 
     public void deleteChildren(Children d){
-        childrenDirectory.remove(d);
+        reportedChildDirectory.remove(d);
     }
     
     public Children getChildren(int id){
-        for(Children d: childrenDirectory){
+        for(Children d: reportedChildDirectory){
             if(d.getId().equals(id)){
                 return d;
             }
         }
         return null;
     }
-    
-    public void addMedicalAdvice(String medcialAdvice, Children c){
-        c.setMedicalAdvice(medcialAdvice);
-        c.setStatus("treated");
-    }
-
 }
