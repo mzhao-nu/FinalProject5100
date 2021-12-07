@@ -34,15 +34,15 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
     }
 
     public void populateFields(){
-        txtName.setText(child.getName());
-        txtAge.setText(String.valueOf(child.getApproxAge()));
-        txtSex.setText(child.getSex());
-        txtRace.setText(child.getRace());
-        txtHairColor.setText(child.getHairColor());   
-        txtEyeColor.setText(child.getEyeColor());
-        txtHeight.setText(child.getHeight());
-        txtWeight.setText(child.getWeight());
-        txtMissingDate.setText(child.getMissingDate());
+//        txtName.setText(child.getName());
+//        txtAge.setText(String.valueOf(child.getApproxAge()));
+//        txtSex.setText(child.getSex());
+//        txtRace.setText(child.getRace());
+//        txtHairColor.setText(child.getHairColor());   
+//        txtEyeColor.setText(child.getEyeColor());
+//        txtHeight.setText(child.getHeight());
+//        txtWeight.setText(child.getWeight());
+//        txtMissingDate.setText(child.getMissingDate());
     }
     
     

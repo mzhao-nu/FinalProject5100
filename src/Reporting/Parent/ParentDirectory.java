@@ -32,6 +32,7 @@ public class ParentDirectory {
         p.setPhoneNum(phoneNum);
         p.setUsername(username);
         p.setPassword(password);
+        parentDirectory.add(p);
         return p;
     }
     

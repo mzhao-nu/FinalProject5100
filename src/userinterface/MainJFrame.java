@@ -13,6 +13,7 @@ import Business.Role.PoliceAdminRole;
 import static Business.Role.Role.RoleType.Parent;
 import Business.Role.ShelterAdminRole;
 import Business.UserAccount.UserAccount;
+import Reporting.CommonReporting.ChildrenDirectory;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Image;
@@ -33,7 +34,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    
+    private ChildrenDirectory childrenDirectory;
     
     public MainJFrame() {
         initComponents();
@@ -45,8 +46,9 @@ public class MainJFrame extends javax.swing.JFrame {
         registerJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         reportJButton.setBorder(new LineBorder(Color.ORANGE, 2));
         reportJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
-        
-        initAdminRoles();
+        System.out.println(system.getChildrenDirectory().getChildrenDirectory().size());
+
+//        initAdminRoles();
     }
 
     public void initAdminRoles(){
