@@ -237,7 +237,7 @@ public class ModifyTesterJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        ManageDoctorsJPanel panel = new ManageDoctorsJPanel(userProcessContainer, userAccount, ecoSystem);
+        ManageDNATesterJPanel panel = new ManageDNATesterJPanel(userProcessContainer, userAccount, ecoSystem);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         userProcessContainer.add(panel);
         layout.next(userProcessContainer);

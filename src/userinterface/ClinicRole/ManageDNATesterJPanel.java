@@ -41,13 +41,13 @@ public class ManageDNATesterJPanel extends javax.swing.JPanel {
         for(Clinic c:ecoSystem.getClinicDirectory().getClinicList()){
             if(c.getUsername().equals(account.getUsername())) clinic=c;
         }
-            for(DnaTester t:ecoSystem.getDnaTestingDirectory().getDnaTesterList()){
+        for(DnaTester t:ecoSystem.getDnaTestingDirectory().getDnaTesterList()){
             if(t.getClinic().getId()==clinic.getId()){
                 testerList.add(t);
             }
         }
         
-            
+         populateTable();
     }
 
     /**

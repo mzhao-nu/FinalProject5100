@@ -49,7 +49,7 @@ public class MainJFrame extends javax.swing.JFrame {
         reportJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         System.out.println(system.getChildrenDirectory().getChildrenDirectory().size());
 
-        initAdminRoles();
+        //initAdminRoles();
     }
 
     public void initAdminRoles(){
