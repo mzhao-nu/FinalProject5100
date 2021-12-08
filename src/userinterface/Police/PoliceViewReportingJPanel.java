@@ -82,6 +82,11 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         });
 
         btnConfirm.setText("Confirm Found Request");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +184,24 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tableChildren.getSelectedRow();
+        
+        if (selectedRowIndex < 0){
+            JOptionPane.showMessageDialog(this, "Please select a reporting first.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
+        Children selectedChild = (Children)model.getValueAt(selectedRowIndex, 0);
+        selectedChild.setStatus("Found");
+        childrenDirectory.getChildrenDirectory().add(selectedChild);
+        reportedChildDirectory.deleteChildren(selectedChild);
+        JOptionPane.showMessageDialog(this, "Added Successfully!");
+        populateTable();
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
