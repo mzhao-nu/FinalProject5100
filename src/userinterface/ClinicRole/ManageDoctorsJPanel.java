@@ -40,11 +40,6 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
             if(c.getUsername().equals(account.getUsername())) clinic=c;
         }
         
-        for(TreatmentDoctors t:ecoSystem.getTreatDorDirectory().getTreatDorList()){
-            if(t.getClinic().getId()==clinic.getId()){
-                doctorList.add(t);
-            }
-        }
         
         populateTable();
         
@@ -171,17 +166,18 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tableDoctor.getModel();
         model.setRowCount(0);
         
-        for(TreatmentDoctors t:this.doctorList){
-            
+        for(TreatmentDoctors t:ecoSystem.getTreatDorDirectory().getTreatDorList()){
+            if(t.getClinic().getId()==clinic.getId()){
                 Object[] row = new Object[5];
                 row[0] = t.getUa().getUsername();
                 row[1] = t;
                 row[2] = t.getName();
                 row[3] = t.getAge();
                 row[4] = t.getPhoneNum();
+                
             
                model.addRow(row);
-            
+            }
        }
     
     }
@@ -223,9 +219,10 @@ public class ManageDoctorsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
+        ClinicAdminJPanel clinicAdminJPanel = new ClinicAdminJPanel(userProcessContainer, userAccount, ecoSystem);
+        userProcessContainer.add(clinicAdminJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
