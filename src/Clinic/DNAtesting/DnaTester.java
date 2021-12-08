@@ -5,6 +5,7 @@
  */
 package Clinic.DNAtesting;
 
+import Business.UserAccount.UserAccount;
 import Clinic.Admin.Clinic;
 
 /**
@@ -16,7 +17,8 @@ public class DnaTester {
     private int age;
     private int id;
     private static int count =1;
-    private long phoneNum;
+    private String phoneNum;
+    private UserAccount ua;
     private Clinic clinic;
 
     public DnaTester() {
@@ -44,11 +46,11 @@ public class DnaTester {
         this.age = age;
     }
 
-    public long getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(long phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
@@ -58,6 +60,19 @@ public class DnaTester {
 
     public void setClinic(Clinic clinic) {
         this.clinic = clinic;
+    }
+
+    public UserAccount getUa() {
+        return ua;
+    }
+
+    public void setUa(UserAccount ua) {
+        this.ua = ua;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(id);
     }
     
     

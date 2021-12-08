@@ -85,6 +85,11 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
         btnDNATester.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         btnDNATester.setForeground(new java.awt.Color(255, 153, 51));
         btnDNATester.setText("Manage DNA Testers");
+        btnDNATester.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDNATesterActionPerformed(evt);
+            }
+        });
 
         btnInfo.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         btnInfo.setForeground(new java.awt.Color(255, 153, 51));
@@ -105,7 +110,7 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDoctors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -121,16 +126,18 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
                         .addComponent(btnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(btnDoctors, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(btnDNATester, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -150,6 +157,16 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
         userProcessContainer.add(panel);
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnInfoActionPerformed
+
+    private void btnDNATesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDNATesterActionPerformed
+        // TODO add your handling code here:
+        ManageDNATesterJPanel panel = new ManageDNATesterJPanel(userProcessContainer, userAccount, ecoSystem);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add(panel);
+        layout.next(userProcessContainer);
+        
+        
+    }//GEN-LAST:event_btnDNATesterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
