@@ -29,6 +29,11 @@ public class ModifyClinicJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         this.clinic = clinic;
+        
+        txtAddress.setText(clinic.getAddress());
+        txtName.setName(clinic.getName());
+        txtPassword.setText(clinic.getUa().getPassword());
+        txtPhoneNum.setText(String.valueOf(clinic.getPhoneNum()));
     }
 
     /**
@@ -245,6 +250,7 @@ public class ModifyClinicJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         ManageClinicJPanel panel = new ManageClinicJPanel(userProcessContainer, ecoSystem);
+        userProcessContainer.add(panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
 
