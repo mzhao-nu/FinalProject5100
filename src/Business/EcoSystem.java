@@ -8,6 +8,7 @@ package Business;
 
 import Actions.PoliceDepartment.Police.PolicemanDirectory;
 import Actions.Shelter.Admin.ShelterDirectory;
+import Actions.VolunteerOrg.Volunteer.VolunteerDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Clinic.Admin.ClinicDirectory;
@@ -33,6 +34,7 @@ public class EcoSystem extends Organization{
     private ParentDirectory parentDirectory;
     private ReportedChildDirectory reportedChildDirectory;
     private DnaTestingDirectory dnaTestingDirectory;
+    private VolunteerDirectory volunteerDirectory;
 
     public EcoSystem(PolicemanDirectory policemanDirectory) {
         this.policemanDirectory = policemanDirectory;
@@ -64,6 +66,15 @@ public class EcoSystem extends Organization{
         parentDirectory = new ParentDirectory();
         reportedChildDirectory = new ReportedChildDirectory();
         dnaTestingDirectory = new DnaTestingDirectory();
+        volunteerDirectory = new VolunteerDirectory();
+    }
+
+    public VolunteerDirectory getVolunteerDirectory() {
+        return volunteerDirectory;
+    }
+
+    public void setVolunteerDirectory(VolunteerDirectory volunteerDirectory) {
+        this.volunteerDirectory = volunteerDirectory;
     }
 
     

@@ -12,6 +12,7 @@ import Business.Role.ParentRole;
 import Business.Role.PoliceAdminRole;
 import static Business.Role.Role.RoleType.Parent;
 import Business.Role.ShelterAdminRole;
+import Business.Role.VolunteerAdminRole;
 import Business.UserAccount.UserAccount;
 import Reporting.CommonReporting.ChildrenDirectory;
 import java.awt.CardLayout;
@@ -66,6 +67,11 @@ public class MainJFrame extends javax.swing.JFrame {
         Employee clinicAdmin = system.getEmployeeDirectory().createEmployee("Clinic Admin");
         UserAccount clinic = system.getUserAccountDirectory().createUserAccount("clinicadmin", "clinicadmin", clinicAdmin, new ClinicAdminRole());
         system.getClinicDirectory().createClinic("Clinic1", "100 Main St, Boston, MA", 2345678901L, "", clinic, "clinicadmin", "clinicadmin");
+        
+        //Add Volunteer Admin
+        Employee volunteeradmin = system.getEmployeeDirectory().createEmployee("Volunteer Admin");
+        UserAccount volunteer = system.getUserAccountDirectory().createUserAccount("volunteeradmin", "volunteeradmin", volunteeradmin, new VolunteerAdminRole());
+        system.getVolunteerDirectory().createVolunteer("Volunteer1", 1, 23,volunteer , "male");
 
         
     }

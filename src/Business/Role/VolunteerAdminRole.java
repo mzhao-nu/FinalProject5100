@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.Volunteer.VolunteerAdminJPanel;
+import userinterface.Volunteer.VolunteerAdminJPanel1;
 
 /**
  *
@@ -18,7 +19,7 @@ public class VolunteerAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new VolunteerAdminJPanel(userProcessContainer, system, account);
+        return new VolunteerAdminJPanel1(userProcessContainer, system, account);
     }
     
 }
