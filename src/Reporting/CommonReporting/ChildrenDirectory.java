@@ -67,7 +67,7 @@ public class ChildrenDirectory {
         childrenDirectory.remove(d);
     }
     
-    public Children getChildren(int id){
+    public Children getChildren(String id){
         for(Children d: childrenDirectory){
             if(d.getId().equals(id)){
                 return d;
@@ -78,7 +78,7 @@ public class ChildrenDirectory {
     
     public void addMedicalAdvice(String medcialAdvice, Children c){
         c.setMedicalAdvice(medcialAdvice);
-        c.setStatus("treated");
+        c.setStatus("Treated");
     }
 
 }

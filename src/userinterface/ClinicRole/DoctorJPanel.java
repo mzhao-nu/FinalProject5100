@@ -55,7 +55,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Children children:ecoSystem.getChildrenDirectory().getChildrenDirectory()){
-            if(children.getStatus().equals("found")||children.getStatus().equals("treated")){
+            if(children.getStatus().equals("Found")||children.getStatus().equals("treated")){
                 Object[] row = new Object[5];
                 row[0] = children.getId();
                 row[1] = children.getName();
@@ -96,10 +96,8 @@ public class DoctorJPanel extends javax.swing.JPanel {
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 153));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 204));
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         jTable1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(255, 255, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -173,10 +171,11 @@ public class DoctorJPanel extends javax.swing.JPanel {
            return;
        }
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        int id = (Integer)model.getValueAt(selectRowIndex, 0);
+        String id = (String)model.getValueAt(selectRowIndex, 0);
         Children children =ecoSystem.getChildrenDirectory().getChildren(id);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        userProcessContainer.add(new DetailsJPanel(userProcessContainer, userAccount, ecoSystem, children));
+        DetailsJPanel panel = new DetailsJPanel(userProcessContainer, userAccount, ecoSystem, children);
+        userProcessContainer.add(panel);
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnDetailsActionPerformed
 
