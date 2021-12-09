@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import userinterface.Reporting.ParentReportingJPanel;
+import userinterface.Reporting.ReportingFoundJPanel1;
 
 /**
  *
@@ -45,11 +46,11 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         registerJButton.setBorder(new LineBorder(Color.ORANGE, 2));
         registerJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
-        reportJButton.setBorder(new LineBorder(Color.ORANGE, 2));
-        reportJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
+        reportMissingJButton.setBorder(new LineBorder(Color.ORANGE, 2));
+        reportMissingJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         System.out.println(system.getChildrenDirectory().getChildrenDirectory().size());
 
-        //initAdminRoles();
+        initAdminRoles();
     }
 
     public void initAdminRoles(){
@@ -95,8 +96,9 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJLabel = new javax.swing.JLabel();
         logoutJButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
-        reportJButton = new javax.swing.JButton();
+        reportMissingJButton = new javax.swing.JButton();
         registerJButton = new javax.swing.JButton();
+        reportFoundJButton1 = new javax.swing.JButton();
         container = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -135,12 +137,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/login_user_logo.png"))); // NOI18N
 
-        reportJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        reportJButton.setForeground(new java.awt.Color(255, 204, 0));
-        reportJButton.setText("Report Missing Child");
-        reportJButton.addActionListener(new java.awt.event.ActionListener() {
+        reportMissingJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        reportMissingJButton.setForeground(new java.awt.Color(255, 204, 0));
+        reportMissingJButton.setText("Report Missing Child");
+        reportMissingJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reportJButtonActionPerformed(evt);
+                reportMissingJButtonActionPerformed(evt);
             }
         });
 
@@ -150,6 +152,15 @@ public class MainJFrame extends javax.swing.JFrame {
         registerJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerJButtonActionPerformed(evt);
+            }
+        });
+
+        reportFoundJButton1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        reportFoundJButton1.setForeground(new java.awt.Color(255, 204, 0));
+        reportFoundJButton1.setText("Report Found Child");
+        reportFoundJButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportFoundJButton1ActionPerformed(evt);
             }
         });
 
@@ -164,9 +175,10 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(reportJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                .addComponent(reportMissingJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                                 .addComponent(registerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(loginJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(loginJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(reportFoundJButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +188,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(userNameJTextField)
                             .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 52, Short.MAX_VALUE))
+                .addGap(0, 57, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(loginJLabel)
@@ -206,8 +218,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(registerJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(reportJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addComponent(reportMissingJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(reportFoundJButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -290,7 +304,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_registerJButtonActionPerformed
 
-    private void reportJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportJButtonActionPerformed
+    private void reportMissingJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportMissingJButtonActionPerformed
 //        ParentReportingJPanel prjp = new ParentReportingJPanel(userProcessContainer, ecoSystem);
 //        userProcessContainer.add("ViewReportingsJPanel", view);
 //        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
@@ -299,7 +313,15 @@ public class MainJFrame extends javax.swing.JFrame {
           CardLayout layout = (CardLayout)container.getLayout();
           container.add("workArea", prjp);
           layout.next(container);
-    }//GEN-LAST:event_reportJButtonActionPerformed
+    }//GEN-LAST:event_reportMissingJButtonActionPerformed
+
+    private void reportFoundJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportFoundJButton1ActionPerformed
+        // TODO add your handling code here:
+        ReportingFoundJPanel1 prjp = new ReportingFoundJPanel1(system);
+          CardLayout layout = (CardLayout)container.getLayout();
+          container.add("workArea", prjp);
+          layout.next(container);
+    }//GEN-LAST:event_reportFoundJButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,7 +371,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton logoutJButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton registerJButton;
-    private javax.swing.JButton reportJButton;
+    private javax.swing.JButton reportFoundJButton1;
+    private javax.swing.JButton reportMissingJButton;
     private javax.swing.JTextField userNameJTextField;
     // End of variables declaration//GEN-END:variables
 }
