@@ -14,6 +14,7 @@ import Business.Role.SystemAdminRole;
 import Clinic.Admin.ClinicDirectory;
 import Clinic.DNAtesting.DnaTestingDirectory;
 import Clinic.Treating.TreatDorDirectory;
+import Donation.DonationDirectory;
 import Reporting.CommonReporting.ChildrenDirectory;
 import Reporting.CommonReporting.ReportedChildDirectory;
 import Reporting.Parent.ParentDirectory;
@@ -35,6 +36,7 @@ public class EcoSystem extends Organization{
     private ReportedChildDirectory reportedChildDirectory;
     private DnaTestingDirectory dnaTestingDirectory;
     private VolunteerDirectory volunteerDirectory;
+    private DonationDirectory donationDirectory;
 
     public EcoSystem(PolicemanDirectory policemanDirectory) {
         this.policemanDirectory = policemanDirectory;
@@ -67,6 +69,7 @@ public class EcoSystem extends Organization{
         reportedChildDirectory = new ReportedChildDirectory();
         dnaTestingDirectory = new DnaTestingDirectory();
         volunteerDirectory = new VolunteerDirectory();
+        donationDirectory = new DonationDirectory();
     }
 
     public VolunteerDirectory getVolunteerDirectory() {
@@ -154,6 +157,14 @@ public class EcoSystem extends Organization{
 
     public void setDnaTestingDirectory(DnaTestingDirectory dnaTestingDirectory) {
         this.dnaTestingDirectory = dnaTestingDirectory;
+    }
+
+    public DonationDirectory getDonationDirectory() {
+        return donationDirectory;
+    }
+
+    public void setDonationDirectory(DonationDirectory donationDirectory) {
+        this.donationDirectory = donationDirectory;
     }
 	
     
