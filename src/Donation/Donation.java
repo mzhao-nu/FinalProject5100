@@ -15,7 +15,6 @@ public class Donation {
     private String donor;
     private double amount;
     private Date date;
-    private String comment;
     private boolean isPublic;
     private int id;
     private static int count=1;
@@ -52,14 +51,6 @@ public class Donation {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 
     public boolean isIsPublic() {

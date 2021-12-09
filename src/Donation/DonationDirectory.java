@@ -25,10 +25,9 @@ public class DonationDirectory {
         return donationList;
     }
     
-    public Donation createDonation(String donor, double amount, String sdate,boolean isPublic, String comment){
+    public Donation createDonation(String donor, double amount, String sdate,boolean isPublic){
         Donation donation = new Donation();
         donation.setAmount(amount);
-        donation.setComment(comment);
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         try {
@@ -47,11 +46,10 @@ public class DonationDirectory {
         donationList.remove(donation);
     }
     
-    public void updateDonation(int id,String donor, double amount, String sdate,boolean isPublic, String comment){
+    public void updateDonation(int id,String donor, double amount, String sdate,boolean isPublic){
         for(Donation donation:this.donationList){
             if(donation.getId()==id){
                 donation.setAmount(amount);
-                donation.setComment(comment);
                 SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = new Date();
                 try {

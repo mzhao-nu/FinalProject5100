@@ -5,6 +5,14 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Clinic.Admin.Clinic;
+import Donation.Donation;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author gyt
@@ -14,8 +22,14 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewDonationsJPanel
      */
-    public ViewDonationsJPanel() {
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    
+    public ViewDonationsJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.ecosystem=ecosystem;
+        
     }
 
     /**
@@ -27,9 +41,10 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableDonations = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -37,22 +52,28 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         lblOrg = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        rbtnAll = new javax.swing.JRadioButton();
+        rbtnPublic = new javax.swing.JRadioButton();
+        rbtnOrg = new javax.swing.JRadioButton();
+        txtDonor = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 36)); // NOI18N
         jLabel1.setText("View Donations");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableDonations.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Donor", "Amount", "Date", "Comment"
+                "ID", "Donor", "Amount", "Date"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableDonations);
 
         jLabel2.setText("in total:");
 
@@ -66,7 +87,20 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
 
         lblOrg.setText("jLabel7");
 
-        jLabel8.setText("from organzations.");
+        jLabel8.setText("from organizations.");
+
+        buttonGroup1.add(rbtnAll);
+        rbtnAll.setText("all donations");
+
+        buttonGroup1.add(rbtnPublic);
+        rbtnPublic.setText("public donations");
+
+        buttonGroup1.add(rbtnOrg);
+        rbtnOrg.setText("organization donations");
+
+        btnSearch.setText("search");
+
+        jButton2.setText("<<Back");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,12 +109,11 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(267, 267, 267)
+                                .addContainerGap()
+                                .addComponent(jButton2)
+                                .addGap(147, 147, 147)
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(210, 210, 210)
@@ -90,21 +123,39 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblPublic)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblOrg)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8)))
-                        .addGap(0, 44, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblPublic)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblOrg)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel8))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtDonor, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSearch)))))
+                        .addGap(0, 35, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbtnPublic)
+                                    .addComponent(rbtnAll)
+                                    .addComponent(rbtnOrg))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton2))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -116,21 +167,57 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addComponent(lblOrg)
                     .addComponent(jLabel8))
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(rbtnAll)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtnPublic)
+                    .addComponent(txtDonor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rbtnOrg)
+                .addGap(53, 53, 53))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
+    public void populateTable(){
+        DefaultTableModel model = (DefaultTableModel) tableDonations.getModel();
+        model.setRowCount(0);
+        
+        for(Donation donation:ecosystem.getDonationDirectory().getDonationList()){
+            
+                Object[] row = new Object[4];
+                row[0] = donation.getId();
+                row[1] = donation.getDonor();
+                row[2] = donation.getAmount();
+                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = donation.getDate();
+                row[3] = ft.format(date);
+       
+            
+                model.addRow(row);
+            
+       }
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblOrg;
     private javax.swing.JLabel lblPublic;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JRadioButton rbtnAll;
+    private javax.swing.JRadioButton rbtnOrg;
+    private javax.swing.JRadioButton rbtnPublic;
+    private javax.swing.JTable tableDonations;
+    private javax.swing.JTextField txtDonor;
     // End of variables declaration//GEN-END:variables
 }
