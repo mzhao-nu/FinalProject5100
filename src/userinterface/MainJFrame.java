@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import Business.Employee.Employee;
 import Business.Role.ClinicAdminRole;
+import Business.Role.OrphangeEmployeeRole;
 import Business.Role.ParentRole;
 import Business.Role.PoliceAdminRole;
 import static Business.Role.Role.RoleType.Parent;
@@ -74,7 +75,10 @@ public class MainJFrame extends javax.swing.JFrame {
         UserAccount volunteer = system.getUserAccountDirectory().createUserAccount("volunteeradmin", "volunteeradmin", volunteeradmin, new VolunteerAdminRole());
         system.getVolunteerDirectory().createVolunteer("Volunteer1", 1, 23,volunteer , "male");
 
-        
+        //Add Orphanage Admin
+        Employee orphanageadmin = system.getEmployeeDirectory().createEmployee("Orphanage Admin");
+        UserAccount oprhanage = system.getUserAccountDirectory().createUserAccount("orphanageadmin", "orphanageadmin", orphanageadmin, new OrphangeEmployeeRole());
+        system.getOrphanageDirectory().createOrphanage("Baba", "10/05/1995", "50", "23654", "MA");
     }
 
     /**
