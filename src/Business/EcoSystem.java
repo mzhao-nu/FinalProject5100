@@ -9,6 +9,7 @@ package Business;
 import Actions.PoliceDepartment.Police.PolicemanDirectory;
 import Actions.Shelter.Admin.ShelterDirectory;
 import Actions.VolunteerOrg.Volunteer.VolunteerDirectory;
+import Adoption.Orphanage.OrphanageDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Clinic.Admin.ClinicDirectory;
@@ -37,6 +38,7 @@ public class EcoSystem extends Organization{
     private DnaTestingDirectory dnaTestingDirectory;
     private VolunteerDirectory volunteerDirectory;
     private DonationDirectory donationDirectory;
+    private OrphanageDirectory orphanageDirectory;
 
     public EcoSystem(PolicemanDirectory policemanDirectory) {
         this.policemanDirectory = policemanDirectory;
@@ -70,6 +72,7 @@ public class EcoSystem extends Organization{
         dnaTestingDirectory = new DnaTestingDirectory();
         volunteerDirectory = new VolunteerDirectory();
         donationDirectory = new DonationDirectory();
+        orphanageDirectory = new OrphanageDirectory();
     }
 
     public VolunteerDirectory getVolunteerDirectory() {
@@ -125,6 +128,14 @@ public class EcoSystem extends Organization{
 
     public void setClinicDirectory(ClinicDirectory clinicDirectory) {
         this.clinicDirectory = clinicDirectory;
+    }
+
+    public OrphanageDirectory getOrphanageDirectory() {
+        return orphanageDirectory;
+    }
+
+    public void setOrphanageDirectory(OrphanageDirectory orphanageDirectory) {
+        this.orphanageDirectory = orphanageDirectory;
     }
 
     public ShelterDirectory getShelterDirectory() {

@@ -11,7 +11,9 @@ import Reporting.CommonReporting.Children;
 import Reporting.CommonReporting.ChildrenDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.text.ParseException;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,10 +43,15 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel)tableFoundChildren.getModel();
         model.setRowCount(0);
-        Date currentDate=java.util.Calendar.getInstance().getTime();
+        long millis=System.currentTimeMillis();  
+        java.sql.Date currentDate=new java.sql.Date(millis); 
+      
+ 
         
         for(Children c : childrenDirectory.getChildrenDirectory()){
-            if(c.getStatus().equals("Found")  )
+             long diffInMillies = Math.abs(currentDate.getTime() - c.getFoundDate().getTime());
+            long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+            if(c.getStatus().equals("Found") && diff>=365  )
             {
                 Object [] row = new Object[7];
                 row[0] = c.getId();
