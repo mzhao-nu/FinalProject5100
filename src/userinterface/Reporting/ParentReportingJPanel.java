@@ -390,7 +390,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             c.setReporterType("Parent");
             
             // Add Parent Data
-            // If user account is not created yet, then create one; otherwise just linke the child data with the parent
+            // If user account is not created yet, then create one; otherwise just link the child data with the parent
             if (!parentDirectory.containsParent(parentUsername)){
                 parentDirectory.createParent(parentName, parentEmail, Long.parseLong(parentPhone), parentUsername, parentPassword);
                 Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(parentName);

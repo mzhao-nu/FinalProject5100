@@ -18,7 +18,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-              <Component id="btnmissing" min="-2" pref="203" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButton1" max="32767" attributes="0"/>
+                  <Component id="btnmissing" pref="203" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace pref="254" max="32767" attributes="0"/>
               <Component id="btnfound" min="-2" pref="203" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
@@ -33,7 +36,9 @@
                   <Component id="btnmissing" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="btnfound" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="417" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace pref="325" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -41,7 +46,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnmissing">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Missing Children"/>
+        <Property name="text" type="java.lang.String" value="View Missing Children"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmissingActionPerformed"/>
@@ -49,10 +54,18 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnfound">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Found Children"/>
+        <Property name="text" type="java.lang.String" value="View Found Children"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnfoundActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Report Found Child"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

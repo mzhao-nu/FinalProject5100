@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userinterface.Reporting;
+package userinterface.Volunteer;
 
 import Business.EcoSystem;
 import Business.Employee.Employee;
@@ -12,6 +12,8 @@ import Reporting.CommonReporting.Children;
 import Reporting.CommonReporting.ChildrenDirectory;
 import Reporting.CommonReporting.ReportedChildDirectory;
 import Reporting.Parent.ParentDirectory;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.awt.Image;
 import java.io.File;
 import java.util.Random;
@@ -37,12 +39,13 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
     /**
      * Creates new form ParentReportingJPanel
      */
-    public ReportingFoundJPanel1(EcoSystem ecoSystem) {
+    public ReportingFoundJPanel1(EcoSystem ecoSystem, JPanel userProcessContainer) {
         initComponents();
         this.ecoSystem = ecoSystem; 
         this.childrenDirectory = ecoSystem.getChildrenDirectory();
         this.parentDirectory = ecoSystem.getParentDirectory();
         this.reportedChildDirectory = ecoSystem.getReportedChildDirectory();
+        this.userProcessContainer = userProcessContainer;
     }
 
     /**
@@ -81,6 +84,7 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         btnbrowseImage = new javax.swing.JButton();
         childImage = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         MissingFrom.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         MissingFrom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -149,6 +153,13 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("<<Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,14 +209,18 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(228, 228, 228)
                 .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(13, 13, 13)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -359,6 +374,16 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnbrowseImageActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+      
+        
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EyeColor;
@@ -375,6 +400,7 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
     private javax.swing.JButton btnbrowseImage;
     private javax.swing.JLabel childImage;
     private javax.swing.JLabel doB;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel race;
     private javax.swing.JTextField txtAge;
