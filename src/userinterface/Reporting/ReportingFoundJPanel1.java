@@ -192,13 +192,12 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
                         .addGap(175, 175, 175)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(377, 377, 377)
                         .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(113, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(228, 228, 228)
-                .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +302,7 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
             // Add Child Data
             Children c = reportedChildDirectory.createChildren(name, foundDate, foundPlace, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id, image);
          //   c.setReporter(parentName);
-            c.setReporterType("Volunteer");
+            c.setReporterType("Parent");
             
             // Add Parent Data
             // If user account is not created yet, then create one; otherwise just linke the child data with the parent
