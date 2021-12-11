@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author mzhao
  */
-public class AdoptionJPanel extends javax.swing.JPanel {
+public class AdoptionHistoryJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem; 
     private UserAccount userAccount;
@@ -34,7 +34,7 @@ public class AdoptionJPanel extends javax.swing.JPanel {
     /**
      * Creates new form VolunteerAdminJPanel
      */
-    public AdoptionJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, UserAccount userAccount) {
+    public AdoptionHistoryJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, UserAccount userAccount) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
@@ -51,11 +51,12 @@ public class AdoptionJPanel extends javax.swing.JPanel {
         java.sql.Date currentDate=new java.sql.Date(millis); 
       
  
+        Date adoptiondate=java.util.Calendar.getInstance().getTime();
         
         for(Children c : childrenDirectory.getChildrenDirectory()){
              long diffInMillies = Math.abs(currentDate.getTime() - c.getFoundDate().getTime());
             long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-            if(c.getStatus().equals("Found") && diff>=365  )
+            if(c.getStatus().equals("Adopted"))
             {
                 Object [] row = new Object[7];
                 row[0] = c.getId();
@@ -64,7 +65,7 @@ public class AdoptionJPanel extends javax.swing.JPanel {
                 row[3] = c.getSex();
                 row[4] = c.getRace();
                 row[5] = c.getFoundDate();
-                row[6] = c.getFoundLocation();
+                row[6] = c.getAdoptionDate();
                
                 model.addRow(row);
             }
@@ -87,7 +88,6 @@ public class AdoptionJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -98,7 +98,7 @@ public class AdoptionJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Name", "Approx. Age", "Sex", "Race", "Found Date", "Found Location"
+                "ID", "Name", "Approx. Age", "Sex", "Race", "Found Date", "Adoption Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -123,13 +123,6 @@ public class AdoptionJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Select One Child");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,15 +140,10 @@ public class AdoptionJPanel extends javax.swing.JPanel {
                 .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)
-                        .addComponent(btnBack)
-                        .addGap(64, 64, 64))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(137, 137, 137))))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93)
+                .addComponent(btnBack)
+                .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,9 +161,7 @@ public class AdoptionJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,47 +176,9 @@ public class AdoptionJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         int selectedRowIndex = tblAdoption.getSelectedRow();
-          Date adoptiondate=java.util.Calendar.getInstance().getTime();
-        
-        if (selectedRowIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select a Child first.");
-            return;
-        }
-        
-        DefaultTableModel model = (DefaultTableModel)tblAdoption.getModel();
-        Children selectedChild = (Children)model.getValueAt(selectedRowIndex, 1);
-        selectedChild.setStatus("Adopted");
-        selectedChild.setAdoptionDate(adoptiondate);
-        //childrenDirectory.getChildrenDirectory().add(selectedChild);
-        reportedChildDirectory.deleteChildren(selectedChild);
-        JOptionPane.showMessageDialog(this, "Child Adopted Successfully!");
-        populateTable();
-        /*
-        int selectedRowIndex = tableChildren.getSelectedRow();
-        
-        if (selectedRowIndex < 0){
-            JOptionPane.showMessageDialog(this, "Please select a reporting first.");
-            return;
-        }
-        
-        DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
-        Children selectedChild = (Children)model.getValueAt(selectedRowIndex, 0);
-        selectedChild.setStatus("Missing");
-        childrenDirectory.getChildrenDirectory().add(selectedChild);
-        reportedChildDirectory.deleteChildren(selectedChild);
-        JOptionPane.showMessageDialog(this, "Added Successfully!");
-        populateTable();
-    }                        
-        */
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
