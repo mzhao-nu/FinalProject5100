@@ -37,17 +37,16 @@ public class AdoptionDirectory {
     String height;
     String weight;
 */
-    public Adoption createCustomer(String childName,String childID,String name,String doB,String address,String phoneNo,String matitalStatus,String jobCompany,String date,String reasonForAdoption){
+    public Adoption createAdoptor(String name,String doB,String address,String phoneNo,String matitalStatus,String jobCompany){
         Adoption adoption = new Adoption();
         adoption.setName(name);
         adoption.setAddress(address);
-        adoption.setChildID(childID);
-        adoption.setChildName(childName);
-        adoption.setDate(date);
+       
+        
         adoption.setDoB(doB);
         adoption.setJobCompany(jobCompany);
         adoption.setMatitalStatus(matitalStatus);
-        adoption.setReasonForAdoption(reasonForAdoption);
+        
         adoption.setPhoneNo(phoneNo);                
         adoptionDirectory.add(adoption);
         return adoption;
