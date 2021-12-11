@@ -11,6 +11,7 @@ import Reporting.CommonReporting.ChildrenDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import userinterface.Police.PoliceViewReportingJPanel;
+import userinterface.Volunteer.ReportingFoundJPanel1;
 
 /**
  *
@@ -45,18 +46,26 @@ public class VolunteerAdminJPanel1 extends javax.swing.JPanel {
 
         btnmissing = new javax.swing.JButton();
         btnfound = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        btnmissing.setText("Missing Children");
+        btnmissing.setText("View Missing Children");
         btnmissing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmissingActionPerformed(evt);
             }
         });
 
-        btnfound.setText("Found Children");
+        btnfound.setText("View Found Children");
         btnfound.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfoundActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Report Found Child");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -66,7 +75,9 @@ public class VolunteerAdminJPanel1 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(136, 136, 136)
-                .addComponent(btnmissing, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnmissing, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
                 .addComponent(btnfound, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(166, 166, 166))
@@ -78,7 +89,9 @@ public class VolunteerAdminJPanel1 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnmissing, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnfound, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(325, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -98,9 +111,17 @@ public class VolunteerAdminJPanel1 extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnfoundActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ReportingFoundJPanel1 view = new ReportingFoundJPanel1(ecoSystem, userProcessContainer);
+        userProcessContainer.add("ViewReportingsJPanel", view);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnfound;
     private javax.swing.JButton btnmissing;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

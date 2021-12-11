@@ -2,7 +2,6 @@ package Business;
 
 import Business.Employee.Employee;
 import Business.Role.ParentRole;
-import Business.Role.CommonUserRole;
 import Business.Role.PoliceAdminRole;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccount;
