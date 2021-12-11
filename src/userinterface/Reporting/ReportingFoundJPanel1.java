@@ -318,7 +318,7 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Request submitted successfully, an police officer will contact you shortly.");
             
             // Clear the fields
-            txtName.setText("");
+          /*  txtName.setText("");
             txtMissingSince.setText("");
             txtMissingPlace.setText("");
             txtDOB.setText("");
@@ -329,6 +329,7 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
             txtEyeColor.setText("");
             txtHeight.setText("");
             txtWeight.setText(""); 
+          */
         
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
