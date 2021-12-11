@@ -95,6 +95,10 @@ public class AdoptionMainJPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        AdoptionHistoryJPanel view = new AdoptionHistoryJPanel(userProcessContainer, ecoSystem,userAccount);
+        userProcessContainer.add("AdoptionHistoryJPanel", view);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

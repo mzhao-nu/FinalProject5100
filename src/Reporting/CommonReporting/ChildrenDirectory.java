@@ -33,7 +33,7 @@ public class ChildrenDirectory {
         this.childrenDirectory = childrenDirectory;
     }
     
-    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id, Image childImage){
+    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id, Image childImage,Date adoptionStatus){
 
         Children children = new Children();
         children.setName(name);
@@ -57,6 +57,7 @@ public class ChildrenDirectory {
         children.setDob(dob);
         children.setId(id);
         children.setChildImage(childImage);
+        children.setAdoptionDate(adoptionStatus);
         children.setStatus("Information Submitted");
         childrenDirectory.add(children);
         return children;

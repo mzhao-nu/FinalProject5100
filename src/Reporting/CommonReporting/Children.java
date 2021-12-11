@@ -33,6 +33,15 @@ public class Children {
     private String reporterType;
     private String missingDate;
     private Image childImage;
+    private Date adoptionDate;
+
+    public Date getAdoptionDate() {
+        return adoptionDate;
+    }
+
+    public void setAdoptionDate(Date adoptionDate) {
+        this.adoptionDate = adoptionDate;
+    }
             
     private String medicalAdvice;
     private Shelter shelter;
