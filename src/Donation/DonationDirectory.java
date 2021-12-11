@@ -25,16 +25,9 @@ public class DonationDirectory {
         return donationList;
     }
     
-    public Donation createDonation(String donor, double amount, String sdate,boolean isPublic){
+    public Donation createDonation(String donor, double amount, Date date,boolean isPublic){
         Donation donation = new Donation();
         donation.setAmount(amount);
-        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date();
-        try {
-            date = ft.parse(sdate);
-        } catch (ParseException ex) {
-            
-        }
         donation.setDate(date);
         donation.setDonor(donor);
         donation.setIsPublic(isPublic);

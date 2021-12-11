@@ -241,7 +241,7 @@ public class AddClinicJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageCustomerJPanel panel = (ManageCustomerJPanel) component;
+        ManageClinicJPanel panel = (ManageClinicJPanel) component;
         panel.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

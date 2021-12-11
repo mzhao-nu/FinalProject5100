@@ -13,7 +13,6 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import userinterface.SystemAdminWorkArea.ManageCustomerJPanel;
 
 /**
  *
