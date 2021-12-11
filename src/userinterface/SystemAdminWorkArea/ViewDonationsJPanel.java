@@ -30,6 +30,28 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
         
+        if(rbtnAll.isSelected()==true) populateAllTable();
+        if(rbtnPublic.isSelected()==true) populateAllTable();
+        if(rbtnOrg.isSelected()==true) populateAllTable();
+        
+        double allamount =0;
+        for(Donation d : ecosystem.getDonationDirectory().getDonationList()){
+            allamount=allamount+d.getAmount();
+        }
+        
+        double publicamount =0;
+        for(Donation d : ecosystem.getDonationDirectory().getDonationList()){
+            if(d.isIsPublic()==true) publicamount=publicamount+d.getAmount();            
+        }
+        
+        double orgamount =0;
+        for(Donation d : ecosystem.getDonationDirectory().getDonationList()){
+            if(d.isIsPublic()==false) orgamount=orgamount+d.getAmount();            
+        }
+        
+        lblOrg.setText(String.valueOf(orgamount));
+        lblPublic.setText(String.valueOf(publicamount));
+        lblTotal.setText(String.valueOf(allamount));
     }
 
     /**
@@ -99,6 +121,11 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
         rbtnOrg.setText("organization donations");
 
         btnSearch.setText("search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("<<Back");
 
@@ -180,8 +207,27 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String donor = txtDonor.getText();
+        DefaultTableModel model = (DefaultTableModel) tableDonations.getModel();
+        model.setRowCount(0);
+        
+        for(Donation d:ecosystem.getDonationDirectory().getDonationList()){
+            if(d.getDonor().equals(donor)){
+                Object[] row = new Object[4];
+                row[0] = d.getId();
+                row[1] = d.getDonor();
+                row[2] = d.getAmount();
+                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = d.getDate();
+                row[3] = ft.format(date);
+            }
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
 
-    public void populateTable(){
+
+    public void populateAllTable(){
         DefaultTableModel model = (DefaultTableModel) tableDonations.getModel();
         model.setRowCount(0);
         
@@ -198,6 +244,48 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
             
                 model.addRow(row);
             
+       }
+        
+    }
+    
+    public void populatePublicTable(){
+        DefaultTableModel model = (DefaultTableModel) tableDonations.getModel();
+        model.setRowCount(0);
+        
+        for(Donation donation:ecosystem.getDonationDirectory().getDonationList()){
+            if(donation.isIsPublic()==true){
+                Object[] row = new Object[4];
+                row[0] = donation.getId();
+                row[1] = donation.getDonor();
+                row[2] = donation.getAmount();
+                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = donation.getDate();
+                row[3] = ft.format(date);
+       
+            
+                model.addRow(row);
+            }
+       }
+        
+    }
+    
+    public void populateOrgTable(){
+        DefaultTableModel model = (DefaultTableModel) tableDonations.getModel();
+        model.setRowCount(0);
+        
+        for(Donation donation:ecosystem.getDonationDirectory().getDonationList()){
+            if(donation.isIsPublic()==false){
+                Object[] row = new Object[4];
+                row[0] = donation.getId();
+                row[1] = donation.getDonor();
+                row[2] = donation.getAmount();
+                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = donation.getDate();
+                row[3] = ft.format(date);
+       
+            
+                model.addRow(row);
+            }
        }
         
     }
