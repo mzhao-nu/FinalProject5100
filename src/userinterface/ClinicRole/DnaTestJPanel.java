@@ -150,7 +150,7 @@ public class DnaTestJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Children children:ecoSystem.getChildrenDirectory().getChildrenDirectory()){
-            if(children.getStatus().equals("Matched")){
+            if(children.getStatus().equals("Waiting for testing center to respond")){
                 Object[] row = new Object[4];
                 row[0] = children.getId();
                 row[1] = children;
