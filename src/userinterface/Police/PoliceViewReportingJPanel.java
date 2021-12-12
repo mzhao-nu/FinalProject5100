@@ -203,17 +203,19 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         boolean match = false;
         
         // match function
+        String foundChildID = "";
         for (Children c : childrenDirectory.getChildrenDirectory()){
             if (c.getName().equals(selectedChild.getName()) && c.getSex().equals(selectedChild.getSex()) && c.getRace().equals(selectedChild.getRace()) && c.getEyeColor().equals(selectedChild.getEyeColor())){
                 match = true;
+                foundChildID = c.getId();
             }
         }
         
-        if (match){
-            childrenDirectory.getChildrenByName(selectedChild.getName()).setStatus("Found");
-            JOptionPane.showMessageDialog(this, "Missing children match found. Status for the child updated to 'Found'");
+        if (match == true){
+            childrenDirectory.getChildrenByID(foundChildID).setStatus("Matched");
+            JOptionPane.showMessageDialog(this, "Missing children match found. Status for the child updated to 'Found'" + "Child ID - " + foundChildID);
         }else{
-            selectedChild.setStatus("Missing");
+            selectedChild.setStatus("Found");
             selectedChild.setParent(parentDirectory.createParent("unknown", "unknown", 0, "unknown", "unknown"));
             childrenDirectory.getChildrenDirectory().add(selectedChild);
             JOptionPane.showMessageDialog(this, "Found child does not match any current missing children info. New missing child info added to the database automatically.");

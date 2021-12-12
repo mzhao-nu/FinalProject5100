@@ -92,5 +92,13 @@ public class ChildrenDirectory {
         }
         return null;
     }
+        public Children getChildrenByID(String Id){
+        for(Children d: childrenDirectory){
+            if(d.getId().equals(Id)){
+                return d;
+            }
+        }
+        return null;
+    }
 
 }
