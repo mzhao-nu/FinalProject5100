@@ -8,12 +8,16 @@ package userinterface.ClinicRole;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import Reporting.CommonReporting.Children;
+import Reporting.CommonReporting.ChildrenDirectory;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -32,12 +36,14 @@ public class DoctorJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem; 
     private UserAccount userAccount;
+    private ChildrenDirectory childrenDirectory;
     
     public DoctorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem) {
         initComponents();
         this.ecoSystem = ecoSystem;
         this.userAccount = account;
         this.userProcessContainer = userProcessContainer;
+        this.childrenDirectory = childrenDirectory;
         btnDetails.setBackground(new java.awt.Color(255, 255, 255, 0));
         btnDetails.setBorder(new LineBorder(Color.ORANGE, 2));
         btnSearch.setBackground(new java.awt.Color(255, 255, 255, 0));
@@ -46,6 +52,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
         btnBack.setBorder(new LineBorder(Color.ORANGE, 2));
         
         populateTable();
+        populateComboCom1();
        
     }
     
@@ -88,6 +95,8 @@ public class DoctorJPanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         btnBack = new javax.swing.JButton();
+        cmbboxregion = new javax.swing.JComboBox<>();
+        btnReset = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
@@ -126,13 +135,13 @@ public class DoctorJPanel extends javax.swing.JPanel {
             }
         });
         add(btnDetails);
-        btnDetails.setBounds(690, 270, 133, 31);
+        btnDetails.setBounds(690, 270, 139, 31);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/catoon doctor.png"))); // NOI18N
         add(jLabel2);
         jLabel2.setBounds(-50, 260, 220, 210);
         add(txtSearch);
-        txtSearch.setBounds(290, 270, 140, 27);
+        txtSearch.setBounds(290, 270, 140, 20);
 
         btnSearch.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(255, 153, 51));
@@ -149,7 +158,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
         jComboBox1.setForeground(new java.awt.Color(255, 153, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Name", "Status", " " }));
         add(jComboBox1);
-        jComboBox1.setBounds(190, 270, 87, 28);
+        jComboBox1.setBounds(190, 270, 86, 28);
 
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 153, 51));
@@ -160,7 +169,30 @@ public class DoctorJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(720, 420, 101, 31);
+        btnBack.setBounds(720, 420, 97, 31);
+
+        cmbboxregion.setEditable(true);
+        cmbboxregion.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        cmbboxregion.setForeground(new java.awt.Color(255, 153, 51));
+        cmbboxregion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbboxregion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbboxregionActionPerformed(evt);
+            }
+        });
+        add(cmbboxregion);
+        cmbboxregion.setBounds(310, 320, 110, 30);
+
+        btnReset.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 153, 51));
+        btnReset.setText("Reset Filter");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        add(btnReset);
+        btnReset.setBounds(460, 320, 140, 31);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailsActionPerformed
@@ -231,12 +263,76 @@ public class DoctorJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void cmbboxregionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbboxregionActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+        String com = (String)cmbboxregion.getSelectedItem();
+        if(com!=null)  populateTable2(com);
+    }//GEN-LAST:event_cmbboxregionActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void populateComboCom1() {
+          
+        
+          cmbboxregion.removeAllItems();
+          Set<String> COMm1 = new HashSet<String>();
+          
+          for (Children vs : ecoSystem.getChildrenDirectory().getChildrenDirectory()){
+                 
+                 if((vs.getStatus().equals("Found"))){
+                 COMm1.add(vs.getRegion());
+                     }}
+          for(String strComm1 : COMm1) {
+              cmbboxregion.addItem(strComm1);
+          }
+          
+          String COMMU1 = (String) cmbboxregion.getSelectedItem();
+          populateTable();
+          
+      }
+    
+         private void populateTable2(String COMMU1){
+   
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+           
+     
+            for (Children vs : ecoSystem.getChildrenDirectory().getChildrenDirectory()){
+                //int size = vs.getRegion().size();
+                
+                //Set<String> COMm1 = new HashSet<String>();
+                //String abp = vs.getRegion();
+        
+                if((vs.getStatus().equals("Found"))){
+                    if(!vs.getRegion().isEmpty()){
+                    if(vs.getRegion().equals(COMMU1)){
+             
+                        Object[] row = new Object[5];
+                             row[0] = vs.getId();
+                             row[1] = vs.getName();
+                             row[2] = vs.getApproxAge();
+                             row[3] = vs.getStatus();
+                             row[4] = vs.getMedicalAdvice();
+ 
+         
+                              model.addRow(row);
+                    }
+                }}
+            }
+     
+     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDetails;
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JComboBox<String> cmbboxregion;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

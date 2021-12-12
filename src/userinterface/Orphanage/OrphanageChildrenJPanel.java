@@ -13,6 +13,8 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -38,6 +40,7 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
         this.childrenDirectory = ecoSystem.getChildrenDirectory();
         
         populateTable();
+       populateComboCom1();
     }
     
     public void populateTable(){
@@ -60,13 +63,70 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
                 row[3] = c.getSex();
                 row[4] = c.getRace();
                 row[5] = c.getFoundDate();
-                row[6] = c.getFoundLocation();
+                row[6] = c.getRegion();
                
                 model.addRow(row);
             }
             
         }
     }
+    
+    private void populateComboCom1() {
+          
+        long millis=System.currentTimeMillis();  
+               java.sql.Date currentDate=new java.sql.Date(millis);
+          cmbboxregion.removeAllItems();
+          Set<String> COMm1 = new HashSet<String>();
+          
+          for (Children vs : childrenDirectory.getChildrenDirectory()){
+                 long diffInMillies = Math.abs(currentDate.getTime() - vs.getFoundDate().getTime());
+                 long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                 if((vs.getStatus().equals("Found") && diff>=365)){
+                 COMm1.add(vs.getRegion());
+                     }}
+          for(String strComm1 : COMm1) {
+              cmbboxregion.addItem(strComm1);
+          }
+          
+          String COMMU1 = (String) cmbboxregion.getSelectedItem();
+          populateTable();
+          
+      }
+    
+         private void populateTable2(String COMMU1){
+   
+            DefaultTableModel model = (DefaultTableModel) tableFoundChildren.getModel();
+            model.setRowCount(0);
+            long millis=System.currentTimeMillis();  
+            java.sql.Date currentDate=new java.sql.Date(millis); 
+     
+            for (Children vs : childrenDirectory.getChildrenDirectory()){
+                //int size = vs.getRegion().size();
+                long diffInMillies = Math.abs(currentDate.getTime() - vs.getFoundDate().getTime());
+                long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                //Set<String> COMm1 = new HashSet<String>();
+                //String abp = vs.getRegion();
+        
+                if((vs.getStatus().equals("Found") && diff>=365)){
+                    if(vs.getRegion().equals(COMMU1)){
+             
+                        Object[] row = new Object[7];
+      
+                        row[0] = vs.getId();
+                        row[1] = vs;
+                        row[2] = vs.getApproxAge();
+                        row[3] = vs.getSex();
+                        row[4] = vs.getRace();
+                        row[5] = vs.getFoundDate();
+                        row[6] = vs.getRegion();
+ 
+         
+                        model.addRow(row);
+                    }
+                }
+            }
+     
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,6 +143,8 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        cmbboxregion = new javax.swing.JComboBox<>();
+        btnReset = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Orphanage");
@@ -117,6 +179,20 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
             }
         });
 
+        cmbboxregion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbboxregion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbboxregionActionPerformed(evt);
+            }
+        });
+
+        btnReset.setText("Reset Filter");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,6 +214,12 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(64, 64, 64))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cmbboxregion, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btnReset)
+                .addGap(88, 88, 88))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +233,11 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
                         .addComponent(btnBack)))
                 .addGap(22, 22, 22)
                 .addComponent(jLabel3)
-                .addGap(59, 59, 59)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbboxregion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReset))
+                .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,9 +256,23 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void cmbboxregionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbboxregionActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+        String com = (String)cmbboxregion.getSelectedItem();
+        if(com!=null)  populateTable2(com);
+    }//GEN-LAST:event_cmbboxregionActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnResetActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JComboBox<String> cmbboxregion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

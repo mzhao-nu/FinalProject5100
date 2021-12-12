@@ -268,7 +268,7 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         String name = txtName.getText();
         String foundDate = txtMissingSince.getText();
-        String foundPlace = txtMissingPlace.getText();
+      //  String foundPlace = txtMissingPlace.getText();
         String dob = txtDOB.getText();
         String age = txtAge.getText();
         String sex = txtSex.getText();
@@ -277,6 +277,27 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
         String eyeColor = txtEyeColor.getText();
         String height = txtHeight.getText();
         String weight = txtWeight.getText();
+        int foundPlace = Integer.parseInt(txtMissingPlace.getText());
+        String region;
+        
+        
+        if (foundPlace > 10000 && foundPlace <= 19999) {
+
+                        region = "Boston";
+
+                    } else if (foundPlace > 20000 && foundPlace <= 29999) {
+
+                        region = "Washington";
+
+                    } else if (foundPlace > 30000 && foundPlace <= 39999) {
+                        region = "Texas";
+
+                    } else {
+
+                        region = "Alabama";
+
+                    }
+        
         
      /*   String parentName = txtParentName.getText();
         String parentPhone = txtParentPhone.getText();
@@ -300,7 +321,7 @@ public class ReportingFoundJPanel1 extends javax.swing.JPanel {
             String id = String.format("%05d", num); 
             
             // Add Child Data
-            Children c = reportedChildDirectory.createChildren(name, foundDate, foundPlace, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id, image);
+            Children c = reportedChildDirectory.createChildren(name, foundDate, Integer.valueOf(foundPlace),region, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id, image);
          //   c.setReporter(parentName);
             c.setReporterType("Parent");
             

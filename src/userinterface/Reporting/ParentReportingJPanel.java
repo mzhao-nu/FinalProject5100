@@ -368,6 +368,26 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         String parentEmail = txtParentEmail.getText();
         String parentUsername = txtParentUsername.getText();
         String parentPassword = txtParentPassword.getText();
+         int foundPlace = Integer.parseInt(txtMissingPlace.getText());
+         String region;
+        
+        
+        if (foundPlace > 10000 && foundPlace <= 19999) {
+
+                        region = "Boston";
+
+                    } else if (foundPlace > 20000 && foundPlace <= 29999) {
+
+                        region = "Washington";
+
+                    } else if (foundPlace > 30000 && foundPlace <= 39999) {
+                        region = "Texas";
+
+                    } else {
+
+                        region = "Alabama";
+
+                    }
         
         Image image = children.getChildImage();
         
@@ -385,7 +405,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             String id = String.format("%05d", num); 
             
             // Add Child Data
-            Children c = reportedChildDirectory.createChildren(name, missingDate, missingPlace, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id, image);
+            Children c = reportedChildDirectory.createChildren(name, missingDate, Integer.valueOf(missingPlace), region, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id, image);
             c.setReporter(parentName);
             c.setReporterType("Parent");
             
