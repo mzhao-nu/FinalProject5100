@@ -12,10 +12,6 @@ import Reporting.CommonReporting.ReportedChildDirectory;
 import Reporting.Parent.ParentDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.util.Properties;
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -208,19 +204,16 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         
         // match function
         String foundChildID = "";
-        Children existing = new Children();
         for (Children c : childrenDirectory.getChildrenDirectory()){
             if (c.getName().equals(selectedChild.getName()) && c.getSex().equals(selectedChild.getSex()) && c.getRace().equals(selectedChild.getRace()) && c.getEyeColor().equals(selectedChild.getEyeColor())){
                 match = true;
                 foundChildID = c.getId();
-                existing = c;
             }
         }
         
         if (match == true){
             childrenDirectory.getChildrenByID(foundChildID).setStatus("Matched");
-            JOptionPane.showMessageDialog(this, "Missing children match found. Status for the child updated to 'Matched'. " + "Child ID - " + foundChildID + " An email will be sent to the relating parent.");
-            sendEmail(existing);
+            JOptionPane.showMessageDialog(this, "Missing children match found. Status for the child updated to 'Found'" + "Child ID - " + foundChildID);
         }else{
             selectedChild.setStatus("Found");
             selectedChild.setParent(parentDirectory.createParent("unknown", "unknown", 0, "unknown", "unknown"));
@@ -231,36 +224,6 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
-    public void sendEmail(Children c){
-//        String ToEmail = c.getParent().getEmail();
-        String ToEmail = "jennyzhao0711@gmail.com";
-        String FromEmail = "5100finalproject@gmail.com";
-        String FromEmailPassword = "5100FinalProject!";
-        String Subjects = "Missing Child Update";
-        
-        Properties properties = new Properties();
-        properties.put("mail.smtp.auth","true");
-        properties.put("mail.smtp.starttls.enable","true");
-        properties.put("mail.smtp.host","smtp.gmail.com");
-        properties.put("mail.smtp.port","587");
-        
-        Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication("5100finalproject@gmail.com", "5100FinalProject!");
-            }
-        });
-        
-        try{
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(FromEmail));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(ToEmail));
-            message.setSubject(Subjects);
-            message.setText("Your lost child may have been found! Please come to the testing center for DNA testing.");
-            Transport.send(message);
-        }catch(Exception ex){
-            System.out.println(""+ex);
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
