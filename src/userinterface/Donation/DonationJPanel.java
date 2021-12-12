@@ -7,9 +7,7 @@ package userinterface.Donation;
 
 import Business.EcoSystem;
 import java.awt.CardLayout;
-import java.awt.Component;
 import javax.swing.JPanel;
-import userinterface.Police.PoliceAdminJPanel;
 
 /**
  *
@@ -47,11 +45,6 @@ public class DonationJPanel extends javax.swing.JPanel {
         jLabel1.setText("Thank you for your donation!");
 
         btnBack.setText("<<Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         btnPublic.setText("Personal donate");
         btnPublic.addActionListener(new java.awt.event.ActionListener() {
@@ -113,12 +106,6 @@ public class DonationJPanel extends javax.swing.JPanel {
     private void btnOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrgActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOrgActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
