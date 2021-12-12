@@ -305,27 +305,47 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
         
         
         if (foundPlace > 10000 && foundPlace <= 19999) {
-
-                        region = "Boston";
-
-                    } else if (foundPlace > 20000 && foundPlace <= 29999) {
-
-                        region = "Washington";
-
-                    } else if (foundPlace > 30000 && foundPlace <= 39999) {
-                        region = "Texas";
-
-                    } else {
-
-                        region = "Alabama";
-
-                    }
+            region = "Boston";
+        } else if (foundPlace > 20000 && foundPlace <= 29999) {
+            region = "Washington";
+        } else if (foundPlace > 30000 && foundPlace <= 39999) {
+            region = "Texas";
+        } else {
+            region = "Alabama";
+        }
 
         Image image = children.getChildImage();
         
         String errorMsg = "";
         
         // Data Validation Needed
+        if (name.isEmpty() || foundDate.isEmpty() ||dob.isEmpty() || age.isEmpty() || sex.isEmpty() || race.isEmpty() || hairColor.isEmpty()
+                || eyeColor.isEmpty() || height.isEmpty() || weight.isEmpty() || txtMissingPlace.getText().isEmpty() || (!chkYes.isSelected() && !chkNo.isSelected()))    
+            errorMsg += "All fields are required.";
+
+        if (!age.isEmpty()){
+            boolean isNum = true;
+            for (int i = 0; i < age.length(); i++) {
+                char c = age.charAt(i);
+                if (c < '0' || c > '9') {
+                    isNum = false;
+                    break;
+                }
+            }
+            if (isNum == false)    errorMsg += "Age must be a number.\n";
+        }
+        if (!txtMissingPlace.getText().isEmpty()){
+            boolean isNum = true;
+            for (int i = 0; i < txtMissingPlace.getText().length(); i++) {
+                char c = txtMissingPlace.getText().charAt(i);
+                if (c < '0' || c > '9') {
+                    isNum = false;
+                    break;
+                }
+            }
+            if (isNum == false)    errorMsg += "Found place should be a number.\n";
+        }
+        if (chkYes.isSelected() && chkNo.isSelected())    errorMsg += "Volunteer selection error.\n";
         
         // If error in data format
         if (!errorMsg.isEmpty()){
@@ -358,7 +378,8 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             txtEyeColor.setText("");
             txtHeight.setText("");
             txtWeight.setText(""); 
-        
+            chkYes.setSelected(false);
+            chkNo.setSelected(false);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 

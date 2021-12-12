@@ -164,7 +164,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTestingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestingActionPerformed
-int selectedRow = tableChildren.getSelectedRow();
+        int selectedRow = tableChildren.getSelectedRow();
         if(selectedRow < 0) {
             JOptionPane.showMessageDialog(this,"Please select a children first.");
             return;

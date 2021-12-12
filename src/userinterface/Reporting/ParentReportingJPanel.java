@@ -369,8 +369,8 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         String parentEmail = txtParentEmail.getText();
         String parentUsername = txtParentUsername.getText();
         String parentPassword = txtParentPassword.getText();
-         int foundPlace = Integer.parseInt(txtMissingPlace.getText());
-         String region;
+        int foundPlace = Integer.parseInt(txtMissingPlace.getText());
+        String region;
         
         
         if (foundPlace > 10000 && foundPlace <= 19999) {
@@ -395,6 +395,36 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         String errorMsg = "";
         
         // Data Validation Needed
+        if (name.isEmpty() || missingPlace.isEmpty() ||dob.isEmpty() || age.isEmpty() || sex.isEmpty() || race.isEmpty() || hairColor.isEmpty()
+                || eyeColor.isEmpty() || height.isEmpty() || weight.isEmpty() || txtMissingPlace.getText().isEmpty()
+                || parentName.isEmpty() || parentPhone.isEmpty() || parentEmail.isEmpty() || parentUsername.isEmpty() || parentPassword.isEmpty())    
+            errorMsg += "All fields are required.";
+
+        if (!age.isEmpty()){
+            boolean isNum = true;
+            for (int i = 0; i < age.length(); i++) {
+                char c = age.charAt(i);
+                if (c < '0' || c > '9') {
+                    isNum = false;
+                    break;
+                }
+            }
+            if (isNum == false)    errorMsg += "Age must be a number.\n";
+        }
+        if (!txtMissingPlace.getText().isEmpty()){
+            boolean isNum = true;
+            for (int i = 0; i < txtMissingPlace.getText().length(); i++) {
+                char c = txtMissingPlace.getText().charAt(i);
+                if (c < '0' || c > '9') {
+                    isNum = false;
+                    break;
+                }
+            }
+            if (isNum == false)    errorMsg += "Missing place should be a number.\n";
+        }
+        
+        
+        
         
         // If error in data format
         if (!errorMsg.isEmpty()){
