@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import userinterface.Donation.DonationJPanel;
 import userinterface.Reporting.ParentReportingJPanel;
-import userinterface.Reporting.ReportingFoundJPanel1;
+import userinterface.Reporting.ReportingFoundJPanel;
 
 /**
  *
@@ -342,7 +342,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void reportFoundJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportFoundJButton1ActionPerformed
         // TODO add your handling code here:
-        ReportingFoundJPanel1 prjp = new ReportingFoundJPanel1(system);
+        ReportingFoundJPanel prjp = new ReportingFoundJPanel(system);
           CardLayout layout = (CardLayout)container.getLayout();
           container.add("workArea", prjp);
           layout.next(container);

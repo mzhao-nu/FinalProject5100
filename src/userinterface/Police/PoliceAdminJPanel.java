@@ -82,7 +82,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableChildren = new javax.swing.JTable();
-        btnUpdateStatus = new javax.swing.JButton();
+        btnTesting = new javax.swing.JButton();
         btnViewDetails = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -125,15 +125,15 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         add(jScrollPane2);
         jScrollPane2.setBounds(70, 160, 714, 229);
 
-        btnUpdateStatus.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        btnUpdateStatus.setText("Update Status");
-        btnUpdateStatus.addActionListener(new java.awt.event.ActionListener() {
+        btnTesting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnTesting.setText("Send Pickup Request to Testing Center");
+        btnTesting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateStatusActionPerformed(evt);
+                btnTestingActionPerformed(evt);
             }
         });
-        add(btnUpdateStatus);
-        btnUpdateStatus.setBounds(320, 410, 139, 29);
+        add(btnTesting);
+        btnTesting.setBounds(300, 410, 309, 29);
 
         btnViewDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         btnViewDetails.setText("View Details");
@@ -143,7 +143,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnViewDetails);
-        btnViewDetails.setBounds(500, 410, 126, 29);
+        btnViewDetails.setBounds(630, 410, 126, 29);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel2.setText("Search By Name:");
@@ -163,17 +163,17 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         btnViewReporting.setBounds(70, 410, 210, 29);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUpdateStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateStatusActionPerformed
-        int selectedRow = tableChildren.getSelectedRow();
+    private void btnTestingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestingActionPerformed
+int selectedRow = tableChildren.getSelectedRow();
         if(selectedRow < 0) {
             JOptionPane.showMessageDialog(this,"Please select a children first.");
             return;
         }
         
-        Order order = (Order) tableChildren.getValueAt(selectedRow, 0);
-        order.setStatus("Order Declined");
+        Children child = (Children) tableChildren.getValueAt(selectedRow, 0);
+        child.setStatus("Waiting for testing center to respond");
         populateTable();
-    }//GEN-LAST:event_btnUpdateStatusActionPerformed
+    }//GEN-LAST:event_btnTestingActionPerformed
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         int selectedRow = tableChildren.getSelectedRow();
@@ -198,7 +198,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnUpdateStatus;
+    private javax.swing.JButton btnTesting;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton btnViewReporting;
     private javax.swing.JLabel jLabel1;

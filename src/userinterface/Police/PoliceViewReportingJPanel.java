@@ -9,6 +9,7 @@ import Business.UserAccount.UserAccount;
 import Reporting.CommonReporting.Children;
 import Reporting.CommonReporting.ChildrenDirectory;
 import Reporting.CommonReporting.ReportedChildDirectory;
+import Reporting.Parent.ParentDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -25,6 +26,7 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private ChildrenDirectory childrenDirectory;
     private ReportedChildDirectory reportedChildDirectory;
+    private ParentDirectory parentDirectory;
     
     /**
      * Creates new form PoliceViewReportingJPanel
@@ -35,6 +37,7 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         this.childrenDirectory = ecoSystem.getChildrenDirectory();
         this.reportedChildDirectory = ecoSystem.getReportedChildDirectory();
+        this.parentDirectory = ecoSystem.getParentDirectory();
         populateTable();
     }
 
@@ -81,7 +84,7 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnConfirm.setText("Confirm Found Request");
+        btnConfirm.setText("Match Child Information to Database");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
@@ -196,10 +199,28 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
         Children selectedChild = (Children)model.getValueAt(selectedRowIndex, 0);
-        selectedChild.setStatus("Found");
-        childrenDirectory.getChildrenDirectory().add(selectedChild);
+        
+        // See if the child matches any missing child in the database, if yes then set the missing child status
+        // to "Found", otherwise create a new missing child
+        boolean match = false;
+        
+        // match function
+        for (Children c : childrenDirectory.getChildrenDirectory()){
+            if (c.getName().equals(selectedChild.getName()) && c.getSex().equals(selectedChild.getSex()) && c.getRace().equals(selectedChild.getRace()) && c.getEyeColor().equals(selectedChild.getEyeColor())){
+                match = true;
+            }
+        }
+        
+        if (match){
+            childrenDirectory.getChildrenByName(selectedChild.getName()).setStatus("Found");
+            JOptionPane.showMessageDialog(this, "Missing children match found. Status for the child updated to 'Found'");
+        }else{
+            selectedChild.setStatus("Missing");
+            selectedChild.setParent(parentDirectory.createParent("unknown", "unknown", 0, "unknown", "unknown"));
+            childrenDirectory.getChildrenDirectory().add(selectedChild);
+            JOptionPane.showMessageDialog(this, "Found child does not match any current missing children info. New missing child info added to the database automatically.");
+        }
         reportedChildDirectory.deleteChildren(selectedChild);
-        JOptionPane.showMessageDialog(this, "Added Successfully!");
         populateTable();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
