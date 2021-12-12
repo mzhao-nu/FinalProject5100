@@ -50,7 +50,7 @@ public class VolunteerFoundChildrenJPanel extends javax.swing.JPanel {
                 row[3] = c.getSex();
                 row[4] = c.getRace();
                 row[5] = c.getFoundDate();
-                row[6] = c.getFoundLocation();
+                row[6] = c.getFoundLocationZipCode();
                
                 model.addRow(row);
             }

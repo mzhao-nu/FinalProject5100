@@ -18,7 +18,8 @@ import javax.swing.ImageIcon;
 public class Children {
     private String name;
     private Date foundDate;
-    private String foundLocation;
+    private int foundLocationZipCode;
+    private String region;
     private String dob;
     private int approxAge;
     private String sex;
@@ -41,6 +42,14 @@ public class Children {
 
     public void setAdoptionDate(Date adoptionDate) {
         this.adoptionDate = adoptionDate;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
             
     private String medicalAdvice;
@@ -121,12 +130,12 @@ public class Children {
         this.foundDate = foundDate;
     }
 
-    public String getFoundLocation() {
-        return foundLocation;
+    public int getFoundLocationZipCode() {
+        return foundLocationZipCode;
     }
 
-    public void setFoundLocation(String foundLocaion) {
-        this.foundLocation = foundLocaion;
+    public void setFoundLocationZipCode(int foundLocaion) {
+        this.foundLocationZipCode = foundLocaion;
     }
 
     public int getApproxAge() {

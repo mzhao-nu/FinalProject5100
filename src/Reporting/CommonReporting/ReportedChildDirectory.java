@@ -28,7 +28,7 @@ public class ReportedChildDirectory {
         this.reportedChildDirectory = reportedChildDirectory;
     }
     
-    public Children createChildren(String name, String foundDate, String foundLocaion, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id, Image childImage){
+    public Children createChildren(String name, String foundDate, int foundLocaion,String region, int approxAge, String sex, String race, String hairColor, String eyeColor, String height, String weight, String dob, String id, Image childImage){
 
         Children children = new Children();
         children.setName(name);
@@ -42,7 +42,7 @@ public class ReportedChildDirectory {
             
         }
         children.setFoundDate(date);
-        children.setFoundLocation(foundLocaion);
+        children.setFoundLocationZipCode(foundLocaion);
         children.setHairColor(hairColor);
         children.setHeight(height);
         children.setName(name);
@@ -52,6 +52,7 @@ public class ReportedChildDirectory {
         children.setDob(dob);
         children.setId(id);
         children.setChildImage(childImage);
+        children.setRegion(region);
         children.setStatus("Information Submitted");
         reportedChildDirectory.add(children);
         return children;
