@@ -6,6 +6,7 @@
 package Reporting.CommonReporting;
 
 import Actions.Shelter.Admin.Shelter;
+import Reporting.Parent.Parent;
 import java.awt.Image;
 import java.util.Date;
 import javax.swing.ImageIcon;
@@ -35,6 +36,7 @@ public class Children {
     private String missingDate;
     private Image childImage;
     private Date adoptionDate;
+    private Parent parent;
 
     public Date getAdoptionDate() {
         return adoptionDate;
@@ -241,8 +243,14 @@ public class Children {
     public void setMissingDate(String missingDate) {
         this.missingDate = missingDate;
     }
-    
-    
+
+    public Parent getParent() {
+        return parent;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
+    }
     
     @Override
     public String toString() {
