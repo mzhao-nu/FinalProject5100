@@ -300,32 +300,45 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
         String eyeColor = txtEyeColor.getText();
         String height = txtHeight.getText();
         String weight = txtWeight.getText();
-        int foundPlace = Integer.parseInt(txtMissingPlace.getText());
-        String region;
-        
-        
-        if (foundPlace > 10000 && foundPlace <= 19999) {
-
-                        region = "Boston";
-
-                    } else if (foundPlace > 20000 && foundPlace <= 29999) {
-
-                        region = "Washington";
-
-                    } else if (foundPlace > 30000 && foundPlace <= 39999) {
-                        region = "Texas";
-
-                    } else {
-
-                        region = "Alabama";
-
-                    }
-
+        String region = "";
         Image image = children.getChildImage();
-        
         String errorMsg = "";
         
+        try{
+            int foundPlace = Integer.parseInt(txtMissingPlace.getText());
+
+            if (foundPlace > 10000 && foundPlace <= 19999) {
+                region = "Boston";
+            } else if (foundPlace > 20000 && foundPlace <= 29999) {
+                region = "Washington";
+            } else if (foundPlace > 30000 && foundPlace <= 39999) {
+                region = "Texas";
+            } else {
+                region = "Alabama";
+            }
+        }catch(Exception e){
+            errorMsg += "Missing place should be a number.";
+        }
+
+        
         // Data Validation Needed
+        if (name.isEmpty() || foundDate.isEmpty() ||dob.isEmpty() || age.isEmpty() || sex.isEmpty() || race.isEmpty() || hairColor.isEmpty()
+                || eyeColor.isEmpty() || height.isEmpty() || weight.isEmpty() || txtMissingPlace.getText().isEmpty() || (!chkYes.isSelected() && !chkNo.isSelected()))    
+            errorMsg += "All fields are required.";
+
+        if (!age.isEmpty()){
+            boolean isNum = true;
+            for (int i = 0; i < age.length(); i++) {
+                char c = age.charAt(i);
+                if (c < '0' || c > '9') {
+                    isNum = false;
+                    break;
+                }
+            }
+            if (isNum == false)    errorMsg += "Age must be a number.\n";
+        }
+        if (chkYes.isSelected() && chkNo.isSelected())    errorMsg += "Volunteer selection error.\n";
+        
         
         // If error in data format
         if (!errorMsg.isEmpty()){
@@ -337,7 +350,7 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             String id = String.format("%05d", num); 
             
             // Add Child Data
-            Children c = reportedChildDirectory.createChildren(name, foundDate, foundPlace, region, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id, image);
+            Children c = reportedChildDirectory.createChildren(name, foundDate, Integer.parseInt(txtMissingPlace.getText()), region, Integer.valueOf(age), sex, race, hairColor, eyeColor, height, weight, dob, id, image);
             if (chkYes.isSelected()){
                 c.setReporterType("Volunteer");
             }else if (chkNo.isSelected()){
@@ -358,7 +371,8 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             txtEyeColor.setText("");
             txtHeight.setText("");
             txtWeight.setText(""); 
-        
+            chkYes.setSelected(false);
+            chkNo.setSelected(false);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
