@@ -292,6 +292,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
           
           String COMMU1 = (String) cmbboxregion.getSelectedItem();
           populateTable();
+         
           
       }
     
@@ -308,23 +309,25 @@ public class DoctorJPanel extends javax.swing.JPanel {
                 //String abp = vs.getRegion();
         
                 if((vs.getStatus().equals("Found"))){
-                    if(!vs.getRegion().isEmpty()){
-                    if(vs.getRegion().equals(COMMU1)){
+                    
+                        if(vs.getRegion().equals(COMMU1)){
              
-                        Object[] row = new Object[5];
-                             row[0] = vs.getId();
-                             row[1] = vs.getName();
-                             row[2] = vs.getApproxAge();
-                             row[3] = vs.getStatus();
-                             row[4] = vs.getMedicalAdvice();
+                            Object[] row = new Object[5];
+                            row[0] = vs.getId();
+                            row[1] = vs.getName();
+                            row[2] = vs.getApproxAge();
+                            row[3] = vs.getStatus();
+                            row[4] = vs.getMedicalAdvice();
  
          
                               model.addRow(row);
-                    }
-                }}
+                        }
+                       
+                }
             }
+            
      
-     }
+        }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
