@@ -34,15 +34,16 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
     }
 
     public void populateFields(){
-//        txtName.setText(child.getName());
-//        txtAge.setText(String.valueOf(child.getApproxAge()));
-//        txtSex.setText(child.getSex());
-//        txtRace.setText(child.getRace());
-//        txtHairColor.setText(child.getHairColor());   
-//        txtEyeColor.setText(child.getEyeColor());
-//        txtHeight.setText(child.getHeight());
-//        txtWeight.setText(child.getWeight());
-//        txtMissingDate.setText(child.getMissingDate());
+        txtName.setText(child.getName());
+        txtAge.setText(String.valueOf(child.getApproxAge()));
+        txtSex.setText(child.getSex());
+        txtRace.setText(child.getRace());
+        txtHairColor.setText(child.getHairColor());   
+        txtEyeColor.setText(child.getEyeColor());
+        txtHeight.setText(child.getHeight());
+        txtWeight.setText(child.getWeight());
+        txtMissingDate.setText(child.getMissingDate());
+        txtMissingLocation.setText(child.getRegion());
     }
     
     
@@ -76,6 +77,8 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
         txtWeight = new javax.swing.JTextField();
         txtMissingDate = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtMissingLocation = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("View Child Details");
@@ -117,6 +120,9 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel11.setText("Image:");
 
+        jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel12.setText("Missing Location:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,6 +136,10 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(223, 223, 223)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtMissingLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel11)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,9 +210,13 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtMissingDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtMissingLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addComponent(jLabel11)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -223,6 +237,7 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -236,6 +251,7 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtHairColor;
     private javax.swing.JTextField txtHeight;
     private javax.swing.JTextField txtMissingDate;
+    private javax.swing.JTextField txtMissingLocation;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtRace;
     private javax.swing.JTextField txtSex;

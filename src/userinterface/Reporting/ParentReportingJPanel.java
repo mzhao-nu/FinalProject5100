@@ -134,6 +134,12 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         HairColor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         HairColor.setText("Hair color:");
 
+        txtMissingSince.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMissingSinceActionPerformed(evt);
+            }
+        });
+
         Height.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         Height.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Height.setText("Height:");
@@ -369,30 +375,31 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         String parentEmail = txtParentEmail.getText();
         String parentUsername = txtParentUsername.getText();
         String parentPassword = txtParentPassword.getText();
-        int foundPlace = Integer.parseInt(txtMissingPlace.getText());
-        String region;
+        Image image = children.getChildImage();
+        String region = "";
+        String errorMsg = "";
         
-        
-        if (foundPlace > 10000 && foundPlace <= 19999) {
+        try{
+            int foundPlace = Integer.parseInt(txtMissingPlace.getText());
+            if (foundPlace > 10000 && foundPlace <= 19999) {
 
                         region = "Boston";
 
-                    } else if (foundPlace > 20000 && foundPlace <= 29999) {
+                        } else if (foundPlace > 20000 && foundPlace <= 29999) {
 
-                        region = "Washington";
+                            region = "Washington";
 
-                    } else if (foundPlace > 30000 && foundPlace <= 39999) {
-                        region = "Texas";
+                        } else if (foundPlace > 30000 && foundPlace <= 39999) {
+                            region = "Texas";
 
-                    } else {
+                        } else {
 
-                        region = "Alabama";
+                            region = "Alabama";
 
-                    }
-        
-        Image image = children.getChildImage();
-        
-        String errorMsg = "";
+                        }
+        }catch(NumberFormatException e){
+            errorMsg += "Missing place should be a number.";
+        }
         
         // Data Validation Needed
         if (name.isEmpty() || missingPlace.isEmpty() ||dob.isEmpty() || age.isEmpty() || sex.isEmpty() || race.isEmpty() || hairColor.isEmpty()
@@ -411,24 +418,12 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             }
             if (isNum == false)    errorMsg += "Age must be a number.\n";
         }
-        if (!txtMissingPlace.getText().isEmpty()){
-            boolean isNum = true;
-            for (int i = 0; i < txtMissingPlace.getText().length(); i++) {
-                char c = txtMissingPlace.getText().charAt(i);
-                if (c < '0' || c > '9') {
-                    isNum = false;
-                    break;
-                }
-            }
-            if (isNum == false)    errorMsg += "Missing place should be a number.\n";
-        }
-        
-        
         
         
         // If error in data format
         if (!errorMsg.isEmpty()){
             JOptionPane.showMessageDialog(this, errorMsg);
+            return;
         }else{    // else add missing child data and parent info
             // Generate random 5 digit id
             Random rand = new Random();
@@ -453,8 +448,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
                 // Also Link Child to Parent
                 parentDirectory.getParent(parentUsername).getChildrenList().add(id);
             }
-            
-            
+
             
             JOptionPane.showMessageDialog(this, "Request submitted successfully, an police officer will contact you shortly.");
             
@@ -502,6 +496,10 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             childImage.setIcon(new ImageIcon(image));
         }
     }//GEN-LAST:event_btnbrowseImageActionPerformed
+
+    private void txtMissingSinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMissingSinceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMissingSinceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

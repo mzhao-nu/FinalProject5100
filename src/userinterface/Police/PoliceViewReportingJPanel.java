@@ -46,13 +46,12 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Children c : reportedChildDirectory.getReportedChildDirectory()){
-            Object [] row = new Object[6];
+            Object [] row = new Object[5];
             row[0] = c;
             row[1] = c.getApproxAge();
             row[2] = c.getSex();
             row[3] = c.getRace();
-            row[4] = c.getReporter();
-            row[5] = c.getReporterType();
+            row[4] = c.getReporterType();
             model.addRow(row);
         }
     }
@@ -103,11 +102,11 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Age", "Sex", "Race", "Reporter Name", "Reporter Role"
+                "Name", "Age", "Sex", "Race", "Reporter Role"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -120,7 +119,6 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
             tableChildren.getColumnModel().getColumn(1).setResizable(false);
             tableChildren.getColumnModel().getColumn(2).setResizable(false);
             tableChildren.getColumnModel().getColumn(3).setResizable(false);
-            tableChildren.getColumnModel().getColumn(4).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -32,6 +32,7 @@ public class ReportedChildDirectory {
 
         Children children = new Children();
         children.setName(name);
+        children.setMissingDate(foundDate);
         children.setApproxAge(approxAge);
         children.setEyeColor(eyeColor);
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");

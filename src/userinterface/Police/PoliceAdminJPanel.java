@@ -40,10 +40,6 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         this.childrenDirectory = ecoSystem.getChildrenDirectory();
         
         populateTable();
-//        populateComboBox();
-//        
-//        tableChildren.getTableHeader().setOpaque(false);
-//        tableChildren.getTableHeader().setBackground(Color.ORANGE);
     }
 
     public void populateTable(){
@@ -62,14 +58,6 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         }
     }
     
-    public void populateComboBox() {
-//        comboBoxDeliveryMan.removeAllItems();
-//        comboBoxDeliveryMan.addItem("-Select One-");
-//        for(DeliveryMan d : ecoSystem.getDeliveryManDirectory().getDeliveryManDirectory()) {
-//            comboBoxDeliveryMan.addItem(d.getName());
-//        }
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,8 +72,6 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         tableChildren = new javax.swing.JTable();
         btnTesting = new javax.swing.JButton();
         btnViewDetails = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         btnViewReporting = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
@@ -123,7 +109,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(70, 160, 714, 229);
+        jScrollPane2.setBounds(70, 110, 714, 229);
 
         btnTesting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         btnTesting.setText("Send Pickup Request to Testing Center");
@@ -133,7 +119,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnTesting);
-        btnTesting.setBounds(300, 410, 309, 29);
+        btnTesting.setBounds(300, 360, 309, 29);
 
         btnViewDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         btnViewDetails.setText("View Details");
@@ -143,14 +129,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnViewDetails);
-        btnViewDetails.setBounds(630, 410, 126, 29);
-
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel2.setText("Search By Name:");
-        add(jLabel2);
-        jLabel2.setBounds(270, 110, 112, 17);
-        add(jTextField1);
-        jTextField1.setBounds(400, 110, 176, 26);
+        btnViewDetails.setBounds(630, 360, 126, 29);
 
         btnViewReporting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         btnViewReporting.setText("View Pending Reportings");
@@ -160,7 +139,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnViewReporting);
-        btnViewReporting.setBounds(70, 410, 210, 29);
+        btnViewReporting.setBounds(70, 360, 210, 29);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTestingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestingActionPerformed
@@ -169,9 +148,15 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"Please select a children first.");
             return;
         }
+        DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
+        Children child = (Children)model.getValueAt(selectedRow, 1);
         
-        Children child = (Children) tableChildren.getValueAt(selectedRow, 0);
-        child.setStatus("Waiting for testing center to respond");
+        if (child.getStatus().equals("Found")){
+            child.setStatus("Waiting for testing center to respond");
+            JOptionPane.showMessageDialog(this,"Request sent.");
+        }else{
+            JOptionPane.showMessageDialog(this,"This child does not qualify for dna testing");
+        }
         populateTable();
     }//GEN-LAST:event_btnTestingActionPerformed
 
@@ -182,7 +167,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             return;
         }
         
-        Children child = (Children) tableChildren.getValueAt(selectedRow, 0);
+        Children child = (Children) tableChildren.getValueAt(selectedRow, 1);
         PoliceViewDetailsJPanel pvdp = new PoliceViewDetailsJPanel(userProcessContainer, ecoSystem, child);
         userProcessContainer.add("ViewDetailsJPanel", pvdp);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
@@ -202,9 +187,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton btnViewReporting;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tableChildren;
     // End of variables declaration//GEN-END:variables
 }
