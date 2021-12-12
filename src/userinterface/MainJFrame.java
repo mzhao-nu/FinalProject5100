@@ -47,14 +47,10 @@ public class MainJFrame extends javax.swing.JFrame {
 //        this.setSize(1680, 1050);
         loginJButton.setBorder(new LineBorder(Color.ORANGE, 2));
         loginJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
-        donateJButton.setBorder(new LineBorder(Color.ORANGE, 2));
-        donateJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
+        registerJButton.setBorder(new LineBorder(Color.ORANGE, 2));
+        registerJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         reportMissingJButton.setBorder(new LineBorder(Color.ORANGE, 2));
         reportMissingJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
-        reportFoundJButton.setBorder(new LineBorder(Color.ORANGE, 2));
-        reportFoundJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
-        logoutJButton.setBorder(new LineBorder(Color.ORANGE, 2));
-        logoutJButton.setBackground(new java.awt.Color(255, 255, 255, 0));
         System.out.println(system.getChildrenDirectory().getChildrenDirectory().size());
 
         initAdminRoles();
@@ -112,11 +108,12 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
         reportMissingJButton = new javax.swing.JButton();
-        donateJButton = new javax.swing.JButton();
-        reportFoundJButton = new javax.swing.JButton();
+        registerJButton = new javax.swing.JButton();
+        reportFoundJButton1 = new javax.swing.JButton();
         container = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        btnDonate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,7 +139,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password:");
 
-        logoutJButton.setForeground(new java.awt.Color(255, 204, 51));
         logoutJButton.setText("Logout");
         logoutJButton.setEnabled(false);
         logoutJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -162,21 +158,21 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        donateJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        donateJButton.setForeground(new java.awt.Color(255, 204, 0));
-        donateJButton.setText("Donate");
-        donateJButton.addActionListener(new java.awt.event.ActionListener() {
+        registerJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        registerJButton.setForeground(new java.awt.Color(255, 204, 0));
+        registerJButton.setText("Register");
+        registerJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                donateJButtonActionPerformed(evt);
+                registerJButtonActionPerformed(evt);
             }
         });
 
-        reportFoundJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        reportFoundJButton.setForeground(new java.awt.Color(255, 204, 0));
-        reportFoundJButton.setText("Report Found Child");
-        reportFoundJButton.addActionListener(new java.awt.event.ActionListener() {
+        reportFoundJButton1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        reportFoundJButton1.setForeground(new java.awt.Color(255, 204, 0));
+        reportFoundJButton1.setText("Report Found Child");
+        reportFoundJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reportFoundJButtonActionPerformed(evt);
+                reportFoundJButton1ActionPerformed(evt);
             }
         });
 
@@ -192,9 +188,9 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(reportMissingJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                .addComponent(donateJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(registerJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(loginJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(reportFoundJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))))
+                                .addComponent(reportFoundJButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,11 +228,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(donateJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(reportMissingJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(reportFoundJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reportFoundJButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -251,18 +247,31 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/login_image.png"))); // NOI18N
 
+        btnDonate.setText("Donate");
+        btnDonate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDonateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
+                .addContainerGap(159, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155))
+                .addGap(60, 60, 60)
+                .addComponent(btnDonate)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDonate)
+                .addContainerGap())
         );
 
         container.add(jPanel2, "card2");
@@ -316,12 +325,9 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordField.setEnabled(false);
     }//GEN-LAST:event_loginJButtonActionPerformed
 
-    private void donateJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateJButtonActionPerformed
-        DonationJPanel panel = new DonationJPanel(container, system);
-        CardLayout layout = (CardLayout)container.getLayout();
-        container.add("workArea", panel);
-        layout.next(container);
-    }//GEN-LAST:event_donateJButtonActionPerformed
+    private void registerJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerJButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerJButtonActionPerformed
 
     private void reportMissingJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportMissingJButtonActionPerformed
 //        ParentReportingJPanel prjp = new ParentReportingJPanel(userProcessContainer, ecoSystem);
@@ -334,13 +340,21 @@ public class MainJFrame extends javax.swing.JFrame {
           layout.next(container);
     }//GEN-LAST:event_reportMissingJButtonActionPerformed
 
-    private void reportFoundJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportFoundJButtonActionPerformed
+    private void reportFoundJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportFoundJButton1ActionPerformed
         // TODO add your handling code here:
         ReportingFoundJPanel prjp = new ReportingFoundJPanel(system);
           CardLayout layout = (CardLayout)container.getLayout();
           container.add("workArea", prjp);
           layout.next(container);
-    }//GEN-LAST:event_reportFoundJButtonActionPerformed
+    }//GEN-LAST:event_reportFoundJButton1ActionPerformed
+
+    private void btnDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateActionPerformed
+        // TODO add your handling code here:
+        DonationJPanel panel = new DonationJPanel(container, system);
+        CardLayout layout = (CardLayout)container.getLayout();
+        container.add("workArea", panel);
+        layout.next(container);
+    }//GEN-LAST:event_btnDonateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,8 +391,8 @@ public class MainJFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDonate;
     private javax.swing.JPanel container;
-    private javax.swing.JButton donateJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -390,7 +404,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel logoLabel;
     private javax.swing.JButton logoutJButton;
     private javax.swing.JPasswordField passwordField;
-    private javax.swing.JButton reportFoundJButton;
+    private javax.swing.JButton registerJButton;
+    private javax.swing.JButton reportFoundJButton1;
     private javax.swing.JButton reportMissingJButton;
     private javax.swing.JTextField userNameJTextField;
     // End of variables declaration//GEN-END:variables
