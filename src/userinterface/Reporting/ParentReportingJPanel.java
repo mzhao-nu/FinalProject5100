@@ -11,6 +11,7 @@ import Business.UserAccount.UserAccount;
 import Reporting.CommonReporting.Children;
 import Reporting.CommonReporting.ChildrenDirectory;
 import Reporting.CommonReporting.ReportedChildDirectory;
+import Reporting.Parent.Parent;
 import Reporting.Parent.ParentDirectory;
 import java.awt.Image;
 import java.io.File;
@@ -410,15 +411,20 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
             c.setReporterType("Parent");
             
             // Add Parent Data
-            // If user account is not created yet, then create one; otherwise just linke the child data with the parent
+            // If user account is not created yet, then create one; otherwise just link the child data with the parent
             if (!parentDirectory.containsParent(parentUsername)){
-                parentDirectory.createParent(parentName, parentEmail, Long.parseLong(parentPhone), parentUsername, parentPassword);
+                Parent new_parent = parentDirectory.createParent(parentName, parentEmail, Long.parseLong(parentPhone), parentUsername, parentPassword);
                 Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(parentName);
                 ecoSystem.getUserAccountDirectory().createUserAccount(parentUsername, parentPassword, employee, new ParentRole());
+                c.setParent(new_parent);
+            }else{
+                // Link Parent to Child
+                c.setParent(parentDirectory.getParent(parentUsername));
+                // Also Link Child to Parent
+                parentDirectory.getParent(parentUsername).getChildrenList().add(id);
             }
             
-            // Link Child to Parent
-            parentDirectory.getParent(parentUsername).getChildrenList().add(id);
+            
             
             JOptionPane.showMessageDialog(this, "Request submitted successfully, an police officer will contact you shortly.");
             

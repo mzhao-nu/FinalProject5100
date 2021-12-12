@@ -82,5 +82,14 @@ public class ChildrenDirectory {
         c.setMedicalAdvice(medcialAdvice);
         c.setStatus("Treated");
     }
+    
+    public Children getChildrenByName(String name){
+        for(Children d: childrenDirectory){
+            if(d.getName().equals(name)){
+                return d;
+            }
+        }
+        return null;
+    }
 
 }
