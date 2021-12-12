@@ -208,19 +208,21 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         
         // match function
         String foundChildID = "";
+        String email = "";
         Children existing = new Children();
         for (Children c : childrenDirectory.getChildrenDirectory()){
             if (c.getName().equals(selectedChild.getName()) && c.getSex().equals(selectedChild.getSex()) && c.getRace().equals(selectedChild.getRace()) && c.getEyeColor().equals(selectedChild.getEyeColor())){
                 match = true;
                 foundChildID = c.getId();
                 existing = c;
+                email =c.getParent().getEmail();
             }
         }
         
         if (match == true){
             childrenDirectory.getChildrenByID(foundChildID).setStatus("Matched");
             JOptionPane.showMessageDialog(this, "Missing children match found. Status for the child updated to 'Matched'. " + "Child ID - " + foundChildID + " An email will be sent to the relating parent.");
-            sendEmail(existing);
+            sendEmail(email);
         }else{
             selectedChild.setStatus("Found");
             selectedChild.setParent(parentDirectory.createParent("unknown", "unknown", 0, "unknown", "unknown"));
@@ -231,9 +233,9 @@ public class PoliceViewReportingJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnConfirmActionPerformed
 
-    public void sendEmail(Children c){
+    public void sendEmail(String ToEmail){
 //        String ToEmail = c.getParent().getEmail();
-        String ToEmail = "jennyzhao0711@gmail.com";
+        //String ToEmail = "jennyzhao0711@gmail.com";
         String FromEmail = "5100finalproject@gmail.com";
         String FromEmailPassword = "5100FinalProject!";
         String Subjects = "Missing Child Update";
