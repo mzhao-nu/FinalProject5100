@@ -119,7 +119,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnTesting);
-        btnTesting.setBounds(300, 360, 309, 29);
+        btnTesting.setBounds(300, 360, 283, 27);
 
         btnViewDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         btnViewDetails.setText("View Details");
@@ -129,7 +129,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnViewDetails);
-        btnViewDetails.setBounds(630, 360, 126, 29);
+        btnViewDetails.setBounds(630, 360, 109, 27);
 
         btnViewReporting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         btnViewReporting.setText("View Pending Reportings");
@@ -139,7 +139,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnViewReporting);
-        btnViewReporting.setBounds(70, 360, 210, 29);
+        btnViewReporting.setBounds(70, 357, 210, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTestingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestingActionPerformed
@@ -151,7 +151,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
         Children child = (Children)model.getValueAt(selectedRow, 1);
         
-        if (child.getStatus().equals("Found")){
+        if (child.getStatus().equals("Matched")){
             child.setStatus("Waiting for testing center to respond");
             JOptionPane.showMessageDialog(this,"Request sent.");
         }else{

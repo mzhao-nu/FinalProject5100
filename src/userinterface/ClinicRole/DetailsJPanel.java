@@ -11,6 +11,7 @@ import Clinic.Treating.TreatmentDoctors;
 import Reporting.CommonReporting.Children;
 import java.awt.CardLayout;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -38,6 +39,7 @@ public class DetailsJPanel extends javax.swing.JPanel {
         btnResults.setBackground(new java.awt.Color(255, 255, 255, 0));
         btnResults.setBorder(new LineBorder(Color.ORANGE, 2));
         lblAge.setText(String.valueOf(children.getApproxAge()));
+        lblInjury.setText(children.getInjury());
         lblName.setText(children.getName());
         if(children.getPhoto()!=null){
             lblPhoto.setIcon(children.getPhoto());
@@ -61,10 +63,12 @@ public class DetailsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
         lblSex = new javax.swing.JLabel();
         lblRace = new javax.swing.JLabel();
+        lblInjury = new javax.swing.JLabel();
         lblPhoto = new javax.swing.JLabel();
         btnResults = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -95,6 +99,10 @@ public class DetailsJPanel extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 153, 51));
         jLabel5.setText("Race:");
 
+        jLabel6.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel6.setText("Injury:");
+
         lblName.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 153, 0));
 
@@ -106,6 +114,9 @@ public class DetailsJPanel extends javax.swing.JPanel {
 
         lblRace.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
         lblRace.setForeground(new java.awt.Color(255, 153, 51));
+
+        lblInjury.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        lblInjury.setForeground(new java.awt.Color(255, 153, 51));
 
         btnResults.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         btnResults.setForeground(new java.awt.Color(255, 153, 51));
@@ -149,9 +160,13 @@ public class DetailsJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(314, 314, 314)
-                        .addComponent(lblRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(290, 290, 290)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblInjury, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(112, 112, 112)
                 .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90))
@@ -193,8 +208,12 @@ public class DetailsJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                    .addComponent(lblRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(61, 61, 61)
+                                    .addComponent(lblRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblInjury, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnResults)
@@ -207,6 +226,8 @@ public class DetailsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String medical = txtAdvice.getText();
         ecoSystem.getChildrenDirectory().addMedicalAdvice(medical, children);
+        JOptionPane.showMessageDialog(this, "Patient Treated succesfully. Comment added.");
+        txtAdvice.setText("");
        
     }//GEN-LAST:event_btnResultsActionPerformed
 
@@ -228,8 +249,10 @@ public class DetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblInjury;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhoto;
     private javax.swing.JLabel lblRace;

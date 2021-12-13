@@ -6,7 +6,11 @@ package userinterface.Shelter;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import Reporting.CommonReporting.Children;
+import Reporting.CommonReporting.ChildrenDirectory;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +20,7 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem; 
     private UserAccount userAccount;
+    private ChildrenDirectory childrenDirectory;
     
     /**
      * Creates new form ShelterAdminJPanel
@@ -25,6 +30,9 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         this.userAccount = userAccount;
+        this.childrenDirectory = ecoSystem.getChildrenDirectory();
+        
+        populateTable();
     }
 
     /**
@@ -133,7 +141,33 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
     private void btnFinishedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishedActionPerformed
 
     }//GEN-LAST:event_btnFinishedActionPerformed
-
+    public void populateTable(){
+        DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
+        model.setRowCount(0);
+        long millis=System.currentTimeMillis();  
+        java.sql.Date currentDate=new java.sql.Date(millis); 
+      
+ 
+        
+        for(Children c : childrenDirectory.getChildrenDirectory()){
+             long diffInMillies = Math.abs(currentDate.getTime() - c.getFoundDate().getTime());
+            long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+            if(c.getStatus().equals("Treated"))
+            {
+                Object [] row = new Object[7];
+                row[0] = c.getId();
+                row[1] = c;
+                row[2] = c.getApproxAge();
+                row[3] = c.getSex();
+                row[4] = c.getRace();
+                row[5] = c.getFoundDate();
+                row[6] = c.getRegion();
+               
+                model.addRow(row);
+            }
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDecline;

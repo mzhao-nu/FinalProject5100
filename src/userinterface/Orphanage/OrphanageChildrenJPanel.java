@@ -54,7 +54,7 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
         for(Children c : childrenDirectory.getChildrenDirectory()){
              long diffInMillies = Math.abs(currentDate.getTime() - c.getFoundDate().getTime());
             long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-            if(c.getStatus().equals("Found") && diff>=365  )
+            if(c.getStatus().equals("Treated") && diff>=365  )
             {
                 Object [] row = new Object[7];
                 row[0] = c.getId();
@@ -81,7 +81,7 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
           for (Children vs : childrenDirectory.getChildrenDirectory()){
                  long diffInMillies = Math.abs(currentDate.getTime() - vs.getFoundDate().getTime());
                  long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-                 if((vs.getStatus().equals("Found") && diff>=365)){
+                 if((vs.getStatus().equals("Treated") && diff>=365)){
                  COMm1.add(vs.getRegion());
                      }}
           for(String strComm1 : COMm1) {
@@ -107,7 +107,7 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
                 //Set<String> COMm1 = new HashSet<String>();
                 //String abp = vs.getRegion();
         
-                if((vs.getStatus().equals("Found") && diff>=365)){
+                if((vs.getStatus().equals("Treated") && diff>=365)){
                     if(vs.getRegion().equals(COMMU1)){
              
                         Object[] row = new Object[7];
