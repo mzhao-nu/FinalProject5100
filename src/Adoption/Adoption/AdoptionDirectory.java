@@ -37,11 +37,11 @@ public class AdoptionDirectory {
     String height;
     String weight;
 */
-    public Adoption createAdoptor(String name,String doB,String address,String phoneNo,String matitalStatus,String jobCompany){
+    public Adoption createAdoptor(String name,String doB,String address,String phoneNo,String matitalStatus,String jobCompany,String childid){
         Adoption adoption = new Adoption();
         adoption.setName(name);
         adoption.setAddress(address);
-       
+        adoption.setChildID(childid);
         
         adoption.setDoB(doB);
         adoption.setJobCompany(jobCompany);

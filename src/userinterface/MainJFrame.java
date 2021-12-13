@@ -85,7 +85,7 @@ public class MainJFrame extends javax.swing.JFrame {
         //Add Adoption Admin
         Employee adoptionadmin = system.getEmployeeDirectory().createEmployee("Adoption Admin");
         UserAccount adoption = system.getUserAccountDirectory().createUserAccount("adoptionadmin", "adoptionadmin", adoptionadmin, new Adoptor());
-        system.getAdoptiondirectory().createAdoptor( "Rakesh", "2000-10-10", "Boston", "9876543213", "Married", "Accenture");
+       // system.getAdoptiondirectory().createAdoptor( "Rakesh", "2000-10-10", "Boston", "9876543213", "Married", "Accenture");
     }
 
     /**
