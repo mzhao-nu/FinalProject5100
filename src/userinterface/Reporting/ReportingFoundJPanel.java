@@ -387,7 +387,7 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Request submitted successfully, thank you for reporting, an official will contact you shortly.");
             
             // Clear the fields
-            /*
+            
             txtName.setText("");
             txtMissingSince.setText("");
             txtMissingPlace.setText("");
@@ -401,7 +401,7 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             txtWeight.setText(""); 
             chkYes.setSelected(false);
             chkNo.setSelected(false);
-            */
+            
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
