@@ -260,7 +260,7 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ShelterAdminJPanel pajp = (ShelterAdminJPanel) component;
+        PoliceAdminJPanel pajp = (PoliceAdminJPanel) component;
         pajp.populateTable();
         
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

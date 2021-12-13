@@ -305,7 +305,7 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
 
         Children child = (Children) tableFoundChildren.getValueAt(selectedRow, 1);
         OrphanageViewDetailsJPanel pvdp = new OrphanageViewDetailsJPanel(userProcessContainer, ecoSystem, child);
-        userProcessContainer.add("ViewDetailsJPanel", pvdp);
+        userProcessContainer.add("OrphanageViewDetailsJPanel", pvdp);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewDetailsActionPerformed

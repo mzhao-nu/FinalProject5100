@@ -182,7 +182,7 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         }
         
         Children child = (Children) tableChildren.getValueAt(selectedRow, 1);
-        PoliceViewDetailsJPanel pvdp = new PoliceViewDetailsJPanel(userProcessContainer, ecoSystem, child);
+        ShelterViewDetailsJPanel pvdp = new ShelterViewDetailsJPanel(userProcessContainer, ecoSystem, child);
         userProcessContainer.add("ViewDetailsJPanel", pvdp);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

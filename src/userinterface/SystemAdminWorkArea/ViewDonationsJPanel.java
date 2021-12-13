@@ -30,7 +30,7 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
         
-        if(rbtnAll.isSelected()==true) populateAllTable();
+        populateAllTable();
         if(rbtnPublic.isSelected()==true) populateAllTable();
         if(rbtnOrg.isSelected()==true) populateAllTable();
         
@@ -81,7 +81,10 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+
         jLabel1.setFont(new java.awt.Font("宋体", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("View Donations");
 
         tableDonations.setModel(new javax.swing.table.DefaultTableModel(
@@ -97,29 +100,65 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tableDonations);
 
+        jLabel2.setForeground(new java.awt.Color(255, 204, 51));
         jLabel2.setText("in total:");
 
+        lblTotal.setForeground(new java.awt.Color(255, 204, 51));
         lblTotal.setText("jLabel3");
 
+        jLabel4.setForeground(new java.awt.Color(255, 204, 51));
         jLabel4.setText(",");
 
+        lblPublic.setForeground(new java.awt.Color(255, 204, 51));
         lblPublic.setText("jLabel5");
 
+        jLabel6.setForeground(new java.awt.Color(255, 204, 51));
         jLabel6.setText("form public,");
 
+        lblOrg.setForeground(new java.awt.Color(255, 204, 51));
         lblOrg.setText("jLabel7");
 
+        jLabel8.setForeground(new java.awt.Color(255, 204, 51));
         jLabel8.setText("from organizations.");
 
+        rbtnAll.setBackground(new java.awt.Color(102, 102, 102));
         buttonGroup1.add(rbtnAll);
+        rbtnAll.setForeground(new java.awt.Color(255, 204, 51));
         rbtnAll.setText("all donations");
+        rbtnAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnAllActionPerformed(evt);
+            }
+        });
 
+        rbtnPublic.setBackground(new java.awt.Color(102, 102, 102));
         buttonGroup1.add(rbtnPublic);
+        rbtnPublic.setForeground(new java.awt.Color(255, 204, 51));
         rbtnPublic.setText("public donations");
+        rbtnPublic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnPublicActionPerformed(evt);
+            }
+        });
 
+        rbtnOrg.setBackground(new java.awt.Color(102, 102, 102));
         buttonGroup1.add(rbtnOrg);
+        rbtnOrg.setForeground(new java.awt.Color(255, 204, 51));
         rbtnOrg.setText("organization donations");
+        rbtnOrg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnOrgActionPerformed(evt);
+            }
+        });
 
+        txtDonor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDonorActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setBackground(new java.awt.Color(0, 0, 0));
+        btnSearch.setForeground(new java.awt.Color(255, 204, 51));
         btnSearch.setText("search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +166,8 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setForeground(new java.awt.Color(255, 204, 51));
         jButton2.setText("<<Back");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -222,9 +263,30 @@ public class ViewDonationsJPanel extends javax.swing.JPanel {
                 SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = d.getDate();
                 row[3] = ft.format(date);
+                
+                model.addRow(row);
             }
         }
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void rbtnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAllActionPerformed
+        // TODO add your handling code here:
+        populateAllTable();
+    }//GEN-LAST:event_rbtnAllActionPerformed
+
+    private void rbtnPublicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnPublicActionPerformed
+        // TODO add your handling code here:
+        populatePublicTable();
+    }//GEN-LAST:event_rbtnPublicActionPerformed
+
+    private void rbtnOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnOrgActionPerformed
+        // TODO add your handling code here:
+        populateOrgTable();
+    }//GEN-LAST:event_rbtnOrgActionPerformed
+
+    private void txtDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDonorActionPerformed
 
 
     public void populateAllTable(){

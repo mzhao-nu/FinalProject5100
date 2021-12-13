@@ -231,7 +231,7 @@ public class AdoptionJPanel extends javax.swing.JPanel {
    //     AdopterInfoJPanel panel = new AdopterInfoJPanel( userProcessContainer, ecoSystem,userAccount, selectedChild.getId());
         selectedChild.setStatus("Adopted");
         selectedChild.setAdoptionDate(adoptiondate);
-        childrenDirectory.getChildrenDirectory().add(selectedChild);
+     //   childrenDirectory.getChildrenDirectory().add(selectedChild);
         reportedChildDirectory.deleteChildren(selectedChild);
         JOptionPane.showMessageDialog(this, "Child Adopted Successfully!");
         populateTable();
