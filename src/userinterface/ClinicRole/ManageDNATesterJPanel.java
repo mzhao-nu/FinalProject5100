@@ -67,8 +67,10 @@ public class ManageDNATesterJPanel extends javax.swing.JPanel {
         btnDeleteCustomer = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 153, 51));
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 204, 51));
         lblTitle.setText("DNA Tester Management");
 
         tableTester.setModel(new javax.swing.table.DefaultTableModel(
@@ -92,7 +94,8 @@ public class ManageDNATesterJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableTester);
 
-        btnAddCustomer.setForeground(new java.awt.Color(255, 153, 51));
+        btnAddCustomer.setBackground(new java.awt.Color(0, 0, 0));
+        btnAddCustomer.setForeground(new java.awt.Color(255, 204, 51));
         btnAddCustomer.setText("Add DNA Tester");
         btnAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +103,8 @@ public class ManageDNATesterJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnModifyCustomer.setForeground(new java.awt.Color(255, 153, 51));
+        btnModifyCustomer.setBackground(new java.awt.Color(0, 0, 0));
+        btnModifyCustomer.setForeground(new java.awt.Color(255, 204, 51));
         btnModifyCustomer.setText("Modify DNA Tester");
         btnModifyCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +112,8 @@ public class ManageDNATesterJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDeleteCustomer.setForeground(new java.awt.Color(255, 153, 51));
+        btnDeleteCustomer.setBackground(new java.awt.Color(0, 0, 0));
+        btnDeleteCustomer.setForeground(new java.awt.Color(255, 204, 51));
         btnDeleteCustomer.setText("Delete DNA Tester");
         btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,8 +121,9 @@ public class ManageDNATesterJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 153, 51));
+        btnBack.setForeground(new java.awt.Color(255, 204, 51));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

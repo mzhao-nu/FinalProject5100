@@ -74,7 +74,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         btnViewDetails = new javax.swing.JButton();
         btnViewReporting = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(102, 102, 102));
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
@@ -82,6 +82,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(190, 50, 480, 40);
 
+        tableChildren.setBackground(new java.awt.Color(204, 204, 204));
         tableChildren.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -111,7 +112,9 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         add(jScrollPane2);
         jScrollPane2.setBounds(70, 110, 714, 229);
 
+        btnTesting.setBackground(new java.awt.Color(0, 0, 0));
         btnTesting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnTesting.setForeground(new java.awt.Color(255, 204, 51));
         btnTesting.setText("Send Pickup Request to Testing Center");
         btnTesting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +124,9 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         add(btnTesting);
         btnTesting.setBounds(300, 360, 283, 27);
 
+        btnViewDetails.setBackground(new java.awt.Color(0, 0, 0));
         btnViewDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnViewDetails.setForeground(new java.awt.Color(255, 204, 51));
         btnViewDetails.setText("View Details");
         btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +136,9 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         add(btnViewDetails);
         btnViewDetails.setBounds(630, 360, 109, 27);
 
+        btnViewReporting.setBackground(new java.awt.Color(0, 0, 0));
         btnViewReporting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnViewReporting.setForeground(new java.awt.Color(255, 204, 51));
         btnViewReporting.setText("View Pending Reportings");
         btnViewReporting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

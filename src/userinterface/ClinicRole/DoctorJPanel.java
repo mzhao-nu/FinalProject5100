@@ -96,13 +96,14 @@ public class DoctorJPanel extends javax.swing.JPanel {
         cmbboxregion = new javax.swing.JComboBox<>();
         btnReset = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(102, 102, 102));
         setLayout(null);
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 204));
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 153));
 
+        jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
         jTable1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -123,9 +124,9 @@ public class DoctorJPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(40, 30, 790, 190);
 
-        btnDetails.setBackground(new java.awt.Color(255, 204, 153));
+        btnDetails.setBackground(new java.awt.Color(0, 0, 0));
         btnDetails.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnDetails.setForeground(new java.awt.Color(255, 153, 0));
+        btnDetails.setForeground(new java.awt.Color(255, 204, 51));
         btnDetails.setText("view details");
         btnDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,8 +142,9 @@ public class DoctorJPanel extends javax.swing.JPanel {
         add(txtSearch);
         txtSearch.setBounds(290, 270, 140, 20);
 
+        btnSearch.setBackground(new java.awt.Color(0, 0, 0));
         btnSearch.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnSearch.setForeground(new java.awt.Color(255, 153, 51));
+        btnSearch.setForeground(new java.awt.Color(255, 204, 51));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,15 +154,17 @@ public class DoctorJPanel extends javax.swing.JPanel {
         add(btnSearch);
         btnSearch.setBounds(450, 270, 100, 31);
 
+        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
         jComboBox1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 153, 51));
+        jComboBox1.setForeground(new java.awt.Color(255, 204, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Name", "Status", " " }));
         add(jComboBox1);
         jComboBox1.setBounds(190, 270, 86, 28);
 
+        cmbboxregion.setBackground(new java.awt.Color(0, 0, 0));
         cmbboxregion.setEditable(true);
         cmbboxregion.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        cmbboxregion.setForeground(new java.awt.Color(255, 153, 51));
+        cmbboxregion.setForeground(new java.awt.Color(255, 204, 51));
         cmbboxregion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbboxregion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,8 +174,9 @@ public class DoctorJPanel extends javax.swing.JPanel {
         add(cmbboxregion);
         cmbboxregion.setBounds(310, 320, 110, 30);
 
+        btnReset.setBackground(new java.awt.Color(0, 0, 0));
         btnReset.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnReset.setForeground(new java.awt.Color(255, 153, 51));
+        btnReset.setForeground(new java.awt.Color(255, 204, 51));
         btnReset.setText("Reset Filter");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

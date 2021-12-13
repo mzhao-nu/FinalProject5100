@@ -69,10 +69,11 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(102, 102, 102));
 
-        btnDoctors.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnDoctors.setForeground(new java.awt.Color(255, 153, 51));
+        btnDoctors.setBackground(new java.awt.Color(0, 0, 0));
+        btnDoctors.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        btnDoctors.setForeground(new java.awt.Color(255, 204, 51));
         btnDoctors.setText("Manage Doctors");
         btnDoctors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,8 +83,9 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/catoon doctor.png"))); // NOI18N
 
-        btnDNATester.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnDNATester.setForeground(new java.awt.Color(255, 153, 51));
+        btnDNATester.setBackground(new java.awt.Color(0, 0, 0));
+        btnDNATester.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        btnDNATester.setForeground(new java.awt.Color(255, 204, 51));
         btnDNATester.setText("Manage DNA Testers");
         btnDNATester.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,8 +93,9 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnInfo.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnInfo.setForeground(new java.awt.Color(255, 153, 51));
+        btnInfo.setBackground(new java.awt.Color(0, 0, 0));
+        btnInfo.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        btnInfo.setForeground(new java.awt.Color(255, 204, 51));
         btnInfo.setText("Manage Information");
         btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +104,7 @@ public class ClinicAdminJPanel extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("Clinic Admin Workarea");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
