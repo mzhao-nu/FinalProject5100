@@ -202,13 +202,13 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         Name5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Name5.setForeground(new java.awt.Color(255, 204, 51));
         Name5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Name5.setText("Username:");
+        Name5.setText("Address");
 
         Name6.setBackground(new java.awt.Color(255, 204, 51));
         Name6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Name6.setForeground(new java.awt.Color(255, 204, 51));
         Name6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Name6.setText("Password:");
+        Name6.setText("Relationship");
 
         btnbrowseImage.setBackground(new java.awt.Color(0, 0, 0));
         btnbrowseImage.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -435,7 +435,7 @@ public class ParentReportingJPanel extends javax.swing.JPanel {
         // Data Validation Needed
         if (name.isEmpty() || missingPlace.isEmpty() ||dob.isEmpty() || age.isEmpty() || sex.isEmpty() || race.isEmpty() || hairColor.isEmpty()
                 || eyeColor.isEmpty() || height.isEmpty() || weight.isEmpty() || txtMissingPlace.getText().isEmpty()
-                || parentName.isEmpty() || parentPhone.isEmpty() || parentEmail.isEmpty() || parentUsername.isEmpty() || parentPassword.isEmpty())    
+                || parentName.isEmpty() || parentPhone.isEmpty() || parentEmail.isEmpty() || parentUsername.isEmpty() || parentPassword.isEmpty() )    
             errorMsg += "All fields are required.";
 
         if (!age.isEmpty()){
