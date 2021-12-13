@@ -77,7 +77,8 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("Police Admin Missing Children Database");
         add(jLabel1);
         jLabel1.setBounds(190, 50, 480, 40);
@@ -122,7 +123,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnTesting);
-        btnTesting.setBounds(300, 360, 283, 27);
+        btnTesting.setBounds(300, 360, 283, 29);
 
         btnViewDetails.setBackground(new java.awt.Color(0, 0, 0));
         btnViewDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -134,7 +135,7 @@ public class PoliceAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(btnViewDetails);
-        btnViewDetails.setBounds(630, 360, 109, 27);
+        btnViewDetails.setBounds(630, 360, 109, 29);
 
         btnViewReporting.setBackground(new java.awt.Color(0, 0, 0));
         btnViewReporting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
