@@ -46,6 +46,10 @@ public class VolunteerAdminJPanel1 extends javax.swing.JPanel {
         btnmissing = new javax.swing.JButton();
         btnfound = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        btnmissing.setBackground(new java.awt.Color(0, 0, 0));
+        btnmissing.setForeground(new java.awt.Color(255, 204, 51));
         btnmissing.setText("Missing Children");
         btnmissing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +57,8 @@ public class VolunteerAdminJPanel1 extends javax.swing.JPanel {
             }
         });
 
+        btnfound.setBackground(new java.awt.Color(0, 0, 0));
+        btnfound.setForeground(new java.awt.Color(255, 204, 51));
         btnfound.setText("Found Children");
         btnfound.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

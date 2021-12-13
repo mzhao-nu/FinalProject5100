@@ -39,7 +39,7 @@ public class DetailsJPanel extends javax.swing.JPanel {
         btnResults.setBackground(new java.awt.Color(255, 255, 255, 0));
         btnResults.setBorder(new LineBorder(Color.ORANGE, 2));
         lblAge.setText(String.valueOf(children.getApproxAge()));
-        lblInjury.setText(children.getInjury());
+//        lblInjury.setText(children.getInjury());
         lblName.setText(children.getName());
         if(children.getPhoto()!=null){
             lblPhoto.setIcon(children.getPhoto());
@@ -63,45 +63,39 @@ public class DetailsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
         lblSex = new javax.swing.JLabel();
         lblRace = new javax.swing.JLabel();
-        lblInjury = new javax.swing.JLabel();
         lblPhoto = new javax.swing.JLabel();
         btnResults = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAdvice = new javax.swing.JTextArea();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 51));
-        jLabel1.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("Name:");
 
         jLabel2.setFont(new java.awt.Font("STZhongsong", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel2.setForeground(new java.awt.Color(255, 204, 51));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Child Details");
 
-        jLabel3.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel3.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 51));
         jLabel3.setText("Approx Age:");
 
-        jLabel4.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel4.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 51));
         jLabel4.setText("Sex:");
 
-        jLabel5.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel5.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 51));
         jLabel5.setText("Race:");
-
-        jLabel6.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel6.setText("Injury:");
 
         lblName.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 153, 0));
@@ -115,11 +109,9 @@ public class DetailsJPanel extends javax.swing.JPanel {
         lblRace.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
         lblRace.setForeground(new java.awt.Color(255, 153, 51));
 
-        lblInjury.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        lblInjury.setForeground(new java.awt.Color(255, 153, 51));
-
+        btnResults.setBackground(new java.awt.Color(0, 0, 0));
         btnResults.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnResults.setForeground(new java.awt.Color(255, 153, 51));
+        btnResults.setForeground(new java.awt.Color(255, 204, 51));
         btnResults.setText("Add Advice");
         btnResults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +123,9 @@ public class DetailsJPanel extends javax.swing.JPanel {
         txtAdvice.setRows(5);
         jScrollPane1.setViewportView(txtAdvice);
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 153, 51));
+        btnBack.setForeground(new java.awt.Color(255, 204, 51));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,29 +138,20 @@ public class DetailsJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSex, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(290, 290, 290)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblInjury, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(112, 112, 112)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblSex, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                        .addComponent(lblRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -207,13 +191,9 @@ public class DetailsJPanel extends javax.swing.JPanel {
                                     .addComponent(lblSex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                    .addComponent(lblRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblInjury, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblRace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(47, 47, 47)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnResults)
@@ -249,10 +229,8 @@ public class DetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
-    private javax.swing.JLabel lblInjury;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhoto;
     private javax.swing.JLabel lblRace;

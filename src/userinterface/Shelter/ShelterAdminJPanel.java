@@ -58,9 +58,13 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         txtSearch = new javax.swing.JTextField();
         btnrfrsh = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("Shelter Admin Management Panel");
 
+        tableChildren.setBackground(new java.awt.Color(153, 153, 153));
         tableChildren.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -79,7 +83,9 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableChildren);
 
+        btnFinished.setBackground(new java.awt.Color(0, 0, 0));
         btnFinished.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnFinished.setForeground(new java.awt.Color(255, 204, 51));
         btnFinished.setText("View Details");
         btnFinished.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,9 +94,12 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 51));
         jLabel2.setText("Search");
 
+        btnSearch.setBackground(new java.awt.Color(0, 0, 0));
         btnSearch.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 204, 51));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,9 +107,13 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
         jComboBox1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 204, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Name", "Status", " " }));
 
+        btnrfrsh.setBackground(new java.awt.Color(0, 0, 0));
+        btnrfrsh.setForeground(new java.awt.Color(255, 204, 51));
         btnrfrsh.setText("Refresh Filter");
         btnrfrsh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

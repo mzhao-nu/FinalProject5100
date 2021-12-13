@@ -148,9 +148,14 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
         btnReset = new javax.swing.JButton();
         btnViewDetails = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Orphanage");
 
+        tableFoundChildren.setBackground(new java.awt.Color(204, 204, 204));
         tableFoundChildren.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -172,8 +177,11 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel2.setText("Search:");
 
+        jLabel3.setForeground(new java.awt.Color(255, 204, 51));
         jLabel3.setText("Children List");
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 204, 51));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +189,8 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
             }
         });
 
+        cmbboxregion.setBackground(new java.awt.Color(0, 0, 0));
+        cmbboxregion.setForeground(new java.awt.Color(255, 204, 51));
         cmbboxregion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbboxregion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +198,8 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnReset.setBackground(new java.awt.Color(0, 0, 0));
+        btnReset.setForeground(new java.awt.Color(255, 204, 51));
         btnReset.setText("Reset Filter");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +207,9 @@ public class OrphanageChildrenJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewDetails.setBackground(new java.awt.Color(0, 0, 0));
         btnViewDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnViewDetails.setForeground(new java.awt.Color(255, 204, 51));
         btnViewDetails.setText("View Details");
         btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

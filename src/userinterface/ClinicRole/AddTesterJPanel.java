@@ -63,9 +63,11 @@ public class AddTesterJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         txtAge = new javax.swing.JTextField();
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
         btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 153, 51));
+        btnBack.setForeground(new java.awt.Color(255, 204, 51));
         btnBack.setText("<<back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,36 +75,36 @@ public class AddTesterJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel4.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 51));
         jLabel4.setText("phone number:");
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("Add DNA Tester");
 
-        jLabel7.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel7.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 204, 51));
         jLabel7.setText("password:");
 
-        jLabel6.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel6.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 51));
         jLabel6.setText("username:");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 51));
         jLabel2.setText("name:");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/catoon doctor.png"))); // NOI18N
         jLabel8.setText("jLabel8");
 
-        jLabel3.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 51));
         jLabel3.setText("age:");
 
-        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
         btnUpdate.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 153, 51));
+        btnUpdate.setForeground(new java.awt.Color(255, 204, 51));
         btnUpdate.setText("add");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +143,7 @@ public class AddTesterJPanel extends javax.swing.JPanel {
                                     .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPhoneNum)
                                     .addComponent(txtPassword))))
-                        .addContainerGap(218, Short.MAX_VALUE))))
+                        .addContainerGap(221, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

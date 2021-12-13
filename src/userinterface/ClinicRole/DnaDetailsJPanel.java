@@ -84,7 +84,10 @@ public class DnaDetailsJPanel extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("Contact Parents");
 
         lblRace.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
@@ -92,19 +95,19 @@ public class DnaDetailsJPanel extends javax.swing.JPanel {
 
         jLabel6.setBackground(new java.awt.Color(255, 204, 51));
         jLabel6.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel6.setForeground(new java.awt.Color(255, 204, 51));
         jLabel6.setText("Children Name:");
 
         jLabel7.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel7.setForeground(new java.awt.Color(255, 204, 51));
         jLabel7.setText("Approx Age:");
 
         jLabel8.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 204, 51));
         jLabel8.setText("Sex:");
 
         jLabel9.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel9.setForeground(new java.awt.Color(255, 204, 51));
         jLabel9.setText("Race:");
 
         lblName.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
@@ -124,13 +127,15 @@ public class DnaDetailsJPanel extends javax.swing.JPanel {
 
         jLabel12.setBackground(new java.awt.Color(255, 204, 51));
         jLabel12.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel12.setForeground(new java.awt.Color(255, 204, 51));
         jLabel12.setText("Parents Name:");
 
         jLabel13.setFont(new java.awt.Font("宋体", 0, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 153, 51));
+        jLabel13.setForeground(new java.awt.Color(255, 204, 51));
         jLabel13.setText("Parents email:");
 
+        btnConfirm.setBackground(new java.awt.Color(0, 0, 0));
+        btnConfirm.setForeground(new java.awt.Color(255, 204, 51));
         btnConfirm.setText("confirm");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,10 +143,15 @@ public class DnaDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel10.setForeground(new java.awt.Color(255, 204, 51));
         jLabel10.setText("Time:");
 
+        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setForeground(new java.awt.Color(255, 204, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00-11:00", "11:00-13:00", "13:00-15:00", "15:00-17:00" }));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 204, 51));
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

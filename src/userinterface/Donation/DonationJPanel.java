@@ -41,11 +41,17 @@ public class DonationJPanel extends javax.swing.JPanel {
         btnPublic = new javax.swing.JButton();
         btnOrg = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+
         jLabel1.setFont(new java.awt.Font("宋体", 1, 36)); // NOI18N
         jLabel1.setText("Thank you for your donation!");
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 204, 51));
         btnBack.setText("<<Back");
 
+        btnPublic.setBackground(new java.awt.Color(0, 0, 0));
+        btnPublic.setForeground(new java.awt.Color(255, 204, 51));
         btnPublic.setText("Personal donate");
         btnPublic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +59,8 @@ public class DonationJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnOrg.setBackground(new java.awt.Color(0, 0, 0));
+        btnOrg.setForeground(new java.awt.Color(255, 204, 51));
         btnOrg.setText("Organization donate");
         btnOrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
