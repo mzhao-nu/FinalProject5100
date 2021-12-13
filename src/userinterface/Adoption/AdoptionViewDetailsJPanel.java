@@ -93,9 +93,15 @@ public class AdoptionViewDetailsJPanel extends javax.swing.JPanel {
         txtMissingLocation = new javax.swing.JTextField();
         labelImage = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("View Child Details");
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 204, 51));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,36 +110,47 @@ public class AdoptionViewDetailsJPanel extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 51));
         jLabel2.setText("Age:");
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 51));
         jLabel3.setText("Name:");
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 51));
         jLabel4.setText("Sex:");
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 51));
         jLabel5.setText("Race:");
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 51));
         jLabel6.setText("Hair Color:");
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 204, 51));
         jLabel7.setText("Eye Color:");
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 204, 51));
         jLabel8.setText("Height:");
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 204, 51));
         jLabel9.setText("Weight:");
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 204, 51));
         jLabel10.setText("Missing Date:");
 
         jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 204, 51));
         jLabel11.setText("Image:");
 
         jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 204, 51));
         jLabel12.setText("Missing Location:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -143,7 +160,7 @@ public class AdoptionViewDetailsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(288, 288, 288)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
@@ -238,7 +255,7 @@ public class AdoptionViewDetailsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
