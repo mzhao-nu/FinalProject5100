@@ -105,6 +105,10 @@ public class DonationJPanel extends javax.swing.JPanel {
 
     private void btnOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrgActionPerformed
         // TODO add your handling code here:
+        OrgJPanel donationJPanel = new OrgJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add(donationJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnOrgActionPerformed
 
 

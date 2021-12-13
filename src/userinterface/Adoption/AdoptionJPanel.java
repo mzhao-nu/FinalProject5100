@@ -88,6 +88,7 @@ public class AdoptionJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnViewDetails = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -130,6 +131,14 @@ public class AdoptionJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnViewDetails.setText("View Details");
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDetailsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,6 +163,8 @@ public class AdoptionJPanel extends javax.swing.JPanel {
                         .addComponent(btnBack)
                         .addGap(64, 64, 64))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnViewDetails)
+                        .addGap(61, 61, 61)
                         .addComponent(jButton1)
                         .addGap(137, 137, 137))))
         );
@@ -174,8 +185,10 @@ public class AdoptionJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(btnViewDetails))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -202,9 +215,10 @@ public class AdoptionJPanel extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel)tblAdoption.getModel();
         Children selectedChild = (Children)model.getValueAt(selectedRowIndex, 1);
+   //     AdopterInfoJPanel panel = new AdopterInfoJPanel( userProcessContainer, ecoSystem,userAccount, selectedChild.getId());
         selectedChild.setStatus("Adopted");
         selectedChild.setAdoptionDate(adoptiondate);
-        //childrenDirectory.getChildrenDirectory().add(selectedChild);
+        childrenDirectory.getChildrenDirectory().add(selectedChild);
         reportedChildDirectory.deleteChildren(selectedChild);
         JOptionPane.showMessageDialog(this, "Child Adopted Successfully!");
         populateTable();
@@ -227,9 +241,24 @@ public class AdoptionJPanel extends javax.swing.JPanel {
         */
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+        int selectedRow = tblAdoption.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(this,"Please select a children first.");
+            return;
+        }
+
+        Children child = (Children) tblAdoption.getValueAt(selectedRow, 1);
+        AdoptionViewDetailsJPanel pvdp = new AdoptionViewDetailsJPanel(userProcessContainer, ecoSystem, child);
+        userProcessContainer.add("ViewDetailsJPanel", pvdp);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

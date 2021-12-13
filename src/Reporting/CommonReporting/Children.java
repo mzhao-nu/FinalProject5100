@@ -6,6 +6,7 @@
 package Reporting.CommonReporting;
 
 import Actions.Shelter.Admin.Shelter;
+import Adoption.Adoption.Adoption;
 import Reporting.Parent.Parent;
 import java.awt.Image;
 import java.util.Date;
@@ -37,6 +38,16 @@ public class Children {
     private Image childImage;
     private Date adoptionDate;
     private Parent parent;
+    private Adoption adoption;
+
+    public Adoption getAdoption() {
+        return adoption;
+    }
+
+    public void setAdoption(Adoption adoption) {
+        this.adoption = adoption;
+    }
+            
 
     public Date getAdoptionDate() {
         return adoptionDate;
