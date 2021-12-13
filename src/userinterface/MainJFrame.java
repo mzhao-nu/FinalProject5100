@@ -167,9 +167,12 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        reportFoundJButton1.setBackground(new java.awt.Color(51, 51, 51));
         reportFoundJButton1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         reportFoundJButton1.setForeground(new java.awt.Color(255, 204, 0));
         reportFoundJButton1.setText("Report Found Child");
+        reportFoundJButton1.setMaximumSize(new java.awt.Dimension(163, 27));
+        reportFoundJButton1.setMinimumSize(new java.awt.Dimension(163, 27));
         reportFoundJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportFoundJButton1ActionPerformed(evt);

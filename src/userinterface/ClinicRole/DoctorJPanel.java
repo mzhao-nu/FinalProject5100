@@ -48,8 +48,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
         btnDetails.setBorder(new LineBorder(Color.ORANGE, 2));
         btnSearch.setBackground(new java.awt.Color(255, 255, 255, 0));
         btnSearch.setBorder(new LineBorder(Color.ORANGE, 2));
-        btnBack.setBackground(new java.awt.Color(255, 255, 255, 0));
-        btnBack.setBorder(new LineBorder(Color.ORANGE, 2));
+       
         
         populateTable();
         populateComboCom1();
@@ -62,7 +61,7 @@ public class DoctorJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Children children:ecoSystem.getChildrenDirectory().getChildrenDirectory()){
-            if(children.getStatus().equals("Found")||children.getStatus().equals("treated")){
+            if(children.getStatus().equals("Found")||children.getStatus().equals("Treated")){
                 Object[] row = new Object[5];
                 row[0] = children.getId();
                 row[1] = children.getName();
@@ -94,7 +93,6 @@ public class DoctorJPanel extends javax.swing.JPanel {
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        btnBack = new javax.swing.JButton();
         cmbboxregion = new javax.swing.JComboBox<>();
         btnReset = new javax.swing.JButton();
 
@@ -159,17 +157,6 @@ public class DoctorJPanel extends javax.swing.JPanel {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Name", "Status", " " }));
         add(jComboBox1);
         jComboBox1.setBounds(190, 270, 86, 28);
-
-        btnBack.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 153, 51));
-        btnBack.setText("<<back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack);
-        btnBack.setBounds(720, 420, 97, 31);
 
         cmbboxregion.setEditable(true);
         cmbboxregion.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
@@ -258,11 +245,6 @@ public class DoctorJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        populateTable();
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void cmbboxregionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbboxregionActionPerformed
         // TODO add your handling code here:
         populateTable();
@@ -331,7 +313,6 @@ public class DoctorJPanel extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDetails;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch;

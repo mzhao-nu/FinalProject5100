@@ -85,58 +85,75 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
         chkYes = new javax.swing.JCheckBox();
         chkNo = new javax.swing.JCheckBox();
 
-        MissingFrom.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        MissingFrom.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        MissingFrom.setForeground(new java.awt.Color(255, 204, 51));
         MissingFrom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MissingFrom.setText("Found at Place:");
 
-        Header.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Header.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Header.setForeground(new java.awt.Color(255, 204, 51));
         Header.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Header.setText("Report a Found Child");
 
-        EyeColor.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        EyeColor.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        EyeColor.setForeground(new java.awt.Color(255, 204, 51));
         EyeColor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         EyeColor.setText("Eye Color:");
 
-        Name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        Name.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Name.setForeground(new java.awt.Color(255, 204, 51));
         Name.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Name.setText("Name:");
 
-        MissingSince.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        MissingSince.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        MissingSince.setForeground(new java.awt.Color(255, 204, 51));
         MissingSince.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MissingSince.setText("Found Date:");
 
-        doB.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        doB.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        doB.setForeground(new java.awt.Color(255, 204, 51));
         doB.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         doB.setText("Date of Birth:");
 
-        ageNow.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        ageNow.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ageNow.setForeground(new java.awt.Color(255, 204, 51));
         ageNow.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ageNow.setText("Age:");
 
-        Sex.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        Sex.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Sex.setForeground(new java.awt.Color(255, 204, 51));
         Sex.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Sex.setText("Sex:");
 
-        race.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        race.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        race.setForeground(new java.awt.Color(255, 204, 51));
         race.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         race.setText("Race:");
 
-        HairColor.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        HairColor.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        HairColor.setForeground(new java.awt.Color(255, 204, 51));
         HairColor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         HairColor.setText("Hair color:");
 
-        Height.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        Height.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Height.setForeground(new java.awt.Color(255, 204, 51));
         Height.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Height.setText("Height:");
 
-        Weight.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        Weight.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Weight.setForeground(new java.awt.Color(255, 204, 51));
         Weight.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Weight.setText("Weight:");
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("Child Info");
 
+        btnSubmit.setBackground(new java.awt.Color(0, 0, 0));
         btnSubmit.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 204, 51));
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +161,9 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnbrowseImage.setBackground(new java.awt.Color(51, 51, 51));
         btnbrowseImage.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        btnbrowseImage.setForeground(new java.awt.Color(255, 204, 51));
         btnbrowseImage.setText("Upload Image");
         btnbrowseImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,10 +172,15 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 51));
         jLabel2.setText("Are you a volunteer?");
 
+        chkYes.setBackground(new java.awt.Color(102, 102, 102));
+        chkYes.setForeground(new java.awt.Color(255, 204, 51));
         chkYes.setText("Yes");
 
+        chkNo.setBackground(new java.awt.Color(102, 102, 102));
+        chkNo.setForeground(new java.awt.Color(255, 204, 51));
         chkNo.setText("No");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -166,44 +190,6 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Name)
-                            .addComponent(MissingSince)
-                            .addComponent(MissingFrom)
-                            .addComponent(doB)
-                            .addComponent(ageNow, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Sex)
-                            .addComponent(race)
-                            .addComponent(HairColor)
-                            .addComponent(EyeColor)
-                            .addComponent(Height)
-                            .addComponent(Weight))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtHeight)
-                                    .addComponent(txtEyeColor)
-                                    .addComponent(txtHairColor)
-                                    .addComponent(txtRace)
-                                    .addComponent(txtSex)
-                                    .addComponent(txtAge)
-                                    .addComponent(txtDOB)
-                                    .addComponent(txtMissingPlace)
-                                    .addComponent(txtMissingSince, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(129, 129, 129)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(chkYes)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkNo))
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(childImage, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
@@ -211,11 +197,52 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
                         .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(377, 377, 377)
-                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Name)
+                    .addComponent(MissingSince)
+                    .addComponent(MissingFrom)
+                    .addComponent(doB)
+                    .addComponent(ageNow, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Sex)
+                    .addComponent(race)
+                    .addComponent(HairColor)
+                    .addComponent(EyeColor)
+                    .addComponent(Height)
+                    .addComponent(Weight))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtHeight)
+                            .addComponent(txtEyeColor)
+                            .addComponent(txtHairColor)
+                            .addComponent(txtRace)
+                            .addComponent(txtSex)
+                            .addComponent(txtAge)
+                            .addComponent(txtDOB)
+                            .addComponent(txtMissingPlace)
+                            .addComponent(txtMissingSince, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(btnbrowseImage)))
-                .addContainerGap(113, Short.MAX_VALUE))
+                        .addGap(129, 129, 129)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chkYes)
+                                .addGap(18, 18, 18)
+                                .addComponent(chkNo))
+                            .addComponent(jLabel2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                        .addComponent(btnbrowseImage)
+                        .addGap(32, 32, 32)
+                        .addComponent(childImage, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,31 +286,31 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtRace, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtHairColor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtEyeColor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(childImage, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtSex, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtRace, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtHairColor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtEyeColor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(childImage, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(chkYes)
-                            .addComponent(chkNo))))
-                .addGap(28, 28, 28)
-                .addComponent(btnbrowseImage, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                            .addComponent(chkNo))
+                        .addGap(117, 117, 117)
+                        .addComponent(btnbrowseImage)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -360,6 +387,7 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Request submitted successfully, thank you for reporting, an official will contact you shortly.");
             
             // Clear the fields
+            /*
             txtName.setText("");
             txtMissingSince.setText("");
             txtMissingPlace.setText("");
@@ -373,6 +401,7 @@ public class ReportingFoundJPanel extends javax.swing.JPanel {
             txtWeight.setText(""); 
             chkYes.setSelected(false);
             chkNo.setSelected(false);
+            */
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
