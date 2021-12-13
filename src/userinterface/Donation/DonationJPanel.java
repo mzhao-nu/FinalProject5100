@@ -44,6 +44,7 @@ public class DonationJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 51));
         jLabel1.setText("Thank you for your donation!");
 
         btnBack.setBackground(new java.awt.Color(0, 0, 0));
