@@ -8,9 +8,13 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import Reporting.CommonReporting.Children;
 import Reporting.CommonReporting.ChildrenDirectory;
+import java.awt.CardLayout;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.Police.PoliceViewDetailsJPanel;
 
 /**
  *
@@ -47,10 +51,12 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableChildren = new javax.swing.JTable();
-        btnDecline = new javax.swing.JButton();
         btnFinished = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        txtSearch = new javax.swing.JTextField();
+        btnrfrsh = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Shelter Admin Management Panel");
@@ -73,14 +79,6 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableChildren);
 
-        btnDecline.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        btnDecline.setText("Update Status");
-        btnDecline.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeclineActionPerformed(evt);
-            }
-        });
-
         btnFinished.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         btnFinished.setText("View Details");
         btnFinished.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +88,25 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel2.setText("Search By Name:");
+        jLabel2.setText("Search");
+
+        btnSearch.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Name", "Status", " " }));
+
+        btnrfrsh.setText("Refresh Filter");
+        btnrfrsh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrfrshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,18 +114,26 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(99, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(139, 139, 139)
+                                .addComponent(btnFinished)))
+                        .addGap(98, 98, 98))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDecline)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnFinished)))
-                .addGap(98, 98, 98))
+                        .addGap(39, 39, 39)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnrfrsh)
+                        .addGap(67, 67, 67))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(248, 248, 248)
                 .addComponent(jLabel1)
@@ -120,27 +144,98 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSearch)
+                        .addComponent(btnrfrsh, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2))
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFinished)
-                    .addComponent(btnDecline))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addComponent(btnFinished)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclineActionPerformed
-
-    }//GEN-LAST:event_btnDeclineActionPerformed
-
     private void btnFinishedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishedActionPerformed
-
+        int selectedRow = tableChildren.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(this,"Please select a children first.");
+            return;
+        }
+        
+        Children child = (Children) tableChildren.getValueAt(selectedRow, 1);
+        PoliceViewDetailsJPanel pvdp = new PoliceViewDetailsJPanel(userProcessContainer, ecoSystem, child);
+        userProcessContainer.add("ViewDetailsJPanel", pvdp);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnFinishedActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String item = (String)jComboBox1.getSelectedItem();
+        ArrayList<Children> selectedc = new ArrayList<Children>();
+        long millis=System.currentTimeMillis();  
+        java.sql.Date currentDate=new java.sql.Date(millis); 
+        
+        if(item.equals("ID")){
+            int id =Integer.parseInt(txtSearch.getText());
+            for(Children c : ecoSystem.getChildrenDirectory().getChildrenDirectory()){
+                long diffInMillies = Math.abs(currentDate.getTime() - c.getFoundDate().getTime());
+                long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                if(c.getId().equals(txtSearch.getText()) && c.getStatus().equals("Treated")  && diff <=365){
+                    selectedc.add(c);
+                }
+            }
+        }
+        if(item.equals("Name")){
+            String Name =txtSearch.getText();
+            for(Children c : ecoSystem.getChildrenDirectory().getChildrenDirectory()){
+                long diffInMillies = Math.abs(currentDate.getTime() - c.getFoundDate().getTime());
+                long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                if(c.getName().equals(Name) && c.getStatus().equals("Treated") && diff <=365){
+                    selectedc.add(c);
+                }
+            }
+        }
+        if(item.equals("Status")){
+            String Status =txtSearch.getText();
+            for(Children c : ecoSystem.getChildrenDirectory().getChildrenDirectory()){
+                long diffInMillies = Math.abs(currentDate.getTime() - c.getFoundDate().getTime());
+                long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                if(c.getStatus().equals(Status) && c.getStatus().equals("Treated")  && diff <=365){
+                    selectedc.add(c);
+                }
+            }
+        }
+        
+
+        DefaultTableModel model = (DefaultTableModel) tableChildren.getModel();
+        model.setRowCount(0);
+
+        for(Children children:selectedc){
+
+            Object[] row = new Object[5];
+            row[0] = children.getId();
+            row[1] = children.getName();
+            row[2] = children.getApproxAge();
+            row[3] = children.getStatus();
+            row[4] = children.getMedicalAdvice();
+
+            model.addRow(row);
+
+        }
+
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnrfrshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrfrshActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnrfrshActionPerformed
     public void populateTable(){
         DefaultTableModel model = (DefaultTableModel)tableChildren.getModel();
         model.setRowCount(0);
@@ -152,7 +247,7 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
         for(Children c : childrenDirectory.getChildrenDirectory()){
              long diffInMillies = Math.abs(currentDate.getTime() - c.getFoundDate().getTime());
             long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-            if(c.getStatus().equals("Treated"))
+            if(c.getStatus().equals("Treated") && diff <=365)
             {
                 Object [] row = new Object[7];
                 row[0] = c.getId();
@@ -170,12 +265,14 @@ public class ShelterAdminJPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDecline;
     private javax.swing.JButton btnFinished;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnrfrsh;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tableChildren;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,7 +12,9 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.Shelter.ShelterAdminJPanel;
 
 /**
  *
@@ -36,6 +38,7 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
     }
 
     public void populateFields(){
+       try{
         txtName.setText(child.getName());
         txtAge.setText(String.valueOf(child.getApproxAge()));
         txtSex.setText(child.getSex());
@@ -49,6 +52,8 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
 //        ImageIcon icon = new ImageIcon(child.getChildImage());
 //        labelImage.setIcon(icon);
          labelImage.setIcon(new ImageIcon(child.getChildImage()));
+       }
+       catch(Exception E){JOptionPane.showMessageDialog(this, "Information missing");}
     }
     
     
@@ -239,7 +244,7 @@ public class PoliceViewDetailsJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        PoliceAdminJPanel pajp = (PoliceAdminJPanel) component;
+        ShelterAdminJPanel pajp = (ShelterAdminJPanel) component;
         pajp.populateTable();
         
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
